@@ -1,4 +1,4 @@
-package taobaoimg;
+package webmagic;
 
 import futils.io.DownloadImage;
 import us.codecraft.webmagic.Page;
@@ -19,18 +19,20 @@ public class meiTu implements PageProcessor {
     /**
      *  列表页正则表达式
      */
-    private static final String REGEX_PAGE_URL = "http://www\\.umei\\.cc/meinvtupian/";
+    private static final String REGEX_PAGE_URL = "http://www\\.27270\\.com/zhiwu/list_35_";
 
     /**
      *     爬取的列表页，页数。
      */
 
-    private static final int PAGE_SIZE = 1;
+    private static final int PAGE_SIZE = 100;
 
     /**
      * 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
      */
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
+    private Site site = Site.me().
+                            setRetryTimes(3).
+                            setSleepTime(1000);
 
 
     /**
@@ -43,7 +45,7 @@ public class meiTu implements PageProcessor {
          */
         List<String> targetRequests = new ArrayList<String>();
         for (int i = 1;i < PAGE_SIZE; i++){
-            targetRequests.add("http://www.umei.cc/meinvtupian/" + i+".htm");
+            targetRequests.add("http://www.27270.com/zhiwu/list_35_"+i+".html");
         }
         page.addTargetRequests(targetRequests);
         //用正则匹配是否是列表页
@@ -51,12 +53,12 @@ public class meiTu implements PageProcessor {
             /**
              * 如果是，获取 class为 lady-name 的a 标签 的所有链接(详情页)。
              */
-            List<String> urls = page.getHtml().xpath("//a[@class=\"TypeBigPics\"]").css("img","src").all();
+            List<String> urls = page.getHtml().xpath("//ul[@class=\"w110 oh Zw_PicList\"]/li").css("img","src").all();
 
             for (String url:urls) {
                 String uuid = UUID.randomUUID().toString().replaceAll("-", "");
                 try {
-                    DownloadImage.download( url,uuid + ".jpg","F:\\meitu\\");
+                    DownloadImage.download( url,uuid + ".jpg","F:\\zhiwu\\");
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -79,7 +81,7 @@ public class meiTu implements PageProcessor {
         //启动
         Spider.create(new meiTu())
                 //添加初始化的URL
-                .addUrl("http://www.umei.cc/meinvtupian/1.htm")
+                .addUrl("http://www.27270.com/zhiwu/list_35_1.html")
                 //启动10个线程
                 .thread(10)
                 //运行
