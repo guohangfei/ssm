@@ -1,6 +1,6 @@
 package utils.paramo;
 
-import jodd.exception.UncheckedException;
+import utils.exception.UncheckedException;
 
 public class ParamoException extends UncheckedException {
 	public ParamoException(Throwable t) {

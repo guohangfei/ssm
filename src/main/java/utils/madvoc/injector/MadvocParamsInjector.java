@@ -1,11 +1,11 @@
 package utils.madvoc.injector;
 
 import java.util.function.Consumer;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.injector.ContextInjector;
-import jodd.madvoc.injector.Targets;
-import jodd.petite.ParamManager;
-import jodd.petite.PetiteContainer;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.injector.ContextInjector;
+import utils.madvoc.injector.Targets;
+import utils.petite.ParamManager;
+import utils.petite.PetiteContainer;
 
 public class MadvocParamsInjector implements ContextInjector<PetiteContainer> {
 	protected final MadvocConfig madvocConfig;

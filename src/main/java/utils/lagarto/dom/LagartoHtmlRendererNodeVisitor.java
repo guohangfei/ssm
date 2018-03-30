@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,24 +25,24 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.TagWriterUtil;
-import jodd.lagarto.dom.Attribute;
-import jodd.lagarto.dom.CData;
-import jodd.lagarto.dom.Comment;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.DocumentType;
-import jodd.lagarto.dom.Element;
-import jodd.lagarto.dom.LagartoDOMException;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.NodeVisitor;
-import jodd.lagarto.dom.Text;
-import jodd.lagarto.dom.XmlDeclaration;
-import jodd.util.net.HtmlEncoder;
+import utils.lagarto.TagWriterUtil;
+import utils.lagarto.dom.Attribute;
+import utils.lagarto.dom.CData;
+import utils.lagarto.dom.Comment;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.DocumentType;
+import utils.lagarto.dom.Element;
+import utils.lagarto.dom.LagartoDOMException;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.NodeVisitor;
+import utils.lagarto.dom.Text;
+import utils.lagarto.dom.XmlDeclaration;
+import utils.util.net.HtmlEncoder;
 
 import java.io.IOException;
 
 /**
- * {@link jodd.lagarto.dom.NodeVisitor} that renders DOM tree to string.
+ * {@link utils.lagarto.dom.NodeVisitor} that renders DOM tree to string.
  */
 public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 
@@ -58,7 +58,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 		try {
 			TagWriterUtil.writeCData(appendable, nodeValue);
 		} catch (IOException ioex) {
-			throw new jodd.lagarto.dom.LagartoDOMException(ioex);
+			throw new utils.lagarto.dom.LagartoDOMException(ioex);
 		}
 	}
 
@@ -69,7 +69,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 		try {
 			TagWriterUtil.writeComment(appendable, nodeValue);
 		} catch (IOException ioex) {
-			throw new jodd.lagarto.dom.LagartoDOMException(ioex);
+			throw new utils.lagarto.dom.LagartoDOMException(ioex);
 		}
 	}
 
@@ -86,7 +86,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 					documentType.publicId,
 					documentType.systemId);
 		} catch (IOException ioex) {
-			throw new jodd.lagarto.dom.LagartoDOMException(ioex);
+			throw new utils.lagarto.dom.LagartoDOMException(ioex);
 		}
 	}
 
@@ -97,7 +97,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 		try {
 			appendable.append(nodeValue);
 		} catch (IOException ioex) {
-			throw new jodd.lagarto.dom.LagartoDOMException(ioex);
+			throw new utils.lagarto.dom.LagartoDOMException(ioex);
 		}
 	}
 
@@ -107,7 +107,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 			TagWriterUtil.writeXml(appendable,
 					xmlDeclaration.getVersion(), xmlDeclaration.getEncoding(), xmlDeclaration.getStandalone());
 		} catch (IOException ioex) {
-			throw new jodd.lagarto.dom.LagartoDOMException(ioex);
+			throw new utils.lagarto.dom.LagartoDOMException(ioex);
 		}
 	}
 
@@ -178,7 +178,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 	/**
 	 * Renders node name.
 	 */
-	protected String resolveNodeName(final jodd.lagarto.dom.Node node) {
+	protected String resolveNodeName(final utils.lagarto.dom.Node node) {
 		switch (tagCase) {
 			case DEFAULT: return node.getNodeName();
 			case RAW: return node.getNodeRawName();
@@ -191,7 +191,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 	/**
 	 * Renders attribute name.
 	 */
-	protected String resolveAttributeName(final jodd.lagarto.dom.Node node, final jodd.lagarto.dom.Attribute attribute) {
+	protected String resolveAttributeName(final utils.lagarto.dom.Node node, final utils.lagarto.dom.Attribute attribute) {
 		switch (attributeCase) {
 			case DEFAULT: return attribute.getName();
 			case RAW: return attribute.getRawName();
@@ -204,7 +204,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 	/**
 	 * Renders attribute.
 	 */
-	protected void renderAttribute(final jodd.lagarto.dom.Node node, final jodd.lagarto.dom.Attribute attribute, final Appendable appendable) throws IOException {
+	protected void renderAttribute(final utils.lagarto.dom.Node node, final utils.lagarto.dom.Attribute attribute, final Appendable appendable) throws IOException {
 		String name = resolveAttributeName(node, attribute);
 		String value = attribute.getValue();
 
@@ -218,7 +218,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 	}
 
 	@Override
-	public void element(final jodd.lagarto.dom.Element element) {
+	public void element(final utils.lagarto.dom.Element element) {
 		try {
 			_element(element);
 		} catch (IOException ioex) {
@@ -226,7 +226,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 		}
 	}
 
-	protected void _element(final jodd.lagarto.dom.Element element) throws IOException {
+	protected void _element(final utils.lagarto.dom.Element element) throws IOException {
 		String nodeName = resolveNodeName(element);
 
 		appendable.append('<');
@@ -269,7 +269,7 @@ public class LagartoHtmlRendererNodeVisitor implements NodeVisitor {
 
 		if (element.isRawTag()) {
 			for (int i = 0; i < childCount; i++) {
-				jodd.lagarto.dom.Node childNode = element.getChild(i);
+				utils.lagarto.dom.Node childNode = element.getChild(i);
 
 				if (childNode.getNodeType() == Node.NodeType.TEXT) {
 					appendable.append(childNode.getNodeValue());

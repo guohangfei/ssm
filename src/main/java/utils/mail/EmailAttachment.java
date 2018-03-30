@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.mail;
 
-import jodd.io.FastByteArrayOutputStream;
-import jodd.mail.EmailAttachmentBuilder;
-import jodd.mail.EmailMessage;
-import jodd.mail.EmailUtil;
-import jodd.mail.MailException;
+import utils.io.FastByteArrayOutputStream;
+import utils.mail.EmailAttachmentBuilder;
+import utils.mail.EmailMessage;
+import utils.mail.EmailUtil;
+import utils.mail.MailException;
 
 import javax.activation.DataSource;
 import javax.mail.internet.MimeUtility;
@@ -63,9 +63,9 @@ public class EmailAttachment<T extends DataSource> {
 	private final T dataSource;
 
 	/**
-	 * Target {@link jodd.mail.EmailMessage}.
+	 * Target {@link utils.mail.EmailMessage}.
 	 */
-	private jodd.mail.EmailMessage targetMessage;
+	private utils.mail.EmailMessage targetMessage;
 
 	// ---------------------------------------------------------------- constructor
 
@@ -91,7 +91,7 @@ public class EmailAttachment<T extends DataSource> {
 			try {
 				this.name = MimeUtility.decodeText(name);
 			} catch (final UnsupportedEncodingException useexc) {
-				throw new jodd.mail.MailException(useexc);
+				throw new utils.mail.MailException(useexc);
 			}
 		} else {
 			this.name = null;
@@ -185,9 +185,9 @@ public class EmailAttachment<T extends DataSource> {
 	/**
 	 * Sets target message for embedded attachments.
 	 *
-	 * @param emailMessage target {@link jodd.mail.EmailMessage}.
+	 * @param emailMessage target {@link utils.mail.EmailMessage}.
 	 */
-	public EmailAttachment<T> setEmbeddedMessage(final jodd.mail.EmailMessage emailMessage) {
+	public EmailAttachment<T> setEmbeddedMessage(final utils.mail.EmailMessage emailMessage) {
 		targetMessage = emailMessage;
 		return this;
 	}
@@ -195,7 +195,7 @@ public class EmailAttachment<T extends DataSource> {
 	/**
 	 * Returns {@code true} if attachment is embedded into provided message.
 	 *
-	 * @param emailMessage target {@link jodd.mail.EmailMessage}.
+	 * @param emailMessage target {@link utils.mail.EmailMessage}.
 	 * @return {@code true} if attachment is embedded into provided message.
 	 */
 	public boolean isEmbeddedInto(final EmailMessage emailMessage) {
@@ -271,7 +271,7 @@ public class EmailAttachment<T extends DataSource> {
 	 * @param destination The destination file to be written.
 	 */
 	public void writeToFile(final File destination) {
-		jodd.mail.EmailUtil.copyStream(getDataSource(), destination);
+		utils.mail.EmailUtil.copyStream(getDataSource(), destination);
 	}
 
 	/**

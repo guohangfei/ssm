@@ -1,9 +1,9 @@
 package utils.jtx;
 
-import jodd.jtx.JtxException;
-import jodd.jtx.JtxIsolationLevel;
-import jodd.jtx.JtxPropagationBehavior;
-import jodd.util.HashCode;
+import utils.jtx.JtxException;
+import utils.jtx.JtxIsolationLevel;
+import utils.jtx.JtxPropagationBehavior;
+import utils.util.HashCode;
 
 public class JtxTransactionMode {
 	protected JtxPropagationBehavior propagationBehavior;

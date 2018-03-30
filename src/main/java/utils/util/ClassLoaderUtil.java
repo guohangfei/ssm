@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.util;
 
-import jodd.core.JavaBridge;
-import jodd.core.JoddCore;
-import jodd.io.FileUtil;
-import jodd.io.StreamUtil;
-import jodd.util.ClassUtil;
-import jodd.util.StringUtil;
+import utils.core.JavaBridge;
+import utils.core.utilsCore;
+import utils.io.FileUtil;
+import utils.io.StreamUtil;
+import utils.util.ClassUtil;
+import utils.util.StringUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,7 +62,7 @@ public class ClassLoaderUtil {
 	public static ClassLoader getDefaultClassLoader() {
 		ClassLoader cl = getContextClassLoader();
 		if (cl == null) {
-			Class callerClass = jodd.util.ClassUtil.getCallerClass(2);
+			Class callerClass = utils.util.ClassUtil.getCallerClass(2);
 			cl = callerClass.getClassLoader();
 		}
 		return cl;
@@ -345,7 +345,7 @@ public class ClassLoaderUtil {
 		}
 
 		// try #3 - using caller classloader, similar as Class.forName()
-		Class callerClass = jodd.util.ClassUtil.getCallerClass(2);
+		Class callerClass = utils.util.ClassUtil.getCallerClass(2);
 		ClassLoader callerClassLoader = callerClass.getClassLoader();
 
 		if ((callerClassLoader != classLoader) && (callerClassLoader != currentThreadClassLoader)) {
@@ -399,7 +399,7 @@ public class ClassLoaderUtil {
 	 * @see #getResourceAsStream(String, ClassLoader)
 	 */
 	public static InputStream getClassAsStream(final Class clazz) throws IOException {
-		return getResourceAsStream(jodd.util.ClassUtil.convertClassNameToFileName(clazz), clazz.getClassLoader());
+		return getResourceAsStream(utils.util.ClassUtil.convertClassNameToFileName(clazz), clazz.getClassLoader());
 	}
 
 	/**
@@ -408,7 +408,7 @@ public class ClassLoaderUtil {
 	 * @see #getResourceAsStream(String, ClassLoader)
 	 */
 	public static InputStream getClassAsStream(final String className) throws IOException {
-		return getResourceAsStream(jodd.util.ClassUtil.convertClassNameToFileName(className));
+		return getResourceAsStream(utils.util.ClassUtil.convertClassNameToFileName(className));
 	}
 
 	/**
@@ -422,18 +422,18 @@ public class ClassLoaderUtil {
 
 	/**
 	 * Loads a class using default class loader strategy.
-	 * @see jodd.util.cl.DefaultClassLoaderStrategy
+	 * @see utils.util.cl.DefaultClassLoaderStrategy
 	 */
 	public static Class loadClass(final String className) throws ClassNotFoundException {
-		return JoddCore.defaults().getClassLoaderStrategy().loadClass(className, null);
+		return utilsCore.defaults().getClassLoaderStrategy().loadClass(className, null);
 	}
 	
 	/**
 	 * Loads a class using default class loader strategy.
-	 * @see jodd.util.cl.DefaultClassLoaderStrategy
+	 * @see utils.util.cl.DefaultClassLoaderStrategy
 	 */
 	public static Class loadClass(final String className, final ClassLoader classLoader) throws ClassNotFoundException {
-		return JoddCore.defaults().getClassLoaderStrategy().loadClass(className, classLoader);
+		return utilsCore.defaults().getClassLoaderStrategy().loadClass(className, classLoader);
 	}
 
 }

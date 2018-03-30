@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -24,8 +24,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 package utils.log.impl;
 
-import jodd.log.Logger;
-import jodd.log.LoggerProvider;
+import utils.log.Logger;
+import utils.log.LoggerProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.spi.AbstractLogger;
 
@@ -53,9 +53,9 @@ public class Log4j2Logger implements Logger {
 	}
 
 	/**
-	 * Converts Jodd logging level to JDK.
+	 * Converts utils logging level to JDK.
 	 */
-	private org.apache.logging.log4j.Level jodd2log4j2(final Level level) {
+	private org.apache.logging.log4j.Level utils2log4j2(final Level level) {
 		switch (level) {
 			case TRACE: return org.apache.logging.log4j.Level.TRACE;
 			case DEBUG: return org.apache.logging.log4j.Level.DEBUG;
@@ -74,25 +74,25 @@ public class Log4j2Logger implements Logger {
 
 	@Override
 	public boolean isEnabled(final Level level) {
-		return logger.isEnabled(jodd2log4j2(level));
+		return logger.isEnabled(utils2log4j2(level));
 	}
 
 	@Override
 	public void log(final Level level, final String message) {
 		if (abstractLogger != null) {
-			abstractLogger.logIfEnabled(FQCN, jodd2log4j2(level), null, message);
+			abstractLogger.logIfEnabled(FQCN, utils2log4j2(level), null, message);
 		}
 		else {
-			logger.log(jodd2log4j2(level), message);
+			logger.log(utils2log4j2(level), message);
 		}
 	}
 	@Override
 	public void log(final Level level, final String message, final Throwable throwable) {
 		if (abstractLogger != null) {
-			abstractLogger.logIfEnabled(FQCN, jodd2log4j2(level), null, message, throwable);
+			abstractLogger.logIfEnabled(FQCN, utils2log4j2(level), null, message, throwable);
 		}
 		else {
-			logger.log(jodd2log4j2(level), message, throwable);
+			logger.log(utils2log4j2(level), message, throwable);
 		}
 	}
 

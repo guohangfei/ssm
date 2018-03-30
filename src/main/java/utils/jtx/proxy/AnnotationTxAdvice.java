@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.jtx.proxy;
 
-import jodd.proxetta.ProxyAdvice;
+import utils.proxetta.ProxyAdvice;
 
-import static jodd.proxetta.ProxyTarget.createArgumentsClassArray;
-import static jodd.proxetta.ProxyTarget.targetClass;
-import static jodd.proxetta.ProxyTarget.targetMethodDescription;
-import static jodd.proxetta.ProxyTarget.targetMethodName;
-import static jodd.proxetta.ProxyTarget.invoke;
-import jodd.jtx.JtxTransactionMode;
-import jodd.jtx.JtxTransaction;
+import static utils.proxetta.ProxyTarget.createArgumentsClassArray;
+import static utils.proxetta.ProxyTarget.targetClass;
+import static utils.proxetta.ProxyTarget.targetMethodDescription;
+import static utils.proxetta.ProxyTarget.targetMethodName;
+import static utils.proxetta.ProxyTarget.invoke;
+import utils.jtx.JtxTransactionMode;
+import utils.jtx.JtxTransaction;
 
-import static jodd.jtx.proxy.AnnotationTxAdviceSupport.manager;
+import static utils.jtx.proxy.AnnotationTxAdviceSupport.manager;
 
 /**
  * Advice that reads transaction annotations and manage transactions over method invocation.

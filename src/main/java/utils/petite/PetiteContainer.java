@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,33 +25,33 @@
 
 package utils.petite;
 
-import jodd.bean.BeanUtil;
-import jodd.introspector.Setter;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.petite.BeanDefinition;
-import jodd.petite.PetiteBeans;
-import jodd.petite.PetiteConfig;
-import jodd.petite.PetiteException;
-import jodd.petite.PetiteRegistry;
-import jodd.petite.ScopedProxyManager;
-import jodd.petite.WiringMode;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.def.InitMethodPoint;
-import jodd.petite.def.MethodInjectionPoint;
-import jodd.petite.def.PropertyInjectionPoint;
-import jodd.petite.def.ProviderDefinition;
-import jodd.petite.def.SetInjectionPoint;
-import jodd.petite.def.ValueInjectionPoint;
-import jodd.petite.meta.InitMethodInvocationStrategy;
-import jodd.petite.scope.Scope;
-import jodd.petite.scope.SingletonScope;
+import utils.bean.BeanUtil;
+import utils.introspector.Setter;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.petite.BeanDefinition;
+import utils.petite.PetiteBeans;
+import utils.petite.PetiteConfig;
+import utils.petite.PetiteException;
+import utils.petite.PetiteRegistry;
+import utils.petite.ScopedProxyManager;
+import utils.petite.WiringMode;
+import utils.petite.def.BeanReferences;
+import utils.petite.def.InitMethodPoint;
+import utils.petite.def.MethodInjectionPoint;
+import utils.petite.def.PropertyInjectionPoint;
+import utils.petite.def.ProviderDefinition;
+import utils.petite.def.SetInjectionPoint;
+import utils.petite.def.ValueInjectionPoint;
+import utils.petite.meta.InitMethodInvocationStrategy;
+import utils.petite.scope.Scope;
+import utils.petite.scope.SingletonScope;
 
 import java.util.Collection;
 
 /**
  * Petite IOC container.
- * @see jodd.petite.PetiteRegistry for fluent java registration of Petite beans.
+ * @see utils.petite.PetiteRegistry for fluent java registration of Petite beans.
  */
 public class PetiteContainer extends PetiteBeans {
 
@@ -68,10 +68,10 @@ public class PetiteContainer extends PetiteBeans {
 	protected final ScopedProxyManager scopedProxyManager;
 
 	/**
-	 * Creates new Petite container using {@link jodd.petite.PetiteConfig default configuration}.
+	 * Creates new Petite container using {@link utils.petite.PetiteConfig default configuration}.
 	 */
 	public PetiteContainer() {
-		this(new jodd.petite.PetiteConfig());
+		this(new utils.petite.PetiteConfig());
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Creates new bean instance and performs constructor injection.
 	 */
-	protected Object newBeanInstance(final jodd.petite.BeanDefinition def) {
+	protected Object newBeanInstance(final utils.petite.BeanDefinition def) {
 		if (def.ctor == null) {
 			def.ctor = petiteResolvers.resolveCtorInjectionPoint(def.type);
 		}
@@ -101,11 +101,11 @@ public class PetiteContainer extends PetiteBeans {
 		Object[] args = new Object[paramNo];
 
 		// wiring
-		if (def.wiringMode != jodd.petite.WiringMode.NONE) {
+		if (def.wiringMode != utils.petite.WiringMode.NONE) {
 			for (int i = 0; i < paramNo; i++) {
 				args[i] = getBean(def.ctor.references[i]);
 				if (args[i] == null) {
-					if ((def.wiringMode == jodd.petite.WiringMode.STRICT)) {
+					if ((def.wiringMode == utils.petite.WiringMode.STRICT)) {
 						throw new PetiteException(
 								"Wiring constructor failed. References '" + def.ctor.references[i] +
 								"' not found for constructor: " + def.ctor.constructor);
@@ -130,8 +130,8 @@ public class PetiteContainer extends PetiteBeans {
 	 * @param bean target bean
 	 * @param def bean definition
 	 */
-	protected void wireBean(final Object bean, final jodd.petite.BeanDefinition def) {
-		if (def.wiringMode == jodd.petite.WiringMode.NONE) {
+	protected void wireBean(final Object bean, final utils.petite.BeanDefinition def) {
+		if (def.wiringMode == utils.petite.WiringMode.NONE) {
 			return;
 		}
 		wireProperties(bean, def);
@@ -141,9 +141,9 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Wires properties.
 	 */
-	protected void wireProperties(final Object bean, final jodd.petite.BeanDefinition def) {
+	protected void wireProperties(final Object bean, final utils.petite.BeanDefinition def) {
 		if (def.properties == null) {
-			def.properties = petiteResolvers.resolvePropertyInjectionPoint(def.type, def.wiringMode == jodd.petite.WiringMode.AUTOWIRE);
+			def.properties = petiteResolvers.resolvePropertyInjectionPoint(def.type, def.wiringMode == utils.petite.WiringMode.AUTOWIRE);
 		}
 
 		boolean mixing = petiteConfig.wireScopedProxy || petiteConfig.detectMixedScopes;
@@ -154,7 +154,7 @@ public class PetiteContainer extends PetiteBeans {
 			Object value = null;
 
 			if (mixing) {
-				jodd.petite.BeanDefinition refBeanDefinition = lookupBeanDefinitions(refNames);
+				utils.petite.BeanDefinition refBeanDefinition = lookupBeanDefinitions(refNames);
 
 				if (refBeanDefinition != null) {
 					value = scopedProxyManager.lookupValue(this, def, refBeanDefinition);
@@ -166,7 +166,7 @@ public class PetiteContainer extends PetiteBeans {
 			}
 
 			if (value == null) {
-				if ((def.wiringMode == jodd.petite.WiringMode.STRICT)) {
+				if ((def.wiringMode == utils.petite.WiringMode.STRICT)) {
 					throw new PetiteException("Wiring failed. Beans references: '" +
 							refNames + "' not found for property: "+ def.type.getName() +
 							'#' + pip.propertyDescriptor.getName());
@@ -187,7 +187,7 @@ public class PetiteContainer extends PetiteBeans {
 
 		// sets
 		if (def.sets == null) {
-			def.sets = petiteResolvers.resolveSetInjectionPoint(def.type, def.wiringMode == jodd.petite.WiringMode.AUTOWIRE);
+			def.sets = petiteResolvers.resolveSetInjectionPoint(def.type, def.wiringMode == utils.petite.WiringMode.AUTOWIRE);
 		}
 		for (SetInjectionPoint sip : def.sets) {
 
@@ -217,7 +217,7 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Wires methods.
 	 */
-	protected void wireMethods(final Object bean, final jodd.petite.BeanDefinition def) {
+	protected void wireMethods(final Object bean, final utils.petite.BeanDefinition def) {
 		if (def.methods == null) {
 			def.methods = petiteResolvers.resolveMethodInjectionPoint(def.type);
 		}
@@ -231,7 +231,7 @@ public class PetiteContainer extends PetiteBeans {
 				boolean mixing = petiteConfig.wireScopedProxy || petiteConfig.detectMixedScopes;
 
 				if (mixing) {
-					jodd.petite.BeanDefinition refBeanDefinition = lookupBeanDefinitions(refName);
+					utils.petite.BeanDefinition refBeanDefinition = lookupBeanDefinitions(refName);
 
 					if (refBeanDefinition != null) {
 						value = scopedProxyManager.lookupValue(this, def, refBeanDefinition);
@@ -244,7 +244,7 @@ public class PetiteContainer extends PetiteBeans {
 
 				args[i] = value;
 				if (value == null) {
-					if ((def.wiringMode == jodd.petite.WiringMode.STRICT)) {
+					if ((def.wiringMode == utils.petite.WiringMode.STRICT)) {
 						throw new PetiteException("Wiring failed. Beans references: '" +
 								refName + "' not found for method: " + def.type.getName() + '#' + methodRef.method.getName());
 					}
@@ -260,7 +260,7 @@ public class PetiteContainer extends PetiteBeans {
 		}
 	}
 
-	protected void resolveInitAndDestroyMethods(final Object bean, final jodd.petite.BeanDefinition def) {
+	protected void resolveInitAndDestroyMethods(final Object bean, final utils.petite.BeanDefinition def) {
 		if (def.initMethods == null) {
 			def.initMethods = petiteResolvers.resolveInitMethodPoint(bean);
 		}
@@ -272,7 +272,7 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Invokes all init methods, if they exist. Also resolves destroy methods.
 	 */
-	protected void invokeInitMethods(final Object bean, final jodd.petite.BeanDefinition def, final InitMethodInvocationStrategy invocationStrategy) {
+	protected void invokeInitMethods(final Object bean, final utils.petite.BeanDefinition def, final InitMethodInvocationStrategy invocationStrategy) {
 		for (InitMethodPoint initMethod : def.initMethods) {
 			if (invocationStrategy != initMethod.invocationStrategy) {
 				continue;
@@ -288,7 +288,7 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Injects all parameters.
 	 */
-	protected void injectParams(final Object bean, final jodd.petite.BeanDefinition def) {
+	protected void injectParams(final Object bean, final utils.petite.BeanDefinition def) {
 		if (def.name == null) {
 			return;
 		}
@@ -327,7 +327,7 @@ public class PetiteContainer extends PetiteBeans {
 
 	}
 
-	protected <T> void invokeConsumerIfRegistered(final T bean, final jodd.petite.BeanDefinition<T> def) {
+	protected <T> void invokeConsumerIfRegistered(final T bean, final utils.petite.BeanDefinition<T> def) {
 		if (def.consumer() == null) {
 			return;
 		}
@@ -376,7 +376,7 @@ public class PetiteContainer extends PetiteBeans {
 	public <T> T getBean(final String name) {
 
 		// Lookup for registered bean definition.
-		jodd.petite.BeanDefinition def = lookupBeanDefinition(name);
+		utils.petite.BeanDefinition def = lookupBeanDefinition(name);
 
 		if (def == null) {
 
@@ -405,7 +405,7 @@ public class PetiteContainer extends PetiteBeans {
 	 * Wires bean, injects parameters and invokes init methods.
 	 * Such a loooong name :)
 	 */
-	protected void registerBeanAndWireAndInjectParamsAndInvokeInitMethods(final jodd.petite.BeanDefinition def, final Object bean) {
+	protected void registerBeanAndWireAndInjectParamsAndInvokeInitMethods(final utils.petite.BeanDefinition def, final Object bean) {
 		resolveInitAndDestroyMethods(bean, def);
 		def.scopeRegister(bean);
 		invokeInitMethods(bean, def, InitMethodInvocationStrategy.POST_CONSTRUCT);
@@ -430,9 +430,9 @@ public class PetiteContainer extends PetiteBeans {
 	 * Wires provided bean with the container and optionally invokes init methods.
 	 * Bean is <b>not</b> registered withing container.
 	 */
-	public void wire(final Object bean, jodd.petite.WiringMode wiringMode) {
+	public void wire(final Object bean, utils.petite.WiringMode wiringMode) {
 		wiringMode = petiteConfig.resolveWiringMode(wiringMode);
-		jodd.petite.BeanDefinition def = new jodd.petite.BeanDefinition(null, bean.getClass(), null, wiringMode, null);
+		utils.petite.BeanDefinition def = new utils.petite.BeanDefinition(null, bean.getClass(), null, wiringMode, null);
 		registerBeanAndWireAndInjectParamsAndInvokeInitMethods(def, bean);
 	}
 
@@ -451,9 +451,9 @@ public class PetiteContainer extends PetiteBeans {
 	 * <b>not</b> registered.
 	 */
 	@SuppressWarnings({"unchecked"})
-	public <E> E createBean(final Class<E> type, jodd.petite.WiringMode wiringMode) {
+	public <E> E createBean(final Class<E> type, utils.petite.WiringMode wiringMode) {
 		wiringMode = petiteConfig.resolveWiringMode(wiringMode);
-		jodd.petite.BeanDefinition def = new jodd.petite.BeanDefinition(null, type, null, wiringMode, null);
+		utils.petite.BeanDefinition def = new utils.petite.BeanDefinition(null, type, null, wiringMode, null);
 		Object bean = newBeanInstance(def);
 		registerBeanAndWireAndInjectParamsAndInvokeInitMethods(def, bean);
 		return (E) bean;
@@ -500,7 +500,7 @@ public class PetiteContainer extends PetiteBeans {
 	/**
 	 * Adds object instance to the container as singleton bean.
 	 */
-	public void addBean(final String name, final Object bean, jodd.petite.WiringMode wiringMode) {
+	public void addBean(final String name, final Object bean, utils.petite.WiringMode wiringMode) {
 		wiringMode = petiteConfig.resolveWiringMode(wiringMode);
 		registerPetiteBean(bean.getClass(), name, SingletonScope.class, wiringMode, false, null);
 		BeanDefinition def = lookupExistingBeanDefinition(name);
@@ -512,7 +512,7 @@ public class PetiteContainer extends PetiteBeans {
 	 * container for further usage. No wiring is used and no init methods are invoked.
 	 */
 	public void addSelf(final String name) {
-		addBean(name, this, jodd.petite.WiringMode.NONE);
+		addBean(name, this, utils.petite.WiringMode.NONE);
 	}
 
 	/**
@@ -581,9 +581,9 @@ public class PetiteContainer extends PetiteBeans {
 	// ---------------------------------------------------------------- registry
 
 	/**
-	 * Creates {@link jodd.petite.PetiteRegistry} helper tool for this container.
+	 * Creates {@link utils.petite.PetiteRegistry} helper tool for this container.
 	 */
-	public jodd.petite.PetiteRegistry createContainerRegistry() {
+	public utils.petite.PetiteRegistry createContainerRegistry() {
 		return PetiteRegistry.of(this);
 	}
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.json;
 
-import jodd.json.JsonObject;
-import jodd.json.JsonSerializer;
+import utils.json.JsonObject;
+import utils.json.JsonSerializer;
 
 import java.util.ArrayList;
 import java.util.Base64;

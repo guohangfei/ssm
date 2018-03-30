@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.props;
 
-import jodd.props.Props;
-import jodd.props.PropsEntry;
+import utils.props.Props;
+import utils.props.PropsEntry;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,12 +37,12 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
- * Props iterator builder. Should be used with: {@link jodd.props.Props#entries()}.
+ * Props iterator builder. Should be used with: {@link utils.props.Props#entries()}.
  */
 public final class PropsEntries {
 
 	private final PropsIterator propsIterator;
-	private final jodd.props.Props props;
+	private final utils.props.Props props;
 
 	public PropsEntries(final Props props) {
 		this.props = props;
@@ -130,7 +130,7 @@ public final class PropsEntries {
 	/**
 	 * Returns populated iterator.
 	 */
-	public Iterator<jodd.props.PropsEntry> iterator() {
+	public Iterator<utils.props.PropsEntry> iterator() {
 		return propsIterator;
 	}
 
@@ -139,8 +139,8 @@ public final class PropsEntries {
 	/**
 	 * Props iterator.
 	 */
-	private class PropsIterator implements Iterator<jodd.props.PropsEntry> {
-		private jodd.props.PropsEntry next = props.data.first;
+	private class PropsIterator implements Iterator<utils.props.PropsEntry> {
+		private utils.props.PropsEntry next = props.data.first;
 		private boolean firstTime = true;
 		private List<String> profiles;
 		private List<String> sections;
@@ -174,7 +174,7 @@ public final class PropsEntries {
 		 * Accepts an entry and returns <code>true</code>
 		 * if entry should appear in this iteration.
 		 */
-		private boolean accept(final jodd.props.PropsEntry entry) {
+		private boolean accept(final utils.props.PropsEntry entry) {
 			if (entry == null) {
 				return false;
 			}
@@ -225,7 +225,7 @@ public final class PropsEntries {
 						}
 
 						// check if key exist in higher profile
-						Map<String, jodd.props.PropsEntry> profileMap = props.data.profileProperties.get(profile);
+						Map<String, utils.props.PropsEntry> profileMap = props.data.profileProperties.get(profile);
 						if (profileMap == null) {
 							continue;
 						}
@@ -249,7 +249,7 @@ public final class PropsEntries {
 		}
 
 		@Override
-		public jodd.props.PropsEntry next() {
+		public utils.props.PropsEntry next() {
 			if (firstTime) {
 				start();
 			}

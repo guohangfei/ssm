@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.servlet.filter;
 
-import jodd.io.StreamUtil;
-import jodd.servlet.filter.GzipResponseStream;
+import utils.io.StreamUtil;
+import utils.servlet.filter.GzipResponseStream;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +37,7 @@ import java.io.PrintWriter;
 
 /**
  * Implementation of <b>HttpServletResponseWrapper</b> that works with
- * the {@link jodd.servlet.filter.GzipResponseStream} implementation.
+ * the {@link utils.servlet.filter.GzipResponseStream} implementation.
  */
 public class GzipResponseWrapper extends HttpServletResponseWrapper {
 
@@ -102,7 +102,7 @@ public class GzipResponseWrapper extends HttpServletResponseWrapper {
 	 * with this Response.
 	 */
 	public ServletOutputStream createOutputStream() throws IOException {
-		jodd.servlet.filter.GzipResponseStream gzstream = new GzipResponseStream(origResponse);
+		utils.servlet.filter.GzipResponseStream gzstream = new GzipResponseStream(origResponse);
 		gzstream.setBuffer(threshold);
 		return gzstream;
 	}
@@ -177,7 +177,7 @@ public class GzipResponseWrapper extends HttpServletResponseWrapper {
 	/**
 	 * Servlets v3.1 introduce this method, so we need to have it here
 	 * in case they are used.
-	 * See: https://github.com/oblac/jodd/issues/189
+	 * See: https://github.com/oblac/utils/issues/189
 	 */
 	@Override
 	public void setContentLengthLong(final long length) {

@@ -1,14 +1,14 @@
 package utils.madvoc.injector;
 
 import java.util.function.BiConsumer;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.RouteChunk;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Targets;
-import jodd.madvoc.macro.PathMacros;
-import jodd.util.StringUtil;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.RouteChunk;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Targets;
+import utils.madvoc.macro.PathMacros;
+import utils.util.StringUtil;
 
 public class ActionPathMacroInjector implements Injector {
 	private static final ScopeType SCOPE_TYPE;

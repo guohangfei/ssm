@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.madvoc;
 
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.ActionHandler;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.component.ActionMethodParser;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.component.FiltersManager;
-import jodd.madvoc.component.InterceptorsManager;
-import jodd.madvoc.component.MadvocComponentLifecycle;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.filter.ActionFilter;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.madvoc.result.ActionResult;
-import jodd.petite.meta.PetiteInject;
-import jodd.util.ArraysUtil;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.ActionHandler;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.component.ActionMethodParser;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.component.FiltersManager;
+import utils.madvoc.component.InterceptorsManager;
+import utils.madvoc.component.MadvocComponentLifecycle;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.filter.ActionFilter;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.result.ActionResult;
+import utils.petite.meta.PetiteInject;
+import utils.util.ArraysUtil;
 
 import java.lang.reflect.Method;
 import java.util.function.Consumer;

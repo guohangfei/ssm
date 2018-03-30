@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.madvoc.component;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocUtil;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.ResultPath;
-import jodd.petite.meta.PetiteInject;
-import jodd.util.StringUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocUtil;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.ResultPath;
+import utils.petite.meta.PetiteInject;
+import utils.util.StringUtil;
 
 /**
  * Mapper from action results paths to result path. Certain set of results

@@ -1,13 +1,13 @@
 package utils.lagarto;
 
 import java.io.IOException;
-import jodd.lagarto.LagartoException;
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagType;
-import jodd.lagarto.Scanner.Position;
-import jodd.util.ArraysUtil;
-import jodd.util.CharSequenceUtil;
-import jodd.util.net.HtmlEncoder;
+import utils.lagarto.LagartoException;
+import utils.lagarto.Tag;
+import utils.lagarto.TagType;
+import utils.lagarto.Scanner.Position;
+import utils.util.ArraysUtil;
+import utils.util.CharSequenceUtil;
+import utils.util.net.HtmlEncoder;
 
 class ParsedTag implements Tag {
 	private static final CharSequence ATTR_NAME_ID = "id";

@@ -5,9 +5,9 @@ import java.io.Writer;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
-import jodd.exception.UncheckedException;
-import jodd.io.FastCharArrayWriter;
-import jodd.servlet.ServletUtil;
+import utils.exception.UncheckedException;
+import utils.io.FastCharArrayWriter;
+import utils.servlet.ServletUtil;
 
 public class TagUtil {
 	public static void invokeBody(JspFragment body) throws JspException {

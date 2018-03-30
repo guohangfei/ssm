@@ -1,7 +1,7 @@
 package utils.methref;
 
-import jodd.proxetta.ProxyAdvice;
-import jodd.proxetta.ProxyTarget;
+import utils.proxetta.ProxyAdvice;
+import utils.proxetta.ProxyTarget;
 
 public class MethrefAdvice implements ProxyAdvice {
 	String methodName;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.petite.resolver;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.petite.BeanDefinition;
-import jodd.petite.def.ProviderDefinition;
-import jodd.petite.meta.PetiteProvider;
-import jodd.util.StringUtil;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.petite.BeanDefinition;
+import utils.petite.def.ProviderDefinition;
+import utils.petite.meta.PetiteProvider;
+import utils.util.StringUtil;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -49,7 +49,7 @@ public class ProviderResolver {
 	public ProviderDefinition[] resolve(final BeanDefinition beanDefinition) {
 		Class type = beanDefinition.type();
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 		MethodDescriptor[] methods = cd.getAllMethodDescriptors();
 
 		List<ProviderDefinition> list = new ArrayList<>();

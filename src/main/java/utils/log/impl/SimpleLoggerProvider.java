@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,23 +25,23 @@
 
 package utils.log.impl;
 
-import jodd.log.Logger;
-import jodd.log.LoggerProvider;
-import jodd.log.impl.SimpleLogger;
+import utils.log.Logger;
+import utils.log.LoggerProvider;
+import utils.log.impl.SimpleLogger;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
 /**
- * Provider for {@link jodd.log.impl.SimpleLogger} adapter.
+ * Provider for {@link utils.log.impl.SimpleLogger} adapter.
  */
-public class SimpleLoggerProvider implements LoggerProvider<jodd.log.impl.SimpleLogger> {
+public class SimpleLoggerProvider implements LoggerProvider<utils.log.impl.SimpleLogger> {
 
 	private final long startTime;
-	private static Map<String, jodd.log.impl.SimpleLogger> loggers = new HashMap<>();
-	private Function<String, jodd.log.impl.SimpleLogger> simpleLoggerFunction =
-		n -> new jodd.log.impl.SimpleLogger(this, n, Logger.Level.DEBUG);
+	private static Map<String, utils.log.impl.SimpleLogger> loggers = new HashMap<>();
+	private Function<String, utils.log.impl.SimpleLogger> simpleLoggerFunction =
+		n -> new utils.log.impl.SimpleLogger(this, n, Logger.Level.DEBUG);
 
 	protected SimpleLoggerProvider() {
 		this.startTime = System.currentTimeMillis();

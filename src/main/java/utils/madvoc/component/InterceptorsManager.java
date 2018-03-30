@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.madvoc.component;
 
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.component.WrapperManager;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.madvoc.interceptor.DefaultWebAppInterceptors;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.component.WrapperManager;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.interceptor.DefaultWebAppInterceptors;
 
 import java.util.Set;
 
 /**
  * Manager for Madvoc interceptors. By default, all interceptors are cached,
  * so there will be only one instance per its type.
- * @see jodd.madvoc.component.FiltersManager
+ * @see utils.madvoc.component.FiltersManager
  */
 public class InterceptorsManager extends WrapperManager<ActionInterceptor> {
 

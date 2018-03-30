@@ -4,11 +4,11 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.interceptor.ActionInterceptor;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.interceptor.ActionInterceptor;
 
 public abstract class AnnotatedPropertyInterceptor implements ActionInterceptor {
 	protected final Class<Annotation> annotations;
@@ -41,7 +41,7 @@ public abstract class AnnotatedPropertyInterceptor implements ActionInterceptor 
 		if (properties != null) {
 			return properties;
 		} else {
-			ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+			ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 			PropertyDescriptor[] allProperties = cd.getAllPropertyDescriptors();
 			ArrayList list = new ArrayList();
 			PropertyDescriptor[] arg5 = allProperties;

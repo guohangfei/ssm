@@ -3,10 +3,10 @@ package utils.methref;
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.WeakHashMap;
-import jodd.methref.MethrefException;
-import jodd.methref.MethrefProxetta;
-import jodd.proxetta.ProxettaUtil;
-import jodd.util.ClassUtil;
+import utils.methref.MethrefException;
+import utils.methref.MethrefProxetta;
+import utils.proxetta.ProxettaUtil;
+import utils.util.ClassUtil;
 
 public class Methref<C> {
 	private static final MethrefProxetta proxetta = new MethrefProxetta();

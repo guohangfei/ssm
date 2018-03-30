@@ -1,6 +1,6 @@
 package utils.lagarto;
 
-import jodd.lagarto.Doctype;
+import utils.lagarto.Doctype;
 
 public class ParsedDoctype implements Doctype {
 	protected CharSequence name;

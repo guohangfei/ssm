@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.madvoc.component;
 
-import jodd.madvoc.component.InjectorsManager;
-import jodd.madvoc.component.MadvocController;
-import jodd.madvoc.component.ScopeDataResolver;
-import jodd.madvoc.config.ScopeData;
-import jodd.madvoc.injector.Target;
-import jodd.madvoc.injector.Targets;
-import jodd.petite.PetiteContainer;
-import jodd.petite.meta.PetiteInject;
+import utils.madvoc.component.InjectorsManager;
+import utils.madvoc.component.MadvocController;
+import utils.madvoc.component.ScopeDataResolver;
+import utils.madvoc.config.ScopeData;
+import utils.madvoc.injector.Target;
+import utils.madvoc.injector.Targets;
+import utils.petite.PetiteContainer;
+import utils.petite.meta.PetiteInject;
 
 import javax.servlet.ServletContext;
 

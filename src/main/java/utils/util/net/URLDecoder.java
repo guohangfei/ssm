@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util.net;
 
-import jodd.core.JoddCore;
-import jodd.util.StringUtil;
+import utils.core.utilsCore;
+import utils.util.StringUtil;
 
 import java.io.ByteArrayOutputStream;
 
@@ -39,7 +39,7 @@ public class URLDecoder {
 	 * Decodes URL elements.
 	 */
 	public static String decode(final String url) {
-		return decode(url, JoddCore.defaults().getEncoding(), false);
+		return decode(url, utilsCore.defaults().getEncoding(), false);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class URLDecoder {
 	 * Decodes query name or value.
 	 */
 	public static String decodeQuery(final String source) {
-		return decode(source, JoddCore.defaults().getEncoding(), true);
+		return decode(source, utilsCore.defaults().getEncoding(), true);
 	}
 
 	/**

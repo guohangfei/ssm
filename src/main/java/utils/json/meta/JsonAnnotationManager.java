@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.json.meta;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.FieldDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.json.JoddJson;
-import jodd.json.meta.JSONAnnotation;
-import jodd.json.meta.JSONAnnotationData;
-import jodd.util.ArraysUtil;
-import jodd.util.inex.InExRules;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.FieldDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.json.utilsJson;
+import utils.json.meta.JSONAnnotation;
+import utils.json.meta.JSONAnnotationData;
+import utils.util.ArraysUtil;
+import utils.util.inex.InExRules;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -53,7 +53,7 @@ public class JsonAnnotationManager {
 	 * Returns default instance.
 	 */
 	public static JsonAnnotationManager get() {
-		return JoddJson.defaults().getAnnotationManager();
+		return utilsJson.defaults().getAnnotationManager();
 	}
 
 	private final Map<Class, TypeData> typeDataMap;
@@ -133,7 +133,7 @@ public class JsonAnnotationManager {
 		TypeData typeData = typeDataMap.get(type);
 
 		if (typeData == null) {
-			if (JoddJson.defaults().isSerializationSubclassAware()) {
+			if (utilsJson.defaults().isSerializationSubclassAware()) {
 				typeData = findSubclassTypeData(type);
 			}
 
@@ -164,14 +164,14 @@ public class JsonAnnotationManager {
 	 * Finds type data of first annotated superclass or interface.
 	 */
 	protected TypeData findSubclassTypeData(final Class type) {
-		final Class<? extends Annotation> defaultAnnotation = JoddJson.defaults().getJsonAnnotation();
+		final Class<? extends Annotation> defaultAnnotation = utilsJson.defaults().getJsonAnnotation();
 
 		if (type.getAnnotation(defaultAnnotation) != null) {
 			// current type has annotation, don't find anything, let type data be created
 			return null;
 		}
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 
 		// lookup superclasses
 
@@ -215,10 +215,10 @@ public class JsonAnnotationManager {
 	}
 
 	/**
-	 * Scans class for annotations and returns {@link jodd.json.meta.JsonAnnotationManager.TypeData}.
+	 * Scans class for annotations and returns {@link utils.json.meta.JsonAnnotationManager.TypeData}.
 	 */
 	private TypeData scanClassForAnnotations(final Class type) {
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 
 		PropertyDescriptor[] pds = cd.getAllPropertyDescriptors();
 
@@ -227,10 +227,10 @@ public class JsonAnnotationManager {
 		ArrayList<String> jsonNames = new ArrayList<>();
 		ArrayList<String> realNames = new ArrayList<>();
 
-		jodd.json.meta.JSONAnnotation jsonAnnotation = new JSONAnnotation(JoddJson.defaults().getJsonAnnotation());
+		utils.json.meta.JSONAnnotation jsonAnnotation = new JSONAnnotation(utilsJson.defaults().getJsonAnnotation());
 
 		for (PropertyDescriptor pd : pds) {
-			jodd.json.meta.JSONAnnotationData data = null;
+			utils.json.meta.JSONAnnotationData data = null;
 			{
 				MethodDescriptor md = pd.getReadMethodDescriptor();
 
@@ -293,7 +293,7 @@ public class JsonAnnotationManager {
 
 		// type
 
-		jodd.json.meta.JSONAnnotationData data = (JSONAnnotationData) jsonAnnotation.readAnnotatedElement(type);
+		utils.json.meta.JSONAnnotationData data = (JSONAnnotationData) jsonAnnotation.readAnnotatedElement(type);
 
 		return new TypeData(includedList, excludedList, data != null && data.strict(), jsons, reals);
 	}

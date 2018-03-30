@@ -1,7 +1,7 @@
 package utils.madvoc.config;
 
-import jodd.madvoc.config.ScopeData.In;
-import jodd.madvoc.config.ScopeData.Out;
+import utils.madvoc.config.ScopeData.In;
+import utils.madvoc.config.ScopeData.Out;
 
 public class ScopeData {
 	public In[] in;

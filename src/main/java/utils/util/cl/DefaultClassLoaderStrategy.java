@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.util.cl;
 
-import jodd.util.ClassUtil;
-import jodd.util.StringUtil;
-import jodd.util.cl.ClassLoaderStrategy;
+import utils.util.ClassUtil;
+import utils.util.StringUtil;
+import utils.util.cl.ClassLoaderStrategy;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * Default Jodd class loader strategy.
+ * Default utils class loader strategy.
  * Loads a class with a given name dynamically, more reliable then <code>Class.forName</code>.
  * <p>
  * Class will be loaded using class loaders in the following order:

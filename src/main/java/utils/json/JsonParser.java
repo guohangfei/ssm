@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,20 +25,20 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.json.*;
-import jodd.json.JoddJson;
-import jodd.json.JsonArray;
-import jodd.json.JsonObject;
-import jodd.json.MapToBean;
-import jodd.json.Path;
-import jodd.json.meta.JsonAnnotationManager;
-import jodd.util.CharArraySequence;
-import jodd.util.CharUtil;
-import jodd.util.StringPool;
-import jodd.util.UnsafeUtil;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.json.*;
+import utils.json.utilsJson;
+import utils.json.JsonArray;
+import utils.json.JsonObject;
+import utils.json.MapToBean;
+import utils.json.Path;
+import utils.json.meta.JsonAnnotationManager;
+import utils.util.CharArraySequence;
+import utils.util.CharUtil;
+import utils.util.StringPool;
+import utils.util.UnsafeUtil;
 
 import java.math.BigInteger;
 import java.util.Collection;
@@ -47,12 +47,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import static jodd.json.JoddJson.DEFAULT_CLASS_METADATA_NAME;
+import static utils.json.utilsJson.DEFAULT_CLASS_METADATA_NAME;
 
 /**
  * Simple, developer-friendly JSON parser. It focuses on easy usage
- * and type mappings. Uses Jodd's type converters, so it is natural
- * companion for Jodd projects.
+ * and type mappings. Uses utils's type converters, so it is natural
+ * companion for utils projects.
  * <p>
  * This JSON parser also works in {@link #lazy(boolean)} mode. This
  * mode is for top performance usage: parsing is done very, very lazy.
@@ -98,8 +98,8 @@ public class JsonParser extends JsonParserBase {
 	protected int ndx = 0;
 	protected char[] input;
 	protected int total;
-	protected jodd.json.Path path;
-	protected boolean useAltPaths = jodd.json.JoddJson.defaults().isUseAltPathsByParser();
+	protected utils.json.Path path;
+	protected boolean useAltPaths = utils.json.utilsJson.defaults().isUseAltPathsByParser();
 	protected Class rootType;
 	protected MapToBean mapToBean;
 	protected boolean looseMode;
@@ -114,9 +114,9 @@ public class JsonParser extends JsonParserBase {
 	protected void reset() {
 		this.ndx = 0;
 		this.textLen = 0;
-		this.path = new jodd.json.Path();
+		this.path = new utils.json.Path();
 		if (useAltPaths) {
-			path.altPath = new jodd.json.Path();
+			path.altPath = new utils.json.Path();
 		}
 
 		if (classMetadataName != null) {
@@ -162,7 +162,7 @@ public class JsonParser extends JsonParserBase {
 
 	// ---------------------------------------------------------------- mappings
 
-	protected Map<jodd.json.Path, Class> mappings;
+	protected Map<utils.json.Path, Class> mappings;
 
 	/**
 	 * Maps a class to JSONs root.
@@ -185,7 +185,7 @@ public class JsonParser extends JsonParserBase {
 		if (mappings == null) {
 			mappings = new HashMap<>();
 		}
-		mappings.put(jodd.json.Path.parse(path), target);
+		mappings.put(utils.json.Path.parse(path), target);
 		return this;
 	}
 
@@ -201,7 +201,7 @@ public class JsonParser extends JsonParserBase {
 
 		// first try alt paths
 
-		jodd.json.Path altPath = path.getAltPath();
+		utils.json.Path altPath = path.getAltPath();
 
 		if (altPath != null) {
 			if (!altPath.equals(path)) {
@@ -226,7 +226,7 @@ public class JsonParser extends JsonParserBase {
 
 	// ---------------------------------------------------------------- converters
 
-	protected Map<jodd.json.Path, ValueConverter> convs;
+	protected Map<utils.json.Path, ValueConverter> convs;
 
 	/**
 	 * Defines {@link ValueConverter} to use on given path.
@@ -251,7 +251,7 @@ public class JsonParser extends JsonParserBase {
 
 	// ---------------------------------------------------------------- class meta data name
 
-	protected String classMetadataName = JoddJson.defaults().getClassMetadataName();
+	protected String classMetadataName = utilsJson.defaults().getClassMetadataName();
 
 	/**
 	 * Sets local class meta-data name.
@@ -284,16 +284,16 @@ public class JsonParser extends JsonParserBase {
 	}
 
 	/**
-	 * Parses input JSON to {@link jodd.json.JsonObject}, special case of {@link #parse(String, Class)}.
+	 * Parses input JSON to {@link utils.json.JsonObject}, special case of {@link #parse(String, Class)}.
 	 */
-	public jodd.json.JsonObject parseAsJsonObject(final String input) {
+	public utils.json.JsonObject parseAsJsonObject(final String input) {
 		return new JsonObject(parse(input));
 	}
 
 	/**
-	 * Parses input JSON to {@link jodd.json.JsonArray}, special case of parsing.
+	 * Parses input JSON to {@link utils.json.JsonArray}, special case of parsing.
 	 */
-	public jodd.json.JsonArray parseAsJsonArray(final String input) {
+	public utils.json.JsonArray parseAsJsonArray(final String input) {
 		return new JsonArray(parse(input));
 	}
 
@@ -931,7 +931,7 @@ public class JsonParser extends JsonParserBase {
 		JsonAnnotationManager.TypeData typeData = null;
 
 		if (targetType != null) {
-			targetTypeClassDescriptor = JoddBean.defaults().getClassIntrospector().lookup(targetType);
+			targetTypeClassDescriptor = utilsBean.defaults().getClassIntrospector().lookup(targetType);
 
 			// find if the target is really a map
 			// because when classMetadataName != null we are forcing

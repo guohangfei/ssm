@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,22 +25,22 @@
 
 package utils.petite;
 
-import jodd.petite.BeanDefinition;
-import jodd.petite.def.CtorInjectionPoint;
-import jodd.petite.def.DestroyMethodPoint;
-import jodd.petite.def.InitMethodPoint;
-import jodd.petite.def.MethodInjectionPoint;
-import jodd.petite.def.PropertyInjectionPoint;
-import jodd.petite.def.ProviderDefinition;
-import jodd.petite.def.SetInjectionPoint;
-import jodd.petite.resolver.CtorResolver;
-import jodd.petite.resolver.DestroyMethodResolver;
-import jodd.petite.resolver.InitMethodResolver;
-import jodd.petite.resolver.MethodResolver;
-import jodd.petite.resolver.PropertyResolver;
-import jodd.petite.resolver.ProviderResolver;
-import jodd.petite.resolver.ReferencesResolver;
-import jodd.petite.resolver.SetResolver;
+import utils.petite.BeanDefinition;
+import utils.petite.def.CtorInjectionPoint;
+import utils.petite.def.DestroyMethodPoint;
+import utils.petite.def.InitMethodPoint;
+import utils.petite.def.MethodInjectionPoint;
+import utils.petite.def.PropertyInjectionPoint;
+import utils.petite.def.ProviderDefinition;
+import utils.petite.def.SetInjectionPoint;
+import utils.petite.resolver.CtorResolver;
+import utils.petite.resolver.DestroyMethodResolver;
+import utils.petite.resolver.InitMethodResolver;
+import utils.petite.resolver.MethodResolver;
+import utils.petite.resolver.PropertyResolver;
+import utils.petite.resolver.ProviderResolver;
+import utils.petite.resolver.ReferencesResolver;
+import utils.petite.resolver.SetResolver;
 
 /**
  * Holds all resolvers instances and offers delegate methods.

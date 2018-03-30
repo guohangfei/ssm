@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.madvoc.filter;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.filter.ActionFilter;
-import jodd.madvoc.interceptor.EchoInterceptor;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.filter.ActionFilter;
+import utils.madvoc.interceptor.EchoInterceptor;
 
 /**
  * Filter variant of {@link EchoInterceptor}.

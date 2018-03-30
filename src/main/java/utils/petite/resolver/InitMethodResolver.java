@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.petite.resolver;
 
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.petite.PetiteException;
-import jodd.petite.def.InitMethodPoint;
-import jodd.petite.meta.PetiteInitMethod;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.petite.PetiteException;
+import utils.petite.def.InitMethodPoint;
+import utils.petite.meta.PetiteInitMethod;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

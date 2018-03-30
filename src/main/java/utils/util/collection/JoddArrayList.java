@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -57,7 +57,7 @@ import java.util.RandomAccess;
  *     </li>
  * </ul>
  */
-public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, Cloneable {
+public class utilsArrayList<E> extends AbstractList<E> implements RandomAccess, Cloneable {
 
 	/**
 	 * Defines pivot point types.
@@ -102,14 +102,14 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 	/**
 	 * Constructs an empty list with the specified initial capacity.
 	 */
-	public JoddArrayList(final int initialCapacity) {
+	public utilsArrayList(final int initialCapacity) {
 		init(initialCapacity);
 	}
 
 	/**
 	 * Constructs fine-tuned list.
 	 */
-	public JoddArrayList(final int initialCapacity, final PIVOT_TYPE pivot_type, final int minimalGrowSize, final int maxFreeSpaceBeforeNormalize) {
+	public utilsArrayList(final int initialCapacity, final PIVOT_TYPE pivot_type, final int minimalGrowSize, final int maxFreeSpaceBeforeNormalize) {
 		init(initialCapacity);
 		this.pivotType = pivot_type;
 		this.minimalGrowSize = minimalGrowSize;
@@ -119,7 +119,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 	/**
 	 * Constructs an empty list with an initial capacity of ten.
 	 */
-	public JoddArrayList() {
+	public utilsArrayList() {
 		init(DEFAULT_CAPACITY);
 	}
 
@@ -128,7 +128,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 	 * collection, in the order they are returned by the collection's
 	 * iterator.
 	 */
-	public JoddArrayList(final Collection<? extends E> collection) {
+	public utilsArrayList(final Collection<? extends E> collection) {
 		buffer = collection.toArray();
 		size = buffer.length;
 		// c.toArray might (incorrectly) not return Object[] (see 6260652)
@@ -146,7 +146,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 	/**
 	 * Constructs a list containing the elements of provided array.
 	 */
-	public JoddArrayList(final E... array) {
+	public utilsArrayList(final E... array) {
 		buffer = array.clone();
 		size = buffer.length;
 		start = 0;
@@ -398,10 +398,10 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 	 * elements themselves are not copied.)
 	 */
 	@Override
-	public JoddArrayList<E> clone() {
+	public utilsArrayList<E> clone() {
 		try {
 			@SuppressWarnings("unchecked")
-			JoddArrayList<E> v = (JoddArrayList<E>) super.clone();
+			utilsArrayList<E> v = (utilsArrayList<E>) super.clone();
 			v.buffer = (buffer == EMPTY_BUFFER ? buffer : buffer.clone());
 			v.modCount = 0;
 			v.start = start;
@@ -934,7 +934,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 			checkForComodification();
 
 			try {
-				JoddArrayList.this.remove(lastRet);
+				utilsArrayList.this.remove(lastRet);
 				cursor = lastRet;
 				lastRet = -1;
 				expectedModCount = modCount;
@@ -998,7 +998,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 			checkForComodification();
 
 			try {
-				JoddArrayList.this.set(lastRet, e);
+				utilsArrayList.this.set(lastRet, e);
 			} catch (IndexOutOfBoundsException ignore) {
 				throw new ConcurrentModificationException();
 			}
@@ -1010,7 +1010,7 @@ public class JoddArrayList<E> extends AbstractList<E> implements RandomAccess, C
 
 			try {
 				int i = cursor;
-				JoddArrayList.this.add(i, e);
+				utilsArrayList.this.add(i, e);
 				cursor = i + 1;
 				lastRet = -1;
 				expectedModCount = modCount;

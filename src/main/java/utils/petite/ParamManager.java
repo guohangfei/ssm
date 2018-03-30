@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.petite;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.FieldDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.petite.def.ValueInjectionPoint;
-import jodd.petite.meta.PetiteValue;
-import jodd.util.PropertiesUtil;
-import jodd.util.StringPool;
-import jodd.util.template.ContextTemplateParser;
-import jodd.util.template.MapTemplateParser;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.FieldDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.petite.def.ValueInjectionPoint;
+import utils.petite.meta.PetiteValue;
+import utils.util.PropertiesUtil;
+import utils.util.StringPool;
+import utils.util.template.ContextTemplateParser;
+import utils.util.template.MapTemplateParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,7 +103,7 @@ public class ParamManager {
 	}
 
 	public ValueInjectionPoint[] resolveParamInjectionPoints(final Object bean) {
-		final ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(bean.getClass());
+		final ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(bean.getClass());
 
 		final List<ValueInjectionPoint> valueInjectionPointList = new ArrayList<>();
 

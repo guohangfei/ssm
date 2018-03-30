@@ -1,6 +1,6 @@
 package utils.lagarto;
 
-import jodd.exception.UncheckedException;
+import utils.exception.UncheckedException;
 
 public class LagartoException extends UncheckedException {
 	public LagartoException(Throwable t) {

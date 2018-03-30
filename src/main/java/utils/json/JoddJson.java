@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,24 +25,24 @@
 
 package utils.json;
 
-import jodd.json.TypeJsonSerializerMap;
-import jodd.json.meta.JSON;
-import jodd.json.meta.JsonAnnotationManager;
+import utils.json.TypeJsonSerializerMap;
+import utils.json.meta.JSON;
+import utils.json.meta.JsonAnnotationManager;
 
 import java.lang.annotation.Annotation;
 import java.util.Objects;
 
 /**
- * Jodd JSON module.
+ * utils JSON module.
  */
-public class JoddJson {
+public class utilsJson {
 
-	private static final JoddJson instance = new JoddJson();
+	private static final utilsJson instance = new utilsJson();
 
 	/**
 	 * Returns the module instance.
 	 */
-	public static JoddJson defaults() {
+	public static utilsJson defaults() {
 		return instance;
 	}
 
@@ -71,7 +71,7 @@ public class JoddJson {
 	/**
 	 * Defines new type serializer map.
 	 */
-	public JoddJson setTypeSerializers(final TypeJsonSerializerMap typeSerializers) {
+	public utilsJson setTypeSerializers(final TypeJsonSerializerMap typeSerializers) {
 		Objects.requireNonNull(typeSerializers);
 		this.typeSerializers = typeSerializers;
 		return this;
@@ -87,7 +87,7 @@ public class JoddJson {
 	/**
 	 * Sets new {@link JsonAnnotationManager}.
 	 */
-	public JoddJson setAnnotationManager(final JsonAnnotationManager annotationManager) {
+	public utilsJson setAnnotationManager(final JsonAnnotationManager annotationManager) {
 		Objects.requireNonNull(annotationManager);
 		this.annotationManager = annotationManager;
 		return this;
@@ -117,9 +117,9 @@ public class JoddJson {
 
 	/**
 	 * Specifies if 'class' metadata is used and its value. When set, class metadata
-	 * is used by {@link jodd.json.JsonSerializer} and all objects
+	 * is used by {@link utils.json.JsonSerializer} and all objects
 	 * will have additional field with the class type in the resulting JSON.
-	 * {@link jodd.json.JsonParser} will also consider this flag to build
+	 * {@link utils.json.JsonParser} will also consider this flag to build
 	 * correct object type. If <code>null</code>, class information is not used.
 	 */
 	public void setClassMetadataName(final String classMetadataName) {
@@ -131,7 +131,7 @@ public class JoddJson {
 	}
 
 	/**
-	 * Defines default behavior of a {@link jodd.json.JsonSerializer}.
+	 * Defines default behavior of a {@link utils.json.JsonSerializer}.
 	 * If set to <code>true</code>, objects will be serialized
 	 * deep, so all collections and arrays will get serialized.
 	 */

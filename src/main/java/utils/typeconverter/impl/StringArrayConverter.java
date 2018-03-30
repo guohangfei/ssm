@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.typeconverter.impl;
 
-import jodd.typeconverter.TypeConverterManager;
-import jodd.typeconverter.impl.ArrayConverter;
+import utils.typeconverter.TypeConverterManager;
+import utils.typeconverter.impl.ArrayConverter;
 
 /**
  * Converts given object to <code>String[]</code>.
- * Based on {@link jodd.typeconverter.impl.ArrayConverter}, but optimized for String arrays.
+ * Based on {@link utils.typeconverter.impl.ArrayConverter}, but optimized for String arrays.
  */
 public class StringArrayConverter extends ArrayConverter<String> {
 

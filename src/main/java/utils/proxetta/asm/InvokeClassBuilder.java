@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.ClassAdapter;
-import jodd.asm6.ClassVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.proxetta.InvokeAspect;
-import jodd.proxetta.asm.InvokeReplacerMethodAdapter;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
+import utils.asm.ClassAdapter;
+import utils.asm6.ClassVisitor;
+import utils.asm6.MethodVisitor;
+import utils.proxetta.InvokeAspect;
+import utils.proxetta.asm.InvokeReplacerMethodAdapter;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ import java.util.List;
  */
 public class InvokeClassBuilder extends ClassAdapter {
 
-	protected final jodd.proxetta.asm.WorkData wd;
+	protected final utils.proxetta.asm.WorkData wd;
 	protected final InvokeAspect[] aspects;
 	protected final String suffix;
 	protected final String reqProxyClassName;
@@ -52,7 +52,7 @@ public class InvokeClassBuilder extends ClassAdapter {
 		super(dest);
 		this.aspects = invokeAspects;
 		this.suffix = suffix;
-		this.wd = new jodd.proxetta.asm.WorkData(dest);
+		this.wd = new utils.proxetta.asm.WorkData(dest);
 		this.targetClassInfo = targetClassInfoReader;
 		this.reqProxyClassName = reqProxyClassName;
 	}

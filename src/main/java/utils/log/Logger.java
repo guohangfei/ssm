@@ -1,7 +1,7 @@
 package utils.log;
 
 import java.util.function.Supplier;
-import jodd.log.Logger.Level;
+import utils.log.Logger.Level;
 
 public interface Logger {
 	String getName();

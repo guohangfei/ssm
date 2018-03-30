@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,9 +26,9 @@
 package utils.mail;
 
 import com.sun.mail.pop3.POP3SSLStore;
-import jodd.mail.Pop3Server;
-import jodd.mail.SimpleAuthenticator;
-import jodd.util.StringPool;
+import utils.mail.Pop3Server;
+import utils.mail.SimpleAuthenticator;
+import utils.util.StringPool;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

@@ -1,6 +1,6 @@
 package utils.jtx;
 
-import jodd.exception.UncheckedException;
+import utils.exception.UncheckedException;
 
 public class JtxException extends UncheckedException {
 	public JtxException(Throwable t) {

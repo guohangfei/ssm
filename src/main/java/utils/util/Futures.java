@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.util;
 
-import jodd.util.concurrent.ThreadFactoryBuilder;
+import utils.util.concurrent.ThreadFactoryBuilder;
 
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;

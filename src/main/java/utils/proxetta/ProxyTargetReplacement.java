@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,66 +25,66 @@
 
 package utils.proxetta;
 
-import jodd.asm.AsmUtil;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.Opcodes;
-import jodd.asm6.Type;
-import jodd.proxetta.AnnotationInfo;
-import jodd.proxetta.ClassInfo;
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.ProxyTarget;
-import jodd.proxetta.asm.ProxettaAsmUtil;
-import jodd.util.ClassLoaderUtil;
+import utils.asm.AsmUtil;
+import utils.asm6.MethodVisitor;
+import utils.asm6.Opcodes;
+import utils.asm6.Type;
+import utils.proxetta.AnnotationInfo;
+import utils.proxetta.ClassInfo;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.ProxyTarget;
+import utils.proxetta.asm.ProxettaAsmUtil;
+import utils.util.ClassLoaderUtil;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 
-import static jodd.asm6.Opcodes.AASTORE;
-import static jodd.asm6.Opcodes.ANEWARRAY;
-import static jodd.asm6.Opcodes.DUP;
-import static jodd.asm6.Opcodes.POP;
-import static jodd.proxetta.asm.ProxettaAsmUtil.checkArgumentIndex;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadMethodArgumentAsObject;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadMethodArgumentClass;
-import static jodd.proxetta.asm.ProxettaAsmUtil.pushInt;
+import static utils.asm6.Opcodes.AASTORE;
+import static utils.asm6.Opcodes.ANEWARRAY;
+import static utils.asm6.Opcodes.DUP;
+import static utils.asm6.Opcodes.POP;
+import static utils.proxetta.asm.ProxettaAsmUtil.checkArgumentIndex;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadMethodArgumentAsObject;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadMethodArgumentClass;
+import static utils.proxetta.asm.ProxettaAsmUtil.pushInt;
 
 /**
- * Replacements methods for {@link jodd.proxetta.ProxyTarget} methods.
+ * Replacements methods for {@link utils.proxetta.ProxyTarget} methods.
  */
 public class ProxyTargetReplacement {
 
-	public static final String PROXY_TARGET_INFO = "jodd/proxetta/ProxyTargetInfo";
+	public static final String PROXY_TARGET_INFO = "utils/proxetta/ProxyTargetInfo";
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#argumentsCount()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#argumentsCount()}.
 	 */
-	public static void argumentsCount(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void argumentsCount(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		int argsCount = methodInfo.getArgumentsCount();
 		pushInt(mv, argsCount);
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#argumentType(int)}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#argumentType(int)}.
 	 */
-	public static void argumentType(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo, final int argIndex) {
+	public static void argumentType(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo, final int argIndex) {
 		checkArgumentIndex(methodInfo, argIndex);
 		mv.visitInsn(POP);
 		loadMethodArgumentClass(mv, methodInfo, argIndex);
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#argument(int)}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#argument(int)}.
 	 */
-	public static void argument(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo, final int argIndex) {
+	public static void argument(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo, final int argIndex) {
 		checkArgumentIndex(methodInfo, argIndex);
 		mv.visitInsn(POP);
 		loadMethodArgumentAsObject(mv, methodInfo, argIndex);
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#createArgumentsArray()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#createArgumentsArray()}.
 	 */
-	public static void createArgumentsArray(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void createArgumentsArray(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		int argsCount = methodInfo.getArgumentsCount();
 		pushInt(mv, argsCount);
 		mv.visitTypeInsn(ANEWARRAY, AsmUtil.SIGNATURE_JAVA_LANG_OBJECT);
@@ -97,9 +97,9 @@ public class ProxyTargetReplacement {
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#createArgumentsClassArray()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#createArgumentsClassArray()}.
 	 */
-	public static void createArgumentsClassArray(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void createArgumentsClassArray(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		int argsCount = methodInfo.getArgumentsCount();
 		pushInt(mv, argsCount);
 		mv.visitTypeInsn(ANEWARRAY, AsmUtil.SIGNATURE_JAVA_LANG_CLASS);
@@ -112,45 +112,45 @@ public class ProxyTargetReplacement {
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#returnType()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#returnType()}.
 	 */
-	public static void returnType(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void returnType(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		ProxettaAsmUtil.loadClass(mv, methodInfo.getReturnType().getOpcode(), methodInfo.getReturnType().getName());
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#targetMethodName()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#targetMethodName()}.
 	 */
-	public static void targetMethodName(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void targetMethodName(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		mv.visitLdcInsn(methodInfo.getMethodName());
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#targetMethodSignature()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#targetMethodSignature()}.
 	 */
-	public static void targetMethodSignature(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void targetMethodSignature(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		mv.visitLdcInsn(methodInfo.getSignature());
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#targetMethodDescription()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#targetMethodDescription()}.
 	 */
-	public static void targetMethodDescription(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
+	public static void targetMethodDescription(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
 		mv.visitLdcInsn(methodInfo.getDescription());
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#targetClass()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#targetClass()}.
 	 */
-	public static void targetClass(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo) {
-		jodd.proxetta.ClassInfo classInfo = methodInfo.getClassInfo();
+	public static void targetClass(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo) {
+		utils.proxetta.ClassInfo classInfo = methodInfo.getClassInfo();
 		mv.visitLdcInsn(Type.getType('L' + classInfo.getReference() + ';'));
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#info()}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#info()}.
 	 */
-	public static void info(final MethodVisitor mv, final jodd.proxetta.MethodInfo methodInfo, final int argsOff) {
+	public static void info(final MethodVisitor mv, final utils.proxetta.MethodInfo methodInfo, final int argsOff) {
 		mv.visitTypeInsn(Opcodes.NEW, PROXY_TARGET_INFO);
 		mv.visitInsn(DUP);
 		mv.visitMethodInsn(Opcodes.INVOKESPECIAL, PROXY_TARGET_INFO, "<init>", "()V", false);
@@ -205,10 +205,10 @@ public class ProxyTargetReplacement {
 	}
 
 	/**
-	 * Visits replacement code for {@link jodd.proxetta.ProxyTarget#targetMethodAnnotation(String, String)}.
+	 * Visits replacement code for {@link utils.proxetta.ProxyTarget#targetMethodAnnotation(String, String)}.
 	 */
 	public static void targetMethodAnnotation(final MethodVisitor mv, final MethodInfo methodInfo, final String[] args) {
-		jodd.proxetta.AnnotationInfo[] anns = methodInfo.getAnnotations();
+		utils.proxetta.AnnotationInfo[] anns = methodInfo.getAnnotations();
 
 		if (anns != null) {
 			targetAnnotation(mv, anns, args);
@@ -219,7 +219,7 @@ public class ProxyTargetReplacement {
 	 * Visits replacement code for {@link ProxyTarget#targetClassAnnotation(String, String)}.
 	 */
 	public static void targetClassAnnotation(final MethodVisitor mv, final ClassInfo classInfo, final String[] args) {
-		jodd.proxetta.AnnotationInfo[] anns = classInfo.getAnnotations();
+		utils.proxetta.AnnotationInfo[] anns = classInfo.getAnnotations();
 
 		if (anns != null) {
 			targetAnnotation(mv, anns, args);
@@ -228,7 +228,7 @@ public class ProxyTargetReplacement {
 		}
 	}
 
-	private static void targetAnnotation(final MethodVisitor mv, final jodd.proxetta.AnnotationInfo[] anns, final String[] args) {
+	private static void targetAnnotation(final MethodVisitor mv, final utils.proxetta.AnnotationInfo[] anns, final String[] args) {
 		for (AnnotationInfo ann : anns) {
 			String annotationSignature = ann.getAnnotationSignature();
 			Method annotationMethod = null;

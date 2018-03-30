@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxyAdvice;
-import jodd.proxetta.ProxyTargetInfo;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxyAdvice;
+import utils.proxetta.ProxyTargetInfo;
 
 /**
  * Marker class for {@link ProxyAdvice proxy} implementations.
@@ -185,7 +185,7 @@ public final class ProxyTarget {
 	// ---------------------------------------------------------------- info
 
 	/**
-	 * Inserts populated {@link jodd.proxetta.ProxyTargetInfo} instance.
+	 * Inserts populated {@link utils.proxetta.ProxyTargetInfo} instance.
 	 */
 	public static ProxyTargetInfo info() {
 		throw new ProxettaException();

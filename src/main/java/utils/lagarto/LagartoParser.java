@@ -1,24 +1,24 @@
 package utils.lagarto;
 
-import jodd.lagarto.LagartoParserConfig;
-import jodd.lagarto.ParsedDoctype;
-import jodd.lagarto.ParsedTag;
-import jodd.lagarto.Scanner;
-import jodd.lagarto.State;
-import jodd.lagarto.TagType;
-import jodd.lagarto.TagVisitor;import jodd.lagarto.LagartoParser.1;import jodd.lagarto.LagartoParser.10;import jodd.lagarto.LagartoParser.11;import jodd.lagarto.LagartoParser.12;import jodd.lagarto.LagartoParser.13;import jodd.lagarto.LagartoParser.14;import jodd.lagarto.LagartoParser.15;import jodd.lagarto.LagartoParser.16;import jodd.lagarto.LagartoParser.17;import jodd.lagarto.LagartoParser.18;import jodd.lagarto.LagartoParser.19;import jodd.lagarto.LagartoParser.2;import jodd.lagarto.LagartoParser.20;import jodd.lagarto.LagartoParser.21;import jodd.lagarto.LagartoParser.22;import jodd.lagarto.LagartoParser.23;import jodd.lagarto.LagartoParser.24;import jodd.lagarto.LagartoParser.25;import jodd.lagarto.LagartoParser.26;import jodd.lagarto.LagartoParser.27;import jodd.lagarto.LagartoParser.28;import jodd.lagarto.LagartoParser.29;import jodd.lagarto.LagartoParser.3;import jodd.lagarto.LagartoParser.30;import jodd.lagarto.LagartoParser.31;import jodd.lagarto.LagartoParser.32;import jodd.lagarto.LagartoParser.33;import jodd.lagarto.LagartoParser.34;import jodd.lagarto.LagartoParser.35;import jodd.lagarto.LagartoParser.36;import jodd.lagarto.LagartoParser.37;import jodd.lagarto.LagartoParser.38;import jodd.lagarto.LagartoParser.39;import jodd.lagarto.LagartoParser.4;import jodd.lagarto.LagartoParser.40;import jodd.lagarto.LagartoParser.41;import jodd.lagarto.LagartoParser.42;import jodd.lagarto.LagartoParser.43;import jodd.lagarto.LagartoParser.44;import jodd.lagarto.LagartoParser.45;import jodd.lagarto.LagartoParser.46;import jodd.lagarto.LagartoParser.47;import jodd.lagarto.LagartoParser.48;import jodd.lagarto.LagartoParser.49;import jodd.lagarto.LagartoParser.5;import jodd.lagarto.LagartoParser.6;import jodd.lagarto.LagartoParser.7;import jodd.lagarto.LagartoParser.8;import jodd.lagarto.LagartoParser.9;
-import jodd.lagarto.LagartoParser.ScriptEscape;
-import jodd.lagarto.LagartoParser.XmlDeclaration;
-import jodd.lagarto.Scanner.Position;
-import jodd.util.ArraysUtil;
-import jodd.util.CharArraySequence;
-import jodd.util.CharUtil;
-import jodd.util.UnsafeUtil;
-import jodd.util.net.HtmlDecoder;
+import utils.lagarto.LagartoParserConfig;
+import utils.lagarto.ParsedDoctype;
+import utils.lagarto.ParsedTag;
+import utils.lagarto.Scanner;
+import utils.lagarto.State;
+import utils.lagarto.TagType;
+import utils.lagarto.TagVisitor;import utils.lagarto.LagartoParser.1;import utils.lagarto.LagartoParser.10;import utils.lagarto.LagartoParser.11;import utils.lagarto.LagartoParser.12;import utils.lagarto.LagartoParser.13;import utils.lagarto.LagartoParser.14;import utils.lagarto.LagartoParser.15;import utils.lagarto.LagartoParser.16;import utils.lagarto.LagartoParser.17;import utils.lagarto.LagartoParser.18;import utils.lagarto.LagartoParser.19;import utils.lagarto.LagartoParser.2;import utils.lagarto.LagartoParser.20;import utils.lagarto.LagartoParser.21;import utils.lagarto.LagartoParser.22;import utils.lagarto.LagartoParser.23;import utils.lagarto.LagartoParser.24;import utils.lagarto.LagartoParser.25;import utils.lagarto.LagartoParser.26;import utils.lagarto.LagartoParser.27;import utils.lagarto.LagartoParser.28;import utils.lagarto.LagartoParser.29;import utils.lagarto.LagartoParser.3;import utils.lagarto.LagartoParser.30;import utils.lagarto.LagartoParser.31;import utils.lagarto.LagartoParser.32;import utils.lagarto.LagartoParser.33;import utils.lagarto.LagartoParser.34;import utils.lagarto.LagartoParser.35;import utils.lagarto.LagartoParser.36;import utils.lagarto.LagartoParser.37;import utils.lagarto.LagartoParser.38;import utils.lagarto.LagartoParser.39;import utils.lagarto.LagartoParser.4;import utils.lagarto.LagartoParser.40;import utils.lagarto.LagartoParser.41;import utils.lagarto.LagartoParser.42;import utils.lagarto.LagartoParser.43;import utils.lagarto.LagartoParser.44;import utils.lagarto.LagartoParser.45;import utils.lagarto.LagartoParser.46;import utils.lagarto.LagartoParser.47;import utils.lagarto.LagartoParser.48;import utils.lagarto.LagartoParser.49;import utils.lagarto.LagartoParser.5;import utils.lagarto.LagartoParser.6;import utils.lagarto.LagartoParser.7;import utils.lagarto.LagartoParser.8;import utils.lagarto.LagartoParser.9;
+import utils.lagarto.LagartoParser.ScriptEscape;
+import utils.lagarto.LagartoParser.XmlDeclaration;
+import utils.lagarto.Scanner.Position;
+import utils.util.ArraysUtil;
+import utils.util.CharArraySequence;
+import utils.util.CharUtil;
+import utils.util.UnsafeUtil;
+import utils.util.net.HtmlDecoder;
 
-public class LagartoParser extends jodd.lagarto.Scanner {
+public class LagartoParser extends utils.lagarto.Scanner {
 	protected TagVisitor visitor;
-	protected jodd.lagarto.ParsedTag tag;
+	protected utils.lagarto.ParsedTag tag;
 	protected ParsedDoctype doctype;
 	protected long parsingTime;
 	protected LagartoParserConfig config = new LagartoParserConfig();
@@ -137,7 +137,7 @@ public class LagartoParser extends jodd.lagarto.Scanner {
 
 	protected void initialize(char[] input) {
 		super.initialize(input);
-		this.tag = new jodd.lagarto.ParsedTag();
+		this.tag = new utils.lagarto.ParsedTag();
 		this.doctype = new ParsedDoctype();
 		this.text = new char[1024];
 		this.textLen = 0;

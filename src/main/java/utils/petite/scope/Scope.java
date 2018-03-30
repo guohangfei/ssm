@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.petite.scope;
 
-import jodd.petite.BeanDefinition;
+import utils.petite.BeanDefinition;
 
 /**
  * Petite container bean scope. Scopes actually represents wrapper over none, one or many internal

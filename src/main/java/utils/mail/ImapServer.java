@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.mail;
 
-import jodd.mail.EmailUtil;
-import jodd.mail.MailServer;
-import jodd.mail.ReceiveMailSession;
-import jodd.util.StringPool;
+import utils.mail.EmailUtil;
+import utils.mail.MailServer;
+import utils.mail.ReceiveMailSession;
+import utils.util.StringPool;
 
 import javax.mail.Authenticator;
 import javax.mail.NoSuchProviderException;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.util;
 
-import jodd.util.CharUtil;
+import utils.util.CharUtil;
 
 public class CharSequenceUtil {
 
@@ -72,7 +72,7 @@ public class CharSequenceUtil {
 		for (int i = 0; i < length; i++) {
 			char c = charSequence.charAt(i);
 
-			c = jodd.util.CharUtil.toLowerAscii(c);
+			c = utils.util.CharUtil.toLowerAscii(c);
 
 			if (c != chars.charAt(i)) {
 				return true;
@@ -90,7 +90,7 @@ public class CharSequenceUtil {
 
 		for (int i = 0; i < len; i++) {
 			char c1 = charSequence1.charAt(i);
-			c1 = jodd.util.CharUtil.toLowerAscii(c1);
+			c1 = utils.util.CharUtil.toLowerAscii(c1);
 
 			char c2 = charSequence2.charAt(i);
 			c2 = CharUtil.toLowerAscii(c2);

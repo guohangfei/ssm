@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.typeconverter;
 
-import jodd.bean.JoddBean;
-import jodd.typeconverter.TypeConverter;
+import utils.bean.utilsBean;
+import utils.typeconverter.TypeConverter;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -43,7 +43,7 @@ public class Converter {
 	 * Returns default instance.
 	 */
 	public static Converter get() {
-		return JoddBean.defaults().getConverter();
+		return utilsBean.defaults().getConverter();
 	}
 
 	/**

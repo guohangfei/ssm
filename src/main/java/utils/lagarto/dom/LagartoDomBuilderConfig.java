@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.LagartoParserConfig;
-import jodd.lagarto.dom.HtmlFosterRules;
-import jodd.lagarto.dom.LagartoHtmlRenderer;
-import jodd.log.Logger;
+import utils.lagarto.LagartoParserConfig;
+import utils.lagarto.dom.HtmlFosterRules;
+import utils.lagarto.dom.LagartoHtmlRenderer;
+import utils.log.Logger;
 
 /**
- * Additional configuration for {@link jodd.lagarto.dom.LagartoDOMBuilder}
+ * Additional configuration for {@link utils.lagarto.dom.LagartoDOMBuilder}
  * based on {@link LagartoParserConfig}.
  */
 public class LagartoDomBuilderConfig extends LagartoParserConfig<LagartoDomBuilderConfig> {
@@ -48,7 +48,7 @@ public class LagartoDomBuilderConfig extends LagartoParserConfig<LagartoDomBuild
 	protected boolean useFosterRules;
 	protected boolean unclosedTagAsOrphanCheck;
 
-	protected jodd.lagarto.dom.LagartoHtmlRenderer lagartoHtmlRenderer = new jodd.lagarto.dom.LagartoHtmlRenderer();
+	protected utils.lagarto.dom.LagartoHtmlRenderer lagartoHtmlRenderer = new utils.lagarto.dom.LagartoHtmlRenderer();
 
 	// ---------------------------------------------------------------- access
 
@@ -176,7 +176,7 @@ public class LagartoDomBuilderConfig extends LagartoParserConfig<LagartoDomBuild
 		return this;
 	}
 
-	public jodd.lagarto.dom.LagartoHtmlRenderer getLagartoHtmlRenderer() {
+	public utils.lagarto.dom.LagartoHtmlRenderer getLagartoHtmlRenderer() {
 		return lagartoHtmlRenderer;
 	}
 

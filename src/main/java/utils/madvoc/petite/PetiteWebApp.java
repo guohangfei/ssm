@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.madvoc.petite;
 
-import jodd.madvoc.WebApp;
-import jodd.madvoc.petite.PetiteFilterManager;
-import jodd.madvoc.petite.PetiteInterceptorManager;
-import jodd.madvoc.petite.PetiteMadvocController;
-import jodd.madvoc.petite.PetiteResultsManager;
-import jodd.petite.AutomagicPetiteConfigurator;
-import jodd.petite.PetiteContainer;
+import utils.madvoc.WebApp;
+import utils.madvoc.petite.PetiteFilterManager;
+import utils.madvoc.petite.PetiteInterceptorManager;
+import utils.madvoc.petite.PetiteMadvocController;
+import utils.madvoc.petite.PetiteResultsManager;
+import utils.petite.AutomagicPetiteConfigurator;
+import utils.petite.PetiteContainer;
 
 import java.util.Objects;
 import java.util.function.Supplier;

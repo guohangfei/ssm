@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.AnnotationInfo;
+import utils.proxetta.AnnotationInfo;
 
 /**
  * Holds information about the types. Used for methods return type and arguments.

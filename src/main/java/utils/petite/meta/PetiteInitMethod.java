@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.petite.meta;
 
-import jodd.petite.meta.InitMethodInvocationStrategy;
+import utils.petite.meta.InitMethodInvocationStrategy;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -33,7 +33,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static jodd.petite.meta.InitMethodInvocationStrategy.POST_INITIALIZE;
+import static utils.petite.meta.InitMethodInvocationStrategy.POST_INITIALIZE;
 
 /**
  * Markups the Petite bean initialization method. Initialization methods are called once when

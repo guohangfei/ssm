@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.mail;
 
-import jodd.core.JoddCore;
-import jodd.io.FastByteArrayOutputStream;
-import jodd.io.StreamUtil;
-import jodd.mail.*;
-import jodd.mail.JoddMail;
-import jodd.util.CharUtil;
-import jodd.util.StringPool;
+import utils.core.utilsCore;
+import utils.io.FastByteArrayOutputStream;
+import utils.io.StreamUtil;
+import utils.mail.*;
+import utils.mail.utilsMail;
+import utils.util.CharUtil;
+import utils.util.StringPool;
 
 import javax.activation.DataSource;
 import javax.mail.Authenticator;
@@ -114,17 +114,17 @@ public class EmailUtil {
 	 *
 	 * @param contentType     content type.
 	 * @param defaultEncoding Default encoding to be used if extract returns {@code null}.
-	 *                        If defaultEncoding is {@code null}, {@link JoddCore#getEncoding()} will be used.
+	 *                        If defaultEncoding is {@code null}, {@link utilsCore#getEncoding()} will be used.
 	 * @return Encoding from the content type.
 	 * @see #extractEncoding(String)
-	 * @see JoddCore#getEncoding()
+	 * @see utilsCore#getEncoding()
 	 */
 	public static String extractEncoding(final String contentType, String defaultEncoding) {
 		String encoding = extractEncoding(contentType);
 
 		if (encoding == null) {
 			if (defaultEncoding == null) {
-				defaultEncoding = JoddCore.defaults().getEncoding();
+				defaultEncoding = utilsCore.defaults().getEncoding();
 			}
 			encoding = defaultEncoding;
 		}
@@ -174,7 +174,7 @@ public class EmailUtil {
 	 * Setups the system email properties.
 	 */
 	public static void setupSystemMailProperties() {
-		final jodd.mail.JoddMail defaults = JoddMail.defaults();
+		final utils.mail.utilsMail defaults = utilsMail.defaults();
 		System.setProperty("mail.mime.encodefilename", Boolean.valueOf(defaults.isMailMimeEncodefilename()).toString());
 		System.setProperty("mail.mime.decodefilename", Boolean.valueOf(defaults.isMailMimeDecodefilename()).toString());
 	}

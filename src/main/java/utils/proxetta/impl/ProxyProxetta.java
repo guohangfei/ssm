@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.proxetta.impl;
 
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.ProxyProxettaFactory;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.ProxyProxettaFactory;
 
 /**
  * Proxetta that creates proxies.
@@ -36,7 +36,7 @@ import jodd.proxetta.impl.ProxyProxettaFactory;
 public class ProxyProxetta extends Proxetta<ProxyProxetta, ProxyAspect> {
 
 	public ProxyProxetta() {
-		classNameSuffix = JoddProxetta.defaults().getProxyClassNameSuffix();
+		classNameSuffix = utilsProxetta.defaults().getProxyClassNameSuffix();
 	}
 
 	@Override

@@ -3,12 +3,12 @@ package utils.madvoc.injector;
 import java.util.Enumeration;
 import java.util.function.BiConsumer;
 import javax.servlet.ServletContext;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.injector.ContextInjector;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Outjector;
-import jodd.madvoc.injector.Targets;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.injector.ContextInjector;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Outjector;
+import utils.madvoc.injector.Targets;
 
 public class ApplicationScopeInjector implements Injector, Outjector, ContextInjector<ServletContext> {
 	private static final ScopeType SCOPE_TYPE;

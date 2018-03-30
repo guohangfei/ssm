@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.proxetta;
 
-import jodd.asm.AsmUtil;
-import jodd.proxetta.AnnotationInfo;
-import jodd.proxetta.ClassInfo;
-import jodd.proxetta.TypeInfo;
-import jodd.util.StringUtil;
-import jodd.util.Wildcard;
+import utils.asm.AsmUtil;
+import utils.proxetta.AnnotationInfo;
+import utils.proxetta.ClassInfo;
+import utils.proxetta.TypeInfo;
+import utils.util.StringUtil;
+import utils.util.Wildcard;
 
 import java.lang.annotation.Annotation;
 
@@ -57,9 +57,9 @@ public interface MethodInfo {
 	String getDeclaration();
 
 	/**
-	 * Returns return {@link jodd.proxetta.TypeInfo type information}.
+	 * Returns return {@link utils.proxetta.TypeInfo type information}.
 	 */
-	jodd.proxetta.TypeInfo getReturnType();
+	utils.proxetta.TypeInfo getReturnType();
 
 	/**
 	 * Returns exceptions as a comma-seaprated string.
@@ -124,7 +124,7 @@ public interface MethodInfo {
 
 	/**
 	 * Returns bytecode-like class name, where packages are separated by a slash.
-	 * For example: {@code org/jodd/Jodd}
+	 * For example: {@code org/utils/utils}
 	 */
 	String getClassname();
 
@@ -151,7 +151,7 @@ public interface MethodInfo {
 	boolean isTopLevelMethod();
 
 	/**
-	 * Returns target {@link jodd.proxetta.ClassInfo class informations}.
+	 * Returns target {@link utils.proxetta.ClassInfo class informations}.
 	 */
 	ClassInfo getClassInfo();
 

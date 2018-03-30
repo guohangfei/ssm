@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.dom.Node;
+import utils.lagarto.dom.Node;
 
 import java.util.List;
 
 public interface NodeListFilter {
 
-	boolean accept(List<jodd.lagarto.dom.Node> currentResults, Node node, int index);
+	boolean accept(List<utils.lagarto.dom.Node> currentResults, Node node, int index);
 }

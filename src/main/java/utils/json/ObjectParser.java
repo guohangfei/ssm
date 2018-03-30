@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.json;
 
-import jodd.json.JsonParser;
-import jodd.json.Path;
+import utils.json.JsonParser;
+import utils.json.Path;
 
 import java.util.function.Supplier;
 
@@ -50,8 +50,8 @@ class ObjectParser implements Supplier {
 	private final Class targetType;
 	private final Class keyType;
 	private final Class componentType;
-	private final jodd.json.JsonParser jsonParser;
-	private final jodd.json.Path path;
+	private final utils.json.JsonParser jsonParser;
+	private final utils.json.Path path;
 
 	ObjectParser(final JsonParser jsonParser, final Class targetType, final Class keyType, final Class componentType) {
 		this.jsonParser = jsonParser;

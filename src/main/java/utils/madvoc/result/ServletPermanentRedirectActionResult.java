@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.madvoc.result;
 
-import jodd.bean.BeanTemplateParser;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.ResultMapper;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.PermanentRedirect;
-import jodd.servlet.DispatcherUtil;
+import utils.bean.BeanTemplateParser;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.ResultMapper;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.PermanentRedirect;
+import utils.servlet.DispatcherUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +41,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Simply sends permanent redirection to an external location.
  */
-public class ServletPermanentRedirectActionResult implements ActionResult<jodd.madvoc.result.PermanentRedirect> {
+public class ServletPermanentRedirectActionResult implements ActionResult<utils.madvoc.result.PermanentRedirect> {
 
 	protected final BeanTemplateParser beanTemplateParser = new BeanTemplateParser();
 

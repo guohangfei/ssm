@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.petite.resolver;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.def.MethodInjectionPoint;
-import jodd.petite.resolver.ReferencesResolver;
-import jodd.util.ClassUtil;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.petite.def.BeanReferences;
+import utils.petite.def.MethodInjectionPoint;
+import utils.petite.resolver.ReferencesResolver;
+import utils.util.ClassUtil;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class MethodResolver {
 	 */
 	public MethodInjectionPoint[] resolve(final Class type) {
 		// lookup methods
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 		List<MethodInjectionPoint> list = new ArrayList<>();
 		MethodDescriptor[] allMethods = cd.getAllMethodDescriptors();
 

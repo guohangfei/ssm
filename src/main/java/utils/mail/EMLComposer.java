@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.mail;
 
-import jodd.mail.EMLProperties;
-import jodd.mail.Email;
-import jodd.mail.MailException;
-import jodd.mail.SendMailSession;
+import utils.mail.EMLProperties;
+import utils.mail.Email;
+import utils.mail.MailException;
+import utils.mail.SendMailSession;
 
 import javax.mail.Address;
 import javax.mail.Message;
@@ -47,9 +47,9 @@ public class EMLComposer extends EMLProperties<EMLComposer> {
 	}
 
 	/**
-	 * Creates EML string from given {@link jodd.mail.Email}.
+	 * Creates EML string from given {@link utils.mail.Email}.
 	 *
-	 * @param email {@link jodd.mail.Email} from which to create EML {@link String}.
+	 * @param email {@link utils.mail.Email} from which to create EML {@link String}.
 	 * @return {@link String} with EML content.
 	 */
 	public String compose(final Email email) {
@@ -77,7 +77,7 @@ public class EMLComposer extends EMLProperties<EMLComposer> {
 		 * @param session {@link Session}.
 		 */
 		public OutputStreamTransport(final Session session) {
-			super(session, new URLName("JODD_MAIL_2_EML", null, -1, null, null, null));
+			super(session, new URLName("utils_MAIL_2_EML", null, -1, null, null, null));
 		}
 
 		/**

@@ -1,7 +1,7 @@
 package utils.lagarto;
 
 import java.io.IOException;
-import jodd.lagarto.TagType;
+import utils.lagarto.TagType;
 
 public interface Tag {
 	boolean isCaseSensitive();

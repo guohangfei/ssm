@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.madvoc.result;
 
-import jodd.io.FileNameUtil;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.meta.RenderWith;
-import jodd.madvoc.result.RawActionResult;
-import jodd.util.StringPool;
-import jodd.util.net.MimeTypes;
+import utils.io.FileNameUtil;
+import utils.madvoc.MadvocException;
+import utils.madvoc.meta.RenderWith;
+import utils.madvoc.result.RawActionResult;
+import utils.util.StringPool;
+import utils.util.net.MimeTypes;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

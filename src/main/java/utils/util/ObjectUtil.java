@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util;
 
-import jodd.io.FastByteArrayOutputStream;
-import jodd.io.StreamUtil;
+import utils.io.FastByteArrayOutputStream;
+import utils.io.StreamUtil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

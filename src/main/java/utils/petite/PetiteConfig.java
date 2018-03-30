@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.petite;
 
-import jodd.petite.PetiteException;
-import jodd.petite.PetiteReferenceType;
-import jodd.petite.WiringMode;
+import utils.petite.PetiteException;
+import utils.petite.PetiteReferenceType;
+import utils.petite.WiringMode;
 
 /**
  * Petite configuration.
@@ -35,7 +35,7 @@ import jodd.petite.WiringMode;
 public class PetiteConfig {
 
 	public PetiteConfig() {
-		defaultWiringMode = jodd.petite.WiringMode.STRICT;
+		defaultWiringMode = utils.petite.WiringMode.STRICT;
 		detectDuplicatedBeanNames = false;
 		resolveReferenceParameters = true;
 		useFullTypeNames = false;
@@ -85,18 +85,18 @@ public class PetiteConfig {
 
 	// ----------------------------------------------------------------
 
-	protected jodd.petite.WiringMode defaultWiringMode;
+	protected utils.petite.WiringMode defaultWiringMode;
 	/**
 	 * Returns default wiring mode.
 	 */
-	public jodd.petite.WiringMode getDefaultWiringMode() {
+	public utils.petite.WiringMode getDefaultWiringMode() {
 		return defaultWiringMode;
 	}
 	/**
 	 * Specifies default wiring mode.
 	 */
-	public PetiteConfig setDefaultWiringMode(final jodd.petite.WiringMode defaultWiringMode) {
-		if ((defaultWiringMode == null) || (defaultWiringMode == jodd.petite.WiringMode.DEFAULT)) {
+	public PetiteConfig setDefaultWiringMode(final utils.petite.WiringMode defaultWiringMode) {
+		if ((defaultWiringMode == null) || (defaultWiringMode == utils.petite.WiringMode.DEFAULT)) {
 			throw new PetiteException("Invalid default wiring mode: " + defaultWiringMode);
 		}
 		this.defaultWiringMode = defaultWiringMode;
@@ -105,7 +105,7 @@ public class PetiteConfig {
 	/**
 	 * Resolves wiring mode by checking if default and <code>null</code> values.
 	 */
-	protected jodd.petite.WiringMode resolveWiringMode(jodd.petite.WiringMode wiringMode) {
+	protected utils.petite.WiringMode resolveWiringMode(utils.petite.WiringMode wiringMode) {
 		if ((wiringMode == null) || (wiringMode == WiringMode.DEFAULT)) {
 			wiringMode = defaultWiringMode;
 		}

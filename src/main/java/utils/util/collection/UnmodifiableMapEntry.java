@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.util.collection;
 
-import jodd.util.collection.MapEntry;
+import utils.util.collection.MapEntry;
 
 /**
- * Unmodifiable version of {@link jodd.util.collection.MapEntry} implementation.
+ * Unmodifiable version of {@link utils.util.collection.MapEntry} implementation.
  */
 public class UnmodifiableMapEntry<K, V> extends MapEntry<K, V> {
 

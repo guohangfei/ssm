@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,49 +25,49 @@
 
 package utils.madvoc.component;
 
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.ActionHandler;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.MadvocUtil;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.*;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.component.FiltersManager;
-import jodd.madvoc.component.ScopeDataResolver;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionNames;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.MethodParam;
-import jodd.madvoc.config.RootPackages;
-import jodd.madvoc.config.ScopeData;
-import jodd.madvoc.filter.ActionFilter;
-import jodd.madvoc.injector.Target;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.madvoc.meta.Action;
-import jodd.madvoc.meta.ActionAnnotation;
-import jodd.madvoc.meta.ActionAnnotationData;
-import jodd.madvoc.meta.Async;
-import jodd.madvoc.meta.DELETE;
-import jodd.madvoc.meta.FilteredBy;
-import jodd.madvoc.meta.GET;
-import jodd.madvoc.meta.HEAD;
-import jodd.madvoc.meta.InterceptedBy;
-import jodd.madvoc.meta.MadvocAction;
-import jodd.madvoc.meta.OPTIONS;
-import jodd.madvoc.meta.PATCH;
-import jodd.madvoc.meta.POST;
-import jodd.madvoc.meta.PUT;
-import jodd.madvoc.meta.RenderWith;
-import jodd.madvoc.meta.TRACE;
-import jodd.madvoc.path.ActionNamingStrategy;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.NoneActionResult;
-import jodd.petite.meta.PetiteInject;
-import jodd.util.ArraysUtil;
-import jodd.util.ClassUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.ActionHandler;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.MadvocUtil;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.*;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.component.FiltersManager;
+import utils.madvoc.component.ScopeDataResolver;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionNames;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.MethodParam;
+import utils.madvoc.config.RootPackages;
+import utils.madvoc.config.ScopeData;
+import utils.madvoc.filter.ActionFilter;
+import utils.madvoc.injector.Target;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.meta.Action;
+import utils.madvoc.meta.ActionAnnotation;
+import utils.madvoc.meta.ActionAnnotationData;
+import utils.madvoc.meta.Async;
+import utils.madvoc.meta.DELETE;
+import utils.madvoc.meta.FilteredBy;
+import utils.madvoc.meta.GET;
+import utils.madvoc.meta.HEAD;
+import utils.madvoc.meta.InterceptedBy;
+import utils.madvoc.meta.MadvocAction;
+import utils.madvoc.meta.OPTIONS;
+import utils.madvoc.meta.PATCH;
+import utils.madvoc.meta.POST;
+import utils.madvoc.meta.PUT;
+import utils.madvoc.meta.RenderWith;
+import utils.madvoc.meta.TRACE;
+import utils.madvoc.path.ActionNamingStrategy;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.NoneActionResult;
+import utils.petite.meta.PetiteInject;
+import utils.util.ArraysUtil;
+import utils.util.ClassUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;

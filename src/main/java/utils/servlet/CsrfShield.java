@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.servlet;
 
-import jodd.util.RandomString;
+import utils.util.RandomString;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -138,7 +138,7 @@ public class CsrfShield {
 	}
 
 	/**
-	 * Checks if {@link jodd.servlet.tag.CsrfTokenTag CSRF token} is valid.
+	 * Checks if {@link utils.servlet.tag.CsrfTokenTag CSRF token} is valid.
 	 * Returns <code>false</code> if token was requested, but not found.
 	 * Otherwise, it returns <code>true</code>.
 	 */

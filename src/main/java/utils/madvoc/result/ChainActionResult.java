@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.madvoc.result;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.ResultMapper;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.Chain;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.ResultMapper;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.Chain;
 
 /**
  * Process chain results. Chaining is very similar to forwarding, except it is done
- * by {@link jodd.madvoc.MadvocServletFilter} and not by container. Chaining to next action request
+ * by {@link utils.madvoc.MadvocServletFilter} and not by container. Chaining to next action request
  * happens after the complete execution of current one: after all interceptors and this result has been
  * finished.
  */
-public class ChainActionResult implements ActionResult<jodd.madvoc.result.Chain> {
+public class ChainActionResult implements ActionResult<utils.madvoc.result.Chain> {
 
 	@In @Scope(ScopeType.CONTEXT)
 	protected ResultMapper resultMapper;

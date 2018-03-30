@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.madvoc.result;
 
-import jodd.io.StreamUtil;
-import jodd.json.JsonSerializer;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.JsonResult;
-import jodd.util.net.MimeTypes;
+import utils.io.StreamUtil;
+import utils.json.JsonSerializer;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.ScopeType;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.JsonResult;
+import utils.util.net.MimeTypes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
@@ -64,8 +64,8 @@ public class JsonActionResult implements ActionResult {
 		final int status;
 		final String statusMessage;
 
-		if (object instanceof jodd.madvoc.result.JsonResult) {
-			jodd.madvoc.result.JsonResult jsonResult = (JsonResult) object;
+		if (object instanceof utils.madvoc.result.JsonResult) {
+			utils.madvoc.result.JsonResult jsonResult = (JsonResult) object;
 
 			json = jsonResult.value();
 			status = jsonResult.status();

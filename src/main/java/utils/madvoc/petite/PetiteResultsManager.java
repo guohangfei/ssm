@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.madvoc.petite;
 
-import jodd.madvoc.component.ResultsManager;
-import jodd.madvoc.result.ActionResult;
-import jodd.petite.PetiteContainer;
-import jodd.petite.meta.PetiteInject;
+import utils.madvoc.component.ResultsManager;
+import utils.madvoc.result.ActionResult;
+import utils.petite.PetiteContainer;
+import utils.petite.meta.PetiteInject;
 
 /**
  * Petite-aware results manager.

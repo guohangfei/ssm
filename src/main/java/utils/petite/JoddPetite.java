@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,13 +26,13 @@
 package utils.petite;
 
 /**
- * Jodd PETITE module.
+ * utils PETITE module.
  */
-public class JoddPetite {
+public class utilsPetite {
 
-	private static final JoddPetite instance = new JoddPetite();
+	private static final utilsPetite instance = new utilsPetite();
 
-	public static JoddPetite defaults() {
+	public static utilsPetite defaults() {
 		return instance;
 	}
 

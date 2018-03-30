@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.Element;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.Text;
-import jodd.util.StringUtil;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.Element;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.Text;
+import utils.util.StringUtil;
 
 import java.util.ArrayList;
 
@@ -49,7 +49,7 @@ public class HtmlFosterRules {
 	/**
 	 * Returns <code>true</code> if provided element is one of the table-related elements.
 	 */
-	protected boolean isOneOfTableElements(final jodd.lagarto.dom.Element element) {
+	protected boolean isOneOfTableElements(final utils.lagarto.dom.Element element) {
 		String elementName = element.getNodeName().toLowerCase();
 
 		return StringUtil.equalsOne(elementName, TABLE_ELEMENTS) != -1;
@@ -58,8 +58,8 @@ public class HtmlFosterRules {
 	/**
 	 * Returns <code>true</code> if given node is a table element.
 	 */
-	protected boolean isTableElement(final jodd.lagarto.dom.Node node) {
-		if (node.getNodeType() != jodd.lagarto.dom.Node.NodeType.ELEMENT) {
+	protected boolean isTableElement(final utils.lagarto.dom.Node node) {
+		if (node.getNodeType() != utils.lagarto.dom.Node.NodeType.ELEMENT) {
 			return false;
 		}
 		String elementName = node.getNodeName().toLowerCase();
@@ -70,7 +70,7 @@ public class HtmlFosterRules {
 	/**
 	 * Returns <code>true</code> if parent node is one of the table elements.
 	 */
-	protected boolean isParentNodeOneOfFosterTableElements(final jodd.lagarto.dom.Node parentNode) {
+	protected boolean isParentNodeOneOfFosterTableElements(final utils.lagarto.dom.Node parentNode) {
 		if (parentNode == null) {
 			return false;
 		}
@@ -85,11 +85,11 @@ public class HtmlFosterRules {
 	/**
 	 * Finds the last table in stack of open elements.
 	 */
-	protected jodd.lagarto.dom.Element findLastTable(final jodd.lagarto.dom.Node node) {
-		jodd.lagarto.dom.Node tableNode = node;
+	protected utils.lagarto.dom.Element findLastTable(final utils.lagarto.dom.Node node) {
+		utils.lagarto.dom.Node tableNode = node;
 
 		while (tableNode != null) {
-			if (tableNode.getNodeType() == jodd.lagarto.dom.Node.NodeType.ELEMENT) {
+			if (tableNode.getNodeType() == utils.lagarto.dom.Node.NodeType.ELEMENT) {
 				String tableNodeName = tableNode.getNodeName().toLowerCase();
 
 				if (tableNodeName.equals("table")) {
@@ -99,14 +99,14 @@ public class HtmlFosterRules {
 			tableNode = tableNode.getParentNode();
 		}
 
-		return (jodd.lagarto.dom.Element) tableNode;
+		return (utils.lagarto.dom.Element) tableNode;
 	}
 
 	// ---------------------------------------------------------------- core
 
-	protected ArrayList<jodd.lagarto.dom.Element> lastTables = new ArrayList<>();
-	protected ArrayList<jodd.lagarto.dom.Element> fosterElements = new ArrayList<>();
-	protected ArrayList<jodd.lagarto.dom.Text> fosterTexts = new ArrayList<>();
+	protected ArrayList<utils.lagarto.dom.Element> lastTables = new ArrayList<>();
+	protected ArrayList<utils.lagarto.dom.Element> fosterElements = new ArrayList<>();
+	protected ArrayList<utils.lagarto.dom.Text> fosterTexts = new ArrayList<>();
 
 	/**
 	 * Fixes foster elements.
@@ -122,23 +122,23 @@ public class HtmlFosterRules {
 	 * DOM tree of the parent element. Otherwise, returns <code>false</code>
 	 * meaning that parent will scan its childs again.
 	 */
-	protected boolean findFosterNodes(final jodd.lagarto.dom.Node node) {
+	protected boolean findFosterNodes(final utils.lagarto.dom.Node node) {
 		boolean isTable = false;
 
 		if (!lastTables.isEmpty()) {
 			// if inside table
-			if (node.getNodeType() == jodd.lagarto.dom.Node.NodeType.TEXT) {
+			if (node.getNodeType() == utils.lagarto.dom.Node.NodeType.TEXT) {
 				String value = node.getNodeValue();
 				if (!StringUtil.isBlank(value)) {
 					if (isParentNodeOneOfFosterTableElements(node.getParentNode())) {
-						fosterTexts.add((jodd.lagarto.dom.Text) node);
+						fosterTexts.add((utils.lagarto.dom.Text) node);
 					}
 				}
 			}
 		}
 
-		if (node.getNodeType() == jodd.lagarto.dom.Node.NodeType.ELEMENT) {
-			jodd.lagarto.dom.Element element = (jodd.lagarto.dom.Element) node;
+		if (node.getNodeType() == utils.lagarto.dom.Node.NodeType.ELEMENT) {
+			utils.lagarto.dom.Element element = (utils.lagarto.dom.Element) node;
 
 			isTable = isTableElement(node);
 
@@ -151,7 +151,7 @@ public class HtmlFosterRules {
 				// ...if inside the table
 				if (!lastTables.isEmpty()) {
 					// check this and parent
-					jodd.lagarto.dom.Node parentNode = node.getParentNode();
+					utils.lagarto.dom.Node parentNode = node.getParentNode();
 					if (
 							isParentNodeOneOfFosterTableElements(parentNode) &&
 							!isOneOfTableElements(element)
@@ -162,7 +162,7 @@ public class HtmlFosterRules {
 							if (element.getChildNodesCount() > 0) {
 								// if form element, take all its child nodes
 								// and add after the from element
-								jodd.lagarto.dom.Node[] formChildNodes = element.getChildNodes();
+								utils.lagarto.dom.Node[] formChildNodes = element.getChildNodes();
 								parentNode.insertAfter(formChildNodes, element);
 								return false;
 							} else {
@@ -194,7 +194,7 @@ public class HtmlFosterRules {
 		while (true) {
 			int childs = node.getChildNodesCount();
 			for (int i = 0; i < childs; i++) {
-				jodd.lagarto.dom.Node childNode = node.getChild(i);
+				utils.lagarto.dom.Node childNode = node.getChild(i);
 
 				boolean done = findFosterNodes(childNode);
 				if (!done) {
@@ -218,16 +218,16 @@ public class HtmlFosterRules {
 	 * Performs the fix for elements.
 	 */
 	protected void fixElements() {
-		for (jodd.lagarto.dom.Element fosterElement : fosterElements) {
+		for (utils.lagarto.dom.Element fosterElement : fosterElements) {
 			// find parent table
-			jodd.lagarto.dom.Element lastTable = findLastTable(fosterElement);
-			jodd.lagarto.dom.Node fosterElementParent = fosterElement.getParentNode();
+			utils.lagarto.dom.Element lastTable = findLastTable(fosterElement);
+			utils.lagarto.dom.Node fosterElementParent = fosterElement.getParentNode();
 
 			// filter our foster element
-			jodd.lagarto.dom.Node[] fosterChilds = fosterElement.getChildNodes();
-			for (jodd.lagarto.dom.Node fosterChild : fosterChilds) {
-				if (fosterChild.getNodeType() == jodd.lagarto.dom.Node.NodeType.ELEMENT) {
-					if (isOneOfTableElements((jodd.lagarto.dom.Element) fosterChild)) {
+			utils.lagarto.dom.Node[] fosterChilds = fosterElement.getChildNodes();
+			for (utils.lagarto.dom.Node fosterChild : fosterChilds) {
+				if (fosterChild.getNodeType() == utils.lagarto.dom.Node.NodeType.ELEMENT) {
+					if (isOneOfTableElements((utils.lagarto.dom.Element) fosterChild)) {
 						// move all child table elements outside
 						// the foster element
 						fosterChild.detachFromParent();
@@ -243,17 +243,17 @@ public class HtmlFosterRules {
 	}
 
 	protected void fixText() {
-		for (jodd.lagarto.dom.Text fosterText : fosterTexts) {
+		for (utils.lagarto.dom.Text fosterText : fosterTexts) {
 			// find parent table
 			Element lastTable = findLastTable(fosterText);
 
 			// move foster element above the table
 			fosterText.detachFromParent();
 
-			jodd.lagarto.dom.Node tablesPreviousNode = lastTable.getPreviousSibling();
+			utils.lagarto.dom.Node tablesPreviousNode = lastTable.getPreviousSibling();
 			if (tablesPreviousNode.getNodeType() == Node.NodeType.TEXT) {
 				// append to previous text node
-				jodd.lagarto.dom.Text textNode = (Text) tablesPreviousNode;
+				utils.lagarto.dom.Text textNode = (Text) tablesPreviousNode;
 
 				String text = textNode.getNodeValue();
 

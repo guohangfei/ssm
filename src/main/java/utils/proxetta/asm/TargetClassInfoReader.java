@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,23 +25,23 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm.EmptyClassVisitor;
-import jodd.asm.EmptyMethodVisitor;
-import jodd.asm6.AnnotationVisitor;
-import jodd.asm6.ClassReader;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.signature.SignatureReader;
-import jodd.io.StreamUtil;
-import jodd.proxetta.AnnotationInfo;
-import jodd.proxetta.ClassInfo;
-import jodd.proxetta.GenericsReader;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.asm.AnnotationReader;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.ProxettaAsmUtil;
-import jodd.util.ClassLoaderUtil;
-import jodd.util.StringPool;
+import utils.asm.AsmUtil;
+import utils.asm.EmptyClassVisitor;
+import utils.asm.EmptyMethodVisitor;
+import utils.asm6.AnnotationVisitor;
+import utils.asm6.ClassReader;
+import utils.asm6.MethodVisitor;
+import utils.asm6.signature.SignatureReader;
+import utils.io.StreamUtil;
+import utils.proxetta.AnnotationInfo;
+import utils.proxetta.ClassInfo;
+import utils.proxetta.GenericsReader;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.asm.AnnotationReader;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.ProxettaAsmUtil;
+import utils.util.ClassLoaderUtil;
+import utils.util.StringPool;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,8 +53,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static jodd.proxetta.asm.ProxettaAsmUtil.CLINIT;
-import static jodd.proxetta.asm.ProxettaAsmUtil.INIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.CLINIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.INIT;
 
 /**
  * Reads info from target class.
@@ -84,7 +84,7 @@ public class TargetClassInfoReader extends EmptyClassVisitor implements ClassInf
 	 * Founded signatures means that those method can be proxyfied.
 	 */
 	public MethodSignatureVisitor lookupMethodSignatureVisitor(final int access, final String name, final String desc, final String className) {
-		String key = jodd.proxetta.asm.ProxettaAsmUtil.createMethodSignaturesKey(access, name, desc, className);
+		String key = utils.proxetta.asm.ProxettaAsmUtil.createMethodSignaturesKey(access, name, desc, className);
 		return methodSignatures.get(key);
 	}
 
@@ -164,7 +164,7 @@ public class TargetClassInfoReader extends EmptyClassVisitor implements ClassInf
 
 	@Override
 	public AnnotationVisitor visitAnnotation(final String desc, final boolean visible) {
-		jodd.proxetta.asm.AnnotationReader ar = new jodd.proxetta.asm.AnnotationReader(desc, visible);
+		utils.proxetta.asm.AnnotationReader ar = new utils.proxetta.asm.AnnotationReader(desc, visible);
 		if (classAnnotations == null) {
 			classAnnotations = new ArrayList<>();
 		}
@@ -181,7 +181,7 @@ public class TargetClassInfoReader extends EmptyClassVisitor implements ClassInf
 			return null;	// skip finals
 		}
 		MethodSignatureVisitor msign = createMethodSignature(access, name, desc, signature, exceptions, thisReference);
-		String key = jodd.proxetta.asm.ProxettaAsmUtil.createMethodSignaturesKey(access, name, desc, thisReference);
+		String key = utils.proxetta.asm.ProxettaAsmUtil.createMethodSignaturesKey(access, name, desc, thisReference);
 		methodSignatures.put(key, msign);
 		allMethodSignatures.add(msign.getCleanSignature());
 		return new MethodAnnotationReader(msign);
@@ -309,14 +309,14 @@ public class TargetClassInfoReader extends EmptyClassVisitor implements ClassInf
 
 		@Override
 		public AnnotationVisitor visitAnnotation(final String desc, final boolean visible) {
-			jodd.proxetta.asm.AnnotationReader ar = new jodd.proxetta.asm.AnnotationReader(desc, visible);
+			utils.proxetta.asm.AnnotationReader ar = new utils.proxetta.asm.AnnotationReader(desc, visible);
 			methodAnns.add(ar);
 			return ar;
 		}
 
 		@Override
 		public AnnotationVisitor visitParameterAnnotation(final int parameter, final String desc, final boolean visible) {
-			jodd.proxetta.asm.AnnotationReader ar = new AnnotationReader(desc, visible);
+			utils.proxetta.asm.AnnotationReader ar = new AnnotationReader(desc, visible);
 			if (methodParamsAnns[parameter] == null) {
 				methodParamsAnns[parameter] = new ArrayList<>();
 			}

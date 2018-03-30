@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,13 +26,13 @@
 package utils.madvoc;
 
 /**
- * Jodd MADVOC module.
+ * utils MADVOC module.
  */
-public class JoddMadvoc {
+public class utilsMadvoc {
 
-	private static final JoddMadvoc instance = new JoddMadvoc();
+	private static final utilsMadvoc instance = new utilsMadvoc();
 
-	public static JoddMadvoc defaults() {
+	public static utilsMadvoc defaults() {
 		return instance;
 	}
 

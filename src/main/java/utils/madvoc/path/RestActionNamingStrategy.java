@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.madvoc.path;
 
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionNames;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.path.BaseNamingStrategy;
-import jodd.util.CharUtil;
-import jodd.util.StringPool;
-import jodd.util.net.HttpMethod;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.ScopeType;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionNames;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.path.BaseNamingStrategy;
+import utils.util.CharUtil;
+import utils.util.StringPool;
+import utils.util.net.HttpMethod;
 
 import java.lang.reflect.Method;
 

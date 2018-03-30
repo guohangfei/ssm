@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util;
 
-import jodd.util.Base64;
-import jodd.util.StringPool;
+import utils.util.Base64;
+import utils.util.StringPool;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -80,7 +80,7 @@ public class RandomString {
 	 */
 	public String random(int count, final char[] chars) {
 		if (count == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 		char[] result = new char[count];
 		while (count-- > 0) {
@@ -105,7 +105,7 @@ public class RandomString {
 	 */
 	public String random(int count, final char start, final char end) {
 		if (count == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 		char[] result = new char[count];
 		int len = end - start + 1;

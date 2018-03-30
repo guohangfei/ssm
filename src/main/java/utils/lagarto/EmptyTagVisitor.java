@@ -1,8 +1,8 @@
 package utils.lagarto;
 
-import jodd.lagarto.Doctype;
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagVisitor;
+import utils.lagarto.Doctype;
+import utils.lagarto.Tag;
+import utils.lagarto.TagVisitor;
 
 public class EmptyTagVisitor implements TagVisitor {
 	public void start() {

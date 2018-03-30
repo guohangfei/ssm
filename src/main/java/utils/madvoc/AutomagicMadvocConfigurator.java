@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,23 +25,23 @@
 
 package utils.madvoc;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.io.findfile.ClassScanner;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.WebApp;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.component.MadvocComponentLifecycle;
-import jodd.madvoc.component.MadvocContainer;
-import jodd.madvoc.meta.Action;
-import jodd.madvoc.meta.ActionAnnotation;
-import jodd.madvoc.meta.MadvocAction;
-import jodd.madvoc.meta.MadvocComponent;
-import jodd.petite.meta.PetiteInject;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.io.findfile.ClassScanner;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.WebApp;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.component.MadvocComponentLifecycle;
+import utils.madvoc.component.MadvocContainer;
+import utils.madvoc.meta.Action;
+import utils.madvoc.meta.ActionAnnotation;
+import utils.madvoc.meta.MadvocAction;
+import utils.madvoc.meta.MadvocComponent;
+import utils.petite.meta.PetiteInject;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -204,7 +204,7 @@ public class AutomagicMadvocConfigurator implements MadvocComponentLifecycle.Ini
 			return;
 		}
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(actionClass);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(actionClass);
 
 		MethodDescriptor[] allMethodDescriptors = cd.getAllMethodDescriptors();
 		for (MethodDescriptor methodDescriptor : allMethodDescriptors) {

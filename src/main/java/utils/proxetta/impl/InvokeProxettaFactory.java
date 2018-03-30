@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,20 +25,20 @@
 
 package utils.proxetta.impl;
 
-import jodd.asm6.ClassReader;
-import jodd.proxetta.InvokeAspect;
-import jodd.proxetta.ProxettaFactory;
-import jodd.proxetta.asm.InvokeClassBuilder;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
-import jodd.proxetta.impl.InvokeProxetta;
+import utils.asm6.ClassReader;
+import utils.proxetta.InvokeAspect;
+import utils.proxetta.ProxettaFactory;
+import utils.proxetta.asm.InvokeClassBuilder;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
+import utils.proxetta.impl.InvokeProxetta;
 
 import java.io.InputStream;
 
 /**
  * Invocation replacer class processor.
  */
-public class InvokeProxettaFactory extends ProxettaFactory<InvokeProxettaFactory, jodd.proxetta.impl.InvokeProxetta> {
+public class InvokeProxettaFactory extends ProxettaFactory<InvokeProxettaFactory, utils.proxetta.impl.InvokeProxetta> {
 
 	public InvokeProxettaFactory(final InvokeProxetta invokeProxetta) {
 		super(invokeProxetta);

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.typeconverter.impl;
 
-import jodd.typeconverter.TypeConverterManager;
-import jodd.typeconverter.impl.ArrayConverter;
-import jodd.util.ArraysUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.typeconverter.TypeConverterManager;
+import utils.typeconverter.impl.ArrayConverter;
+import utils.util.ArraysUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 /**
  * Converts given object to <code>Class</code> array.

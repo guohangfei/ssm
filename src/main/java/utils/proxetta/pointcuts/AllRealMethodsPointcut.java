@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.proxetta.pointcuts;
 
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.ProxyPointcut;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.ProxyPointcut;
 
 /**
  * Pointcut on all public methods that are <b>not</b> getters or setters

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.madvoc.proxetta;
 
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.proxetta.ProxettaProvider;
-import jodd.petite.meta.PetiteInject;
-import jodd.proxetta.impl.ProxyProxetta;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.proxetta.ProxettaProvider;
+import utils.petite.meta.PetiteInject;
+import utils.proxetta.impl.ProxyProxetta;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

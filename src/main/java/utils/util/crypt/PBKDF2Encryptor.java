@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util.crypt;
 
-import jodd.util.Base64;
-import jodd.util.StringUtil;
+import utils.util.Base64;
+import utils.util.StringUtil;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -38,7 +38,7 @@ import java.security.AlgorithmParameters;
 import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 
-import static jodd.util.StringPool.UTF_8;
+import static utils.util.StringPool.UTF_8;
 
 /**
  * Symmetric de/encryptor that uses PBE With MD5 And Triple DES.

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.servlet.filter;
 
-import jodd.io.FastCharArrayWriter;
-import jodd.servlet.filter.FastByteArrayServletOutputStream;
-import jodd.util.StringPool;
+import utils.io.FastCharArrayWriter;
+import utils.servlet.filter.FastByteArrayServletOutputStream;
+import utils.util.StringPool;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;

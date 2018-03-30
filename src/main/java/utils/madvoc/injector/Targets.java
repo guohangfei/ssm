@@ -4,15 +4,15 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.MethodParam;
-import jodd.madvoc.config.ScopeData;
-import jodd.madvoc.config.ScopeData.In;
-import jodd.madvoc.config.ScopeData.Out;
-import jodd.madvoc.injector.Target;import jodd.madvoc.injector.Targets.1;
-import jodd.util.ClassUtil;
+import utils.madvoc.MadvocException;
+import utils.madvoc.ScopeType;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.MethodParam;
+import utils.madvoc.config.ScopeData;
+import utils.madvoc.config.ScopeData.In;
+import utils.madvoc.config.ScopeData.Out;
+import utils.madvoc.injector.Target;import utils.madvoc.injector.Targets.1;
+import utils.util.ClassUtil;
 
 public class Targets {
 	final Target[] targets;
@@ -120,7 +120,7 @@ public class Targets {
             Object t;
             if(mp.annotationType() == null) {
                t = new Target(this.createActionMethodArgument(type, action));
-            } else if(mp.annotationType() == jodd.madvoc.meta.Out.class) {
+            } else if(mp.annotationType() == utils.madvoc.meta.Out.class) {
                t = new Target(this.createActionMethodArgument(type, action), type);
             } else {
                t = new 1(this, type, action);

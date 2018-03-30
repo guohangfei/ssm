@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.madvoc.result;
 
-import jodd.json.JsonSerializer;
-import jodd.madvoc.meta.RenderWith;
-import jodd.madvoc.result.JsonActionResult;
-import jodd.util.StringPool;
-import jodd.util.net.HttpStatus;
+import utils.json.JsonSerializer;
+import utils.madvoc.meta.RenderWith;
+import utils.madvoc.result.JsonActionResult;
+import utils.util.StringPool;
+import utils.util.net.HttpStatus;
 
 /**
  * General JSON result.

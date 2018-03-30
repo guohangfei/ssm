@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,70 +25,70 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm6.Label;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.Type;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.TypeInfo;
-import jodd.util.ClassUtil;
-import jodd.util.StringBand;
-import jodd.util.StringPool;
+import utils.asm.AsmUtil;
+import utils.asm6.Label;
+import utils.asm6.MethodVisitor;
+import utils.asm6.Type;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.TypeInfo;
+import utils.util.ClassUtil;
+import utils.util.StringBand;
+import utils.util.StringPool;
 
 import java.lang.reflect.Method;
 
-import static jodd.asm6.Opcodes.AASTORE;
-import static jodd.asm6.Opcodes.ACONST_NULL;
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.ANEWARRAY;
-import static jodd.asm6.Opcodes.ARETURN;
-import static jodd.asm6.Opcodes.ASTORE;
-import static jodd.asm6.Opcodes.BASTORE;
-import static jodd.asm6.Opcodes.BIPUSH;
-import static jodd.asm6.Opcodes.CASTORE;
-import static jodd.asm6.Opcodes.CHECKCAST;
-import static jodd.asm6.Opcodes.DASTORE;
-import static jodd.asm6.Opcodes.DCONST_0;
-import static jodd.asm6.Opcodes.DLOAD;
-import static jodd.asm6.Opcodes.DRETURN;
-import static jodd.asm6.Opcodes.DSTORE;
-import static jodd.asm6.Opcodes.DUP;
-import static jodd.asm6.Opcodes.FASTORE;
-import static jodd.asm6.Opcodes.FCONST_0;
-import static jodd.asm6.Opcodes.FLOAD;
-import static jodd.asm6.Opcodes.FRETURN;
-import static jodd.asm6.Opcodes.FSTORE;
-import static jodd.asm6.Opcodes.GETSTATIC;
-import static jodd.asm6.Opcodes.IASTORE;
-import static jodd.asm6.Opcodes.ICONST_0;
-import static jodd.asm6.Opcodes.IFNONNULL;
-import static jodd.asm6.Opcodes.ILOAD;
-import static jodd.asm6.Opcodes.IRETURN;
-import static jodd.asm6.Opcodes.ISTORE;
-import static jodd.asm6.Opcodes.LASTORE;
-import static jodd.asm6.Opcodes.LCONST_0;
-import static jodd.asm6.Opcodes.LLOAD;
-import static jodd.asm6.Opcodes.LRETURN;
-import static jodd.asm6.Opcodes.LSTORE;
-import static jodd.asm6.Opcodes.NEWARRAY;
-import static jodd.asm6.Opcodes.POP;
-import static jodd.asm6.Opcodes.RETURN;
-import static jodd.asm6.Opcodes.SASTORE;
-import static jodd.asm6.Opcodes.SIPUSH;
-import static jodd.asm6.Opcodes.T_BOOLEAN;
-import static jodd.asm6.Opcodes.T_BYTE;
-import static jodd.asm6.Opcodes.T_CHAR;
-import static jodd.asm6.Opcodes.T_DOUBLE;
-import static jodd.asm6.Opcodes.T_FLOAT;
-import static jodd.asm6.Opcodes.T_INT;
-import static jodd.asm6.Opcodes.T_LONG;
-import static jodd.asm6.Opcodes.T_SHORT;
-import static jodd.util.StringPool.COLON;
+import static utils.asm6.Opcodes.AASTORE;
+import static utils.asm6.Opcodes.ACONST_NULL;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.ANEWARRAY;
+import static utils.asm6.Opcodes.ARETURN;
+import static utils.asm6.Opcodes.ASTORE;
+import static utils.asm6.Opcodes.BASTORE;
+import static utils.asm6.Opcodes.BIPUSH;
+import static utils.asm6.Opcodes.CASTORE;
+import static utils.asm6.Opcodes.CHECKCAST;
+import static utils.asm6.Opcodes.DASTORE;
+import static utils.asm6.Opcodes.DCONST_0;
+import static utils.asm6.Opcodes.DLOAD;
+import static utils.asm6.Opcodes.DRETURN;
+import static utils.asm6.Opcodes.DSTORE;
+import static utils.asm6.Opcodes.DUP;
+import static utils.asm6.Opcodes.FASTORE;
+import static utils.asm6.Opcodes.FCONST_0;
+import static utils.asm6.Opcodes.FLOAD;
+import static utils.asm6.Opcodes.FRETURN;
+import static utils.asm6.Opcodes.FSTORE;
+import static utils.asm6.Opcodes.GETSTATIC;
+import static utils.asm6.Opcodes.IASTORE;
+import static utils.asm6.Opcodes.ICONST_0;
+import static utils.asm6.Opcodes.IFNONNULL;
+import static utils.asm6.Opcodes.ILOAD;
+import static utils.asm6.Opcodes.IRETURN;
+import static utils.asm6.Opcodes.ISTORE;
+import static utils.asm6.Opcodes.LASTORE;
+import static utils.asm6.Opcodes.LCONST_0;
+import static utils.asm6.Opcodes.LLOAD;
+import static utils.asm6.Opcodes.LRETURN;
+import static utils.asm6.Opcodes.LSTORE;
+import static utils.asm6.Opcodes.NEWARRAY;
+import static utils.asm6.Opcodes.POP;
+import static utils.asm6.Opcodes.RETURN;
+import static utils.asm6.Opcodes.SASTORE;
+import static utils.asm6.Opcodes.SIPUSH;
+import static utils.asm6.Opcodes.T_BOOLEAN;
+import static utils.asm6.Opcodes.T_BYTE;
+import static utils.asm6.Opcodes.T_CHAR;
+import static utils.asm6.Opcodes.T_DOUBLE;
+import static utils.asm6.Opcodes.T_FLOAT;
+import static utils.asm6.Opcodes.T_INT;
+import static utils.asm6.Opcodes.T_LONG;
+import static utils.asm6.Opcodes.T_SHORT;
+import static utils.util.StringPool.COLON;
 
 /**
- * Various ASM utilities used by {@link jodd.proxetta.Proxetta}.
+ * Various ASM utilities used by {@link utils.proxetta.Proxetta}.
  * For more generic ASM tools, see {@link AsmUtil}.
  */
 public class ProxettaAsmUtil {
@@ -132,14 +132,14 @@ public class ProxettaAsmUtil {
 	 * Builds advice field name.
 	 */
 	public static String adviceFieldName(final String name, final int index) {
-		return JoddProxetta.defaults().getFieldPrefix() + name + JoddProxetta.defaults().getFieldDivider() + index;
+		return utilsProxetta.defaults().getFieldPrefix() + name + utilsProxetta.defaults().getFieldDivider() + index;
 	}
 
 	/**
 	 * Builds advice method name.
 	 */
 	public static String adviceMethodName(final String name, final int index) {
-		return JoddProxetta.defaults().getMethodPrefix() + name + JoddProxetta.defaults().getMethodDivider() + index;
+		return utilsProxetta.defaults().getMethodPrefix() + name + utilsProxetta.defaults().getMethodDivider() + index;
 	}
 
 	// ---------------------------------------------------------------- load
@@ -929,7 +929,7 @@ public class ProxettaAsmUtil {
 
 	public static boolean isInfoMethod(final String name, final String desc) {
 		if (name.equals("info")) {
-			if (desc.equals("()Ljodd/proxetta/ProxyTargetInfo;")) {
+			if (desc.equals("()Lutils/proxetta/ProxyTargetInfo;")) {
 				return true;
 			}
 		}

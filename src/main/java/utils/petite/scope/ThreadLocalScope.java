@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.petite.scope;
 
-import jodd.petite.BeanData;
-import jodd.petite.BeanDefinition;
-import jodd.petite.scope.ProtoScope;
-import jodd.petite.scope.Scope;
-import jodd.petite.scope.SingletonScope;
+import utils.petite.BeanData;
+import utils.petite.BeanDefinition;
+import utils.petite.scope.ProtoScope;
+import utils.petite.scope.Scope;
+import utils.petite.scope.SingletonScope;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +40,7 @@ import java.util.Map;
  * For example, app servers may have a thread pools, so threads may not
  * finish when expected. ThreadLocalScope can not invoke destroy methods.
  */
-public class ThreadLocalScope implements jodd.petite.scope.Scope {
+public class ThreadLocalScope implements utils.petite.scope.Scope {
 
 	protected static ThreadLocal<Map<String, BeanData>> context = new ThreadLocal<Map<String, BeanData>>() {
 		@Override
@@ -77,7 +77,7 @@ public class ThreadLocalScope implements jodd.petite.scope.Scope {
 	 * thread-local scoped bean.
 	 */
 	@Override
-	public boolean accept(final jodd.petite.scope.Scope referenceScope) {
+	public boolean accept(final utils.petite.scope.Scope referenceScope) {
 		Class<? extends Scope> refScopeType = referenceScope.getClass();
 
 		if (refScopeType == ProtoScope.class) {

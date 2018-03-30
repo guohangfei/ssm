@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,18 +25,18 @@
 
 package utils.jerry;
 
-import jodd.jerry.JerryFormHandler;
-import jodd.jerry.JerryFunction;
-import jodd.jerry.JerryNodeFunction;
-import jodd.lagarto.dom.DOMBuilder;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.LagartoDOMBuilder;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.NodeSelector;
-import jodd.lagarto.dom.Text;
-import jodd.util.ArraysUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.jerry.JerryFormHandler;
+import utils.jerry.JerryFunction;
+import utils.jerry.JerryNodeFunction;
+import utils.lagarto.dom.DOMBuilder;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.LagartoDOMBuilder;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.NodeSelector;
+import utils.lagarto.dom.Text;
+import utils.util.ArraysUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -136,7 +136,7 @@ public class Jerry implements Iterable<Jerry> {
 	}
 
 	/**
-	 * Just creates new {@link jodd.jerry.Jerry.JerryParser Jerry runner} to separate
+	 * Just creates new {@link utils.jerry.Jerry.JerryParser Jerry runner} to separate
 	 * parser creation and creation of new Jerry instances.
 	 */
 	public static JerryParser jerry() {
@@ -144,7 +144,7 @@ public class Jerry implements Iterable<Jerry> {
 	}
 
 	/**
-	 * Creates new {@link jodd.jerry.Jerry.JerryParser Jerry runner} with
+	 * Creates new {@link utils.jerry.Jerry.JerryParser Jerry runner} with
 	 * provided implementation of {@link DOMBuilder}.
 	 */
 	public static JerryParser jerry(final DOMBuilder domBuilder) {

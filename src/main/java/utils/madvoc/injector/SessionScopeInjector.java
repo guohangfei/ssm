@@ -4,11 +4,11 @@ import java.util.Enumeration;
 import java.util.function.BiConsumer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Outjector;
-import jodd.madvoc.injector.Targets;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Outjector;
+import utils.madvoc.injector.Targets;
 
 public class SessionScopeInjector implements Injector, Outjector {
 	private static final ScopeType SCOPE_TYPE;

@@ -1,6 +1,6 @@
 package utils.log;
 
-import jodd.log.Logger;
+import utils.log.Logger;
 
 @FunctionalInterface
 public interface LoggerProvider<L extends Logger> {

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.util;
 
-import jodd.util.StringUtil;
+import utils.util.StringUtil;
 
 /**
  * Various character and character sequence utilities, including <code>char[]</code> - <code>byte[]</code> conversions.
@@ -149,7 +149,7 @@ public class CharUtil {
 	// ---------------------------------------------------------------- encoding
 
 	/**
-	 * Converts char array to byte array using default Jodd encoding.
+	 * Converts char array to byte array using default utils encoding.
 	 */
 	public static byte[] toByteArray(final char[] carr) {
 		return StringUtil.getBytes(new String(carr));
@@ -163,7 +163,7 @@ public class CharUtil {
 	}
 
 	/**
-	 * Converts byte array of default Jodd encoding to char array.
+	 * Converts byte array of default utils encoding to char array.
 	 */
 	public static char[] toCharArray(final byte[] barr) {
 		return StringUtil.newString(barr).toCharArray();

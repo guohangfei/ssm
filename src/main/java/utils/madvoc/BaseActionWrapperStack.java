@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.madvoc;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ActionWrapper;
-import jodd.madvoc.MadvocException;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ActionWrapper;
+import utils.madvoc.MadvocException;
 
 /**
  * Base action wrapper stack.
  */
-public abstract class BaseActionWrapperStack<T extends jodd.madvoc.ActionWrapper> implements ActionWrapper {
+public abstract class BaseActionWrapperStack<T extends utils.madvoc.ActionWrapper> implements ActionWrapper {
 
 	protected Class<? extends T>[] wrappers;
 

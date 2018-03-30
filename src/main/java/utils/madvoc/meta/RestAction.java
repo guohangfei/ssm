@@ -1,5 +1,5 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,10 +26,10 @@
 
 package utils.madvoc.meta;
 
-import jodd.madvoc.meta.Action;
-import jodd.madvoc.meta.ActionConfiguredBy;
-import jodd.madvoc.meta.RestActionConfig;
-import jodd.madvoc.path.RestActionNamingStrategy;
+import utils.madvoc.meta.Action;
+import utils.madvoc.meta.ActionConfiguredBy;
+import utils.madvoc.meta.RestActionConfig;
+import utils.madvoc.path.RestActionNamingStrategy;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -38,7 +38,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Extension of {@link jodd.madvoc.meta.Action} for REST resources
+ * Extension of {@link utils.madvoc.meta.Action} for REST resources
  * that uses {@link RestActionNamingStrategy different naming}
  * convention.
  */

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.json.impl;
 
-import jodd.json.JsonContext;
-import jodd.json.impl.ValueJsonSerializer;
+import utils.json.JsonContext;
+import utils.json.impl.ValueJsonSerializer;
 
 /**
  * Iterable serializer.

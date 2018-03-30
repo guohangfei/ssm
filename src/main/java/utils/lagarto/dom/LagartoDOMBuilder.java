@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.LagartoParser;
-import jodd.lagarto.dom.DOMBuilder;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.LagartoDOMBuilderTagVisitor;
-import jodd.lagarto.dom.LagartoDomBuilderConfig;
+import utils.lagarto.LagartoParser;
+import utils.lagarto.dom.DOMBuilder;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.LagartoDOMBuilderTagVisitor;
+import utils.lagarto.dom.LagartoDomBuilderConfig;
 
 /**
  * Lagarto DOM builder creates DOM tree from HTML, XHTML or XML content.
@@ -135,7 +135,7 @@ public class LagartoDOMBuilder implements DOMBuilder {
 	 * Creates DOM tree from provided content.
 	 */
 	@Override
-	public jodd.lagarto.dom.Document parse(final char[] content) {
+	public utils.lagarto.dom.Document parse(final char[] content) {
 		LagartoParser lagartoParser = new LagartoParser(content);
 		return doParse(lagartoParser);
 	}
@@ -144,7 +144,7 @@ public class LagartoDOMBuilder implements DOMBuilder {
 	 * Creates DOM tree from the provided content.
 	 */
 	@Override
-	public jodd.lagarto.dom.Document parse(final String content) {
+	public utils.lagarto.dom.Document parse(final String content) {
 		LagartoParser lagartoParser = new LagartoParser(content);
 		return doParse(lagartoParser);
 	}

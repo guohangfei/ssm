@@ -2,13 +2,13 @@ package utils.madvoc.injector;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
-import jodd.json.JsonParser;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Targets;
-import jodd.servlet.ServletUtil;
-import jodd.util.StringUtil;
+import utils.json.JsonParser;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Targets;
+import utils.servlet.ServletUtil;
+import utils.util.StringUtil;
 
 public class RequestBodyScopeInject implements Injector {
 	private static final ScopeType SCOPE_TYPE;

@@ -2,9 +2,9 @@ package utils.madvoc.config;
 
 import java.util.HashMap;
 import java.util.Map;
-import jodd.madvoc.MadvocException;
-import jodd.util.ArraysUtil;
-import jodd.util.StringUtil;
+import utils.madvoc.MadvocException;
+import utils.util.ArraysUtil;
+import utils.util.StringUtil;
 
 public class RootPackages {
 	protected String[] packages;

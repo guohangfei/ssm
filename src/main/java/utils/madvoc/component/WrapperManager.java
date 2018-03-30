@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.madvoc.component;
 
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.ActionWrapper;
-import jodd.madvoc.BaseActionWrapperStack;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.component.ContextInjectorComponent;
-import jodd.madvoc.injector.Target;
-import jodd.petite.meta.PetiteInject;
-import jodd.util.ClassUtil;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.ActionWrapper;
+import utils.madvoc.BaseActionWrapperStack;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.component.ContextInjectorComponent;
+import utils.madvoc.injector.Target;
+import utils.petite.meta.PetiteInject;
+import utils.util.ClassUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

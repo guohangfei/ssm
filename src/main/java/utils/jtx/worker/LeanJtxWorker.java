@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.jtx.worker;
 
-import jodd.jtx.JtxTransaction;
-import jodd.jtx.JtxTransactionManager;
-import jodd.jtx.JtxTransactionMode;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
+import utils.jtx.JtxTransaction;
+import utils.jtx.JtxTransactionManager;
+import utils.jtx.JtxTransactionMode;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
 
 /**
  * Lean transaction worker helps dealing transactions when they were requested

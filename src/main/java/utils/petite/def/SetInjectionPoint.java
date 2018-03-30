@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.petite.def;
 
-import jodd.introspector.FieldDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.petite.PetiteException;
-import jodd.util.ClassUtil;
+import utils.introspector.FieldDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.petite.PetiteException;
+import utils.util.ClassUtil;
 
 import java.util.Collection;
 import java.util.HashSet;

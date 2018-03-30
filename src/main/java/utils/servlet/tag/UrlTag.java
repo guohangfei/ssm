@@ -8,8 +8,8 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.util.net.URLCoder;
-import jodd.util.net.URLCoder.Builder;
+import utils.util.net.URLCoder;
+import utils.util.net.URLCoder.Builder;
 
 public class UrlTag extends SimpleTagSupport implements DynamicAttributes {
 	protected String baseUrl;

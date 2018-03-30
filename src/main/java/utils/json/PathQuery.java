@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.json;
 
-import jodd.json.Path;
-import jodd.util.StringUtil;
+import utils.json.Path;
+import utils.util.StringUtil;
 
 import java.util.Arrays;
 
-import static jodd.util.StringPool.STAR;
+import static utils.util.StringPool.STAR;
 
 /**
  * Path query is used to match properties with some Path.

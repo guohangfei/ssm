@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.petite;
 
-import jodd.petite.PetiteBeans;
-import jodd.petite.PetiteContainer;
-import jodd.petite.PetiteException;
-import jodd.petite.WiringMode;
-import jodd.petite.meta.InitMethodInvocationStrategy;
-import jodd.petite.scope.Scope;
-import jodd.util.ClassUtil;
+import utils.petite.PetiteBeans;
+import utils.petite.PetiteContainer;
+import utils.petite.PetiteException;
+import utils.petite.WiringMode;
+import utils.petite.meta.InitMethodInvocationStrategy;
+import utils.petite.scope.Scope;
+import utils.util.ClassUtil;
 
 import java.util.function.Consumer;
 
@@ -74,7 +74,7 @@ public class PetiteRegistry {
 	 * Starts with bean registration. Example:
 	 * <code>bean(Foo.class).name("").scope(...).wiringMode(...).define().register();</code>
 	 *
-	 * @see jodd.petite.PetiteBeans#registerPetiteBean(Class, String, Class, jodd.petite.WiringMode, boolean, Consumer)
+	 * @see utils.petite.PetiteBeans#registerPetiteBean(Class, String, Class, utils.petite.WiringMode, boolean, Consumer)
 	 */
 	public BeanRegister bean(final Class beanType) {
 		return new BeanRegister(beanType);
@@ -85,7 +85,7 @@ public class PetiteRegistry {
 		private final Class<T> beanType;
 		private String beanName;
 		private Class<? extends Scope> scopeType;
-		private jodd.petite.WiringMode wiringMode;
+		private utils.petite.WiringMode wiringMode;
 		private boolean define;
 		private Consumer<T> consumer;
 
@@ -167,7 +167,7 @@ public class PetiteRegistry {
 		/**
 		 * Wires beans property. Example:
 		 * <code>wire("").property("").ref(...).bind();</code>
-		 * @see jodd.petite.PetiteBeans#registerPetitePropertyInjectionPoint(String, String, String)
+		 * @see utils.petite.PetiteBeans#registerPetitePropertyInjectionPoint(String, String, String)
 		 */
 		public BeanWireProperty property(final String propertyName) {
 			return new BeanWireProperty(propertyName);
@@ -202,7 +202,7 @@ public class PetiteRegistry {
 
 		/**
 		 * Wires beans constructor.
-		 * @see jodd.petite.PetiteBeans#registerPetiteCtorInjectionPoint(String, Class[], String[])
+		 * @see utils.petite.PetiteBeans#registerPetiteCtorInjectionPoint(String, Class[], String[])
 		 */
 		public BeanWireCtor ctor(final Class... ctorArgumentTypes) {
 			return new BeanWireCtor(ctorArgumentTypes);
@@ -242,7 +242,7 @@ public class PetiteRegistry {
 		// ---------------------------------------------------------------- method
 		/**
 		 * Wires beans method.
-		 * @see jodd.petite.PetiteBeans#registerPetiteCtorInjectionPoint(String, Class[], String[])
+		 * @see utils.petite.PetiteBeans#registerPetiteCtorInjectionPoint(String, Class[], String[])
 		 */
 		public BeanWireMethod method(final String methodName) {
 			return new BeanWireMethod(methodName);

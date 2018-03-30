@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.petite.scope;
 
-import jodd.petite.BeanData;
-import jodd.petite.BeanDefinition;
-import jodd.petite.PetiteException;
-import jodd.petite.scope.ProtoScope;
-import jodd.petite.scope.Scope;
-import jodd.petite.scope.SessionScope;
-import jodd.petite.scope.SingletonScope;
-import jodd.servlet.RequestContextListener;
+import utils.petite.BeanData;
+import utils.petite.BeanDefinition;
+import utils.petite.PetiteException;
+import utils.petite.scope.ProtoScope;
+import utils.petite.scope.Scope;
+import utils.petite.scope.SessionScope;
+import utils.petite.scope.SingletonScope;
+import utils.servlet.RequestContextListener;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * Request scope.
  */
-public class RequestScope implements jodd.petite.scope.Scope {
+public class RequestScope implements utils.petite.scope.Scope {
 
 	/**
 	 * Since request map is stored in the requests, app server may want to
@@ -132,7 +132,7 @@ public class RequestScope implements jodd.petite.scope.Scope {
 	}
 
 	@Override
-	public boolean accept(final jodd.petite.scope.Scope referenceScope) {
+	public boolean accept(final utils.petite.scope.Scope referenceScope) {
 		Class<? extends Scope> refScopeType = referenceScope.getClass();
 
 		if (refScopeType == ProtoScope.class) {

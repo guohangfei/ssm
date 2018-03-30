@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.props;
 
-import jodd.props.PropsEntry;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.Wildcard;
-import jodd.util.template.StringTemplateParser;
+import utils.props.PropsEntry;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.Wildcard;
+import utils.util.template.StringTemplateParser;
 
 import java.util.HashMap;
 import java.util.HashSet;

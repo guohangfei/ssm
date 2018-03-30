@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.servlet;
 
-import jodd.servlet.ServletUtil;
-import jodd.util.StringPool;
+import utils.servlet.ServletUtil;
+import utils.util.StringPool;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -158,7 +158,7 @@ public class DispatcherUtil {
 	 */
 	public static void redirect(final HttpServletRequest request, final HttpServletResponse response, String url) throws IOException {
 		if (url.startsWith(StringPool.SLASH)) {
-			url = jodd.servlet.ServletUtil.getContextPath(request) + url;
+			url = utils.servlet.ServletUtil.getContextPath(request) + url;
 		}
 		response.sendRedirect(response.encodeRedirectURL(url));
 	}
@@ -168,7 +168,7 @@ public class DispatcherUtil {
 	 */
 	public static void redirectPermanent(final HttpServletRequest request, final HttpServletResponse response, String url) {
 		if (url.startsWith(StringPool.SLASH)) {
-			url = jodd.servlet.ServletUtil.getContextPath(request) + url;
+			url = utils.servlet.ServletUtil.getContextPath(request) + url;
 		}
 		response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
 		response.setHeader("Location", url);
@@ -302,7 +302,7 @@ public class DispatcherUtil {
 	public static String getBaseContextPath(final HttpServletRequest request) {
 		String result = getForwardContextPath(request);
 		if (result == null) {
-			result = jodd.servlet.ServletUtil.getContextPath(request);
+			result = utils.servlet.ServletUtil.getContextPath(request);
 		}
 		return result;
 	}

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,19 +25,19 @@
 
 package utils.lagarto.filter;
 
-import jodd.io.FastCharArrayWriter;
-import jodd.lagarto.LagartoParser;
-import jodd.lagarto.TagAdapter;
-import jodd.lagarto.TagWriter;
-import jodd.lagarto.filter.LagartoServletFilter;
+import utils.io.FastCharArrayWriter;
+import utils.lagarto.LagartoParser;
+import utils.lagarto.TagAdapter;
+import utils.lagarto.TagWriter;
+import utils.lagarto.filter.LagartoServletFilter;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Simple version of {@link jodd.lagarto.filter.LagartoServletFilter} that uses Lagarto.
+ * Simple version of {@link utils.lagarto.filter.LagartoServletFilter} that uses Lagarto.
  * May be used when set of adapters does not overlap each other during
  * single content parsing i.e. visiting. Otherwise, use more generic
- * {@link jodd.lagarto.filter.LagartoServletFilter}.
+ * {@link utils.lagarto.filter.LagartoServletFilter}.
  */
 public abstract class SimpleLagartoServletFilter extends LagartoServletFilter {
 

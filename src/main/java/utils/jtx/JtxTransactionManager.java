@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import jodd.jtx.JtxException;
-import jodd.jtx.JtxIsolationLevel;
-import jodd.jtx.JtxResourceManager;
-import jodd.jtx.JtxStatus;
-import jodd.jtx.JtxTransaction;
-import jodd.jtx.JtxTransactionMode;import jodd.jtx.JtxTransactionManager.1;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
+import utils.jtx.JtxException;
+import utils.jtx.JtxIsolationLevel;
+import utils.jtx.JtxResourceManager;
+import utils.jtx.JtxStatus;
+import utils.jtx.JtxTransaction;
+import utils.jtx.JtxTransactionMode;import utils.jtx.JtxTransactionManager.1;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
 
 public class JtxTransactionManager {
 	private static final Logger log = LoggerFactory.getLogger(JtxTransactionManager.class);
@@ -143,7 +143,7 @@ public class JtxTransactionManager {
       if(!this.isNewTxScope(currentTx, scope)) {
          return currentTx;
       } else {
-         switch(1.$SwitchMap$jodd$jtx$JtxPropagationBehavior[mode.getPropagationBehavior().ordinal()]) {
+         switch(1.$SwitchMap$utils$jtx$JtxPropagationBehavior[mode.getPropagationBehavior().ordinal()]) {
          case 1:
             return this.propRequired(currentTx, mode, scope);
          case 2:

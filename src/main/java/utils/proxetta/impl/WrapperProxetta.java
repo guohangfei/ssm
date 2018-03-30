@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.proxetta.impl;
 
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.WrapperProxettaFactory;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.WrapperProxettaFactory;
 
 /**
  * Proxetta that creates wrappers.
@@ -36,7 +36,7 @@ import jodd.proxetta.impl.WrapperProxettaFactory;
 public class WrapperProxetta extends Proxetta<WrapperProxetta, ProxyAspect> {
 
 	public WrapperProxetta() {
-		classNameSuffix = JoddProxetta.defaults().getWrapperClassNameSuffix();
+		classNameSuffix = utilsProxetta.defaults().getWrapperClassNameSuffix();
 	}
 
 	@Override

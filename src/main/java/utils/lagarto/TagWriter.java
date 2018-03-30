@@ -1,12 +1,12 @@
 package utils.lagarto;
 
 import java.io.IOException;
-import jodd.lagarto.Doctype;
-import jodd.lagarto.LagartoException;
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagVisitor;
-import jodd.lagarto.TagWriterUtil;
-import jodd.util.net.HtmlEncoder;
+import utils.lagarto.Doctype;
+import utils.lagarto.LagartoException;
+import utils.lagarto.Tag;
+import utils.lagarto.TagVisitor;
+import utils.lagarto.TagWriterUtil;
+import utils.util.net.HtmlEncoder;
 
 public class TagWriter implements TagVisitor {
 	protected Appendable appendable;

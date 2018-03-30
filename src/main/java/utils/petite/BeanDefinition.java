@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.petite;
 
-import jodd.petite.PetiteException;
-import jodd.petite.WiringMode;
-import jodd.petite.def.CtorInjectionPoint;
-import jodd.petite.def.DestroyMethodPoint;
-import jodd.petite.def.InitMethodPoint;
-import jodd.petite.def.MethodInjectionPoint;
-import jodd.petite.def.PropertyInjectionPoint;
-import jodd.petite.def.SetInjectionPoint;
-import jodd.petite.def.ValueInjectionPoint;
-import jodd.petite.scope.Scope;
-import jodd.util.ArraysUtil;
+import utils.petite.PetiteException;
+import utils.petite.WiringMode;
+import utils.petite.def.CtorInjectionPoint;
+import utils.petite.def.DestroyMethodPoint;
+import utils.petite.def.InitMethodPoint;
+import utils.petite.def.MethodInjectionPoint;
+import utils.petite.def.PropertyInjectionPoint;
+import utils.petite.def.SetInjectionPoint;
+import utils.petite.def.ValueInjectionPoint;
+import utils.petite.scope.Scope;
+import utils.util.ArraysUtil;
 
 import java.util.function.Consumer;
 
@@ -46,7 +46,7 @@ import java.util.function.Consumer;
  */
 public class BeanDefinition<T> {
 
-	public BeanDefinition(final String name, final Class<T> type, final Scope scope, final jodd.petite.WiringMode wiringMode, final Consumer<T> beanInitConsumer) {
+	public BeanDefinition(final String name, final Class<T> type, final Scope scope, final utils.petite.WiringMode wiringMode, final Consumer<T> beanInitConsumer) {
 		this.name = name;
 		this.type = type;
 		this.scope = scope;
@@ -58,7 +58,7 @@ public class BeanDefinition<T> {
 	protected final String name;		    // bean name
 	protected final Class<T> type;			// bean type
 	protected final Scope scope;  		    // bean scope, may be null for beans that are not stored in scope but just wired
-	protected final jodd.petite.WiringMode wiringMode;	// wiring mode
+	protected final utils.petite.WiringMode wiringMode;	// wiring mode
 	protected final Consumer<T> consumer;   // bean consumer, may be null
 
 	// cache
@@ -175,7 +175,7 @@ public class BeanDefinition<T> {
 	}
 
 	/**
-	 * Delegates to {@link Scope#register(jodd.petite.BeanDefinition, Object)}.
+	 * Delegates to {@link Scope#register(utils.petite.BeanDefinition, Object)}.
 	 */
 	protected void scopeRegister(final Object object) {
 		if (scope != null) {

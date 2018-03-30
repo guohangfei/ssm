@@ -14,7 +14,7 @@
 
 package utils.json;
 
-import jodd.util.collection.MapEntry;
+import utils.util.collection.MapEntry;
 
 import java.lang.reflect.Array;
 import java.util.AbstractMap;

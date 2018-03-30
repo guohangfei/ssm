@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.petite;
 
-import jodd.petite.WiringMode;
-import jodd.petite.meta.PetiteBean;
-import jodd.petite.scope.Scope;
-import jodd.util.StringUtil;
+import utils.petite.WiringMode;
+import utils.petite.meta.PetiteBean;
+import utils.petite.scope.Scope;
+import utils.util.StringUtil;
 
 public class AnnotationResolver {
 
 	/**
 	 * Resolves bean's auto-wire flag from the annotation. Returns default auto-wire if annotation doesn't exist.
 	 */
-	public jodd.petite.WiringMode resolveBeanWiringMode(final Class type) {
+	public utils.petite.WiringMode resolveBeanWiringMode(final Class type) {
 		PetiteBean petiteBean = ((Class<?>) type).getAnnotation(PetiteBean.class);
 		return petiteBean != null ? petiteBean.wiring() : WiringMode.DEFAULT;
 	}

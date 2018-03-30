@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.FieldDescriptor;
-import jodd.introspector.Getter;
-import jodd.introspector.PropertyDescriptor;
-import jodd.json.JsonContext;
-import jodd.json.Path;
-import jodd.json.meta.JsonAnnotationManager;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.FieldDescriptor;
+import utils.introspector.Getter;
+import utils.introspector.PropertyDescriptor;
+import utils.json.JsonContext;
+import utils.json.Path;
+import utils.json.meta.JsonAnnotationManager;
 
 import java.lang.reflect.Modifier;
 
@@ -41,7 +41,7 @@ import java.lang.reflect.Modifier;
  */
 public abstract class TypeJsonVisitor {
 
-	protected final jodd.json.JsonContext jsonContext;
+	protected final utils.json.JsonContext jsonContext;
 	protected final boolean declared;
 	protected final String classMetadataName;
 	protected final Class type;
@@ -64,7 +64,7 @@ public abstract class TypeJsonVisitor {
 	 * Visits a type.
 	 */
 	public void visit() {
-		ClassDescriptor classDescriptor = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor classDescriptor = utilsBean.defaults().getClassIntrospector().lookup(type);
 
 		if (classMetadataName != null) {
 			// process first 'meta' fields 'class'

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,18 +25,18 @@
 
 package utils.petite.resolver;
 
-import jodd.introspector.FieldDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.paramo.MethodParameter;
-import jodd.paramo.Paramo;
-import jodd.petite.PetiteConfig;
-import jodd.petite.PetiteException;
-import jodd.petite.PetiteReferenceType;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.meta.PetiteInject;
-import jodd.typeconverter.Converter;
-import jodd.util.StringUtil;
+import utils.introspector.FieldDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.paramo.MethodParameter;
+import utils.paramo.Paramo;
+import utils.petite.PetiteConfig;
+import utils.petite.PetiteException;
+import utils.petite.PetiteReferenceType;
+import utils.petite.def.BeanReferences;
+import utils.petite.meta.PetiteInject;
+import utils.typeconverter.Converter;
+import utils.util.StringUtil;
 
 import java.lang.reflect.Executable;
 import java.lang.reflect.Parameter;

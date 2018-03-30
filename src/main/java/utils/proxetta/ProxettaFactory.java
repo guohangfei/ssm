@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,30 +25,30 @@
 
 package utils.proxetta;
 
-import jodd.asm6.ClassReader;
-import jodd.asm6.ClassWriter;
-import jodd.io.FileUtil;
-import jodd.io.StreamUtil;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
-import jodd.util.ClassLoaderUtil;
-import jodd.util.ClassUtil;
-import jodd.util.StringUtil;
+import utils.asm6.ClassReader;
+import utils.asm6.ClassWriter;
+import utils.io.FileUtil;
+import utils.io.StreamUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
+import utils.util.ClassLoaderUtil;
+import utils.util.ClassUtil;
+import utils.util.StringUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Proxetta builder. While {@link jodd.proxetta.Proxetta} only holds aspects and
+ * Proxetta builder. While {@link utils.proxetta.Proxetta} only holds aspects and
  * configuration, <code>ProxettaBuilder</code> deals with the
  * actually building proxies and wrappers over provided target.
  */
-public abstract class ProxettaFactory<T extends ProxettaFactory, P extends jodd.proxetta.Proxetta> {
+public abstract class ProxettaFactory<T extends ProxettaFactory, P extends utils.proxetta.Proxetta> {
 
 	Logger log = LoggerFactory.getLogger(ProxettaFactory.class);
 

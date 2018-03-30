@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.petite;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.petite.BeanDefinition;
-import jodd.petite.PetiteContainer;
-import jodd.petite.PetiteException;
-import jodd.petite.ScopedProxyAdvice;
-import jodd.petite.proxetta.ProxettaBeanDefinition;
-import jodd.petite.scope.Scope;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.proxetta.impl.ProxyProxettaFactory;
-import jodd.proxetta.pointcuts.AllMethodsPointcut;
-import jodd.util.ArraysUtil;
-import jodd.util.ClassUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.petite.BeanDefinition;
+import utils.petite.PetiteContainer;
+import utils.petite.PetiteException;
+import utils.petite.ScopedProxyAdvice;
+import utils.petite.proxetta.ProxettaBeanDefinition;
+import utils.petite.scope.Scope;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.ProxyProxettaFactory;
+import utils.proxetta.pointcuts.AllMethodsPointcut;
+import utils.util.ArraysUtil;
+import utils.util.ClassUtil;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -77,7 +77,7 @@ public class ScopedProxyManager {
 	 * Returns scoped proxy bean if injection scopes are mixed on some injection point.
 	 * May return <code>null</code> if mixing scopes is not detected.
 	 */
-	public Object lookupValue(final jodd.petite.PetiteContainer petiteContainer, final jodd.petite.BeanDefinition targetBeanDefinition, final jodd.petite.BeanDefinition refBeanDefinition) {
+	public Object lookupValue(final utils.petite.PetiteContainer petiteContainer, final utils.petite.BeanDefinition targetBeanDefinition, final utils.petite.BeanDefinition refBeanDefinition) {
 		Scope targetScope = targetBeanDefinition.scope;
 		Scope refBeanScope = refBeanDefinition.scope;
 
@@ -90,7 +90,7 @@ public class ScopedProxyManager {
 
 			if (!wireScopedProxy) {
 				if (detectMixedScopes) {
-					throw new jodd.petite.PetiteException(createMixingMessage(targetBeanDefinition, refBeanDefinition));
+					throw new utils.petite.PetiteException(createMixingMessage(targetBeanDefinition, refBeanDefinition));
 				}
 				return null;
 			}
@@ -124,7 +124,7 @@ public class ScopedProxyManager {
 	/**
 	 * Creates mixed scope message.
 	 */
-	protected String createMixingMessage(final jodd.petite.BeanDefinition targetBeanDefinition, final jodd.petite.BeanDefinition refBeanDefinition) {
+	protected String createMixingMessage(final utils.petite.BeanDefinition targetBeanDefinition, final utils.petite.BeanDefinition refBeanDefinition) {
 		return "Scopes mixing detected: " +
 				refBeanDefinition.name + "@" + refBeanDefinition.scope.getClass().getSimpleName() + " -> " +
 				targetBeanDefinition.name + "@" + targetBeanDefinition.scope.getClass().getSimpleName();

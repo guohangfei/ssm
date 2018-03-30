@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.typeconverter.impl;
 
-import jodd.bean.JoddBean;
-import jodd.typeconverter.TypeConversionException;
-import jodd.typeconverter.TypeConverter;
-import jodd.typeconverter.TypeConverterManager;
-import jodd.util.CsvUtil;
+import utils.bean.utilsBean;
+import utils.typeconverter.TypeConversionException;
+import utils.typeconverter.TypeConverter;
+import utils.typeconverter.TypeConverterManager;
+import utils.util.CsvUtil;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class CollectionConverter<T> implements TypeConverter<Collection<T>> {
 	public CollectionConverter(
 		final Class<? extends Collection> collectionType,
 		final Class<T> targetComponentType) {
-		this(JoddBean.defaults().getTypeConverterManager(), collectionType, targetComponentType);
+		this(utilsBean.defaults().getTypeConverterManager(), collectionType, targetComponentType);
 	}
 
 	public CollectionConverter(

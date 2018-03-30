@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.petite.resolver;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.CtorDescriptor;
-import jodd.petite.PetiteException;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.def.CtorInjectionPoint;
-import jodd.petite.resolver.ReferencesResolver;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.CtorDescriptor;
+import utils.petite.PetiteException;
+import utils.petite.def.BeanReferences;
+import utils.petite.def.CtorInjectionPoint;
+import utils.petite.resolver.ReferencesResolver;
 
 import java.lang.reflect.Constructor;
 
@@ -55,7 +55,7 @@ public class CtorResolver {
 	 */
 	public CtorInjectionPoint resolve(final Class type, final boolean useAnnotation) {
 		// lookup methods
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 		CtorDescriptor[] allCtors = cd.getAllCtorDescriptors();
 		Constructor foundedCtor = null;
 		Constructor defaultCtor = null;

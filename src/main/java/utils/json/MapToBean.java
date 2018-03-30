@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.introspector.Setter;
-import jodd.json.JsonException;
-import jodd.json.JsonParserBase;
-import jodd.util.ClassLoaderUtil;
-import jodd.util.ClassUtil;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.introspector.Setter;
+import utils.json.JsonException;
+import utils.json.JsonParserBase;
+import utils.util.ClassLoaderUtil;
+import utils.util.ClassUtil;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -81,7 +81,7 @@ public class MapToBean {
 			target = jsonParser.newObjectInstance(targetType);
 		}
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(target.getClass());
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(target.getClass());
 
 		boolean targetIsMap = target instanceof Map;
 
@@ -233,7 +233,7 @@ public class MapToBean {
 		}
 
 		try {
-			return JoddBean.defaults().getTypeConverterManager().convertType(value, targetType);
+			return utilsBean.defaults().getTypeConverterManager().convertType(value, targetType);
 		}
 		catch (Exception ex) {
 			throw new JsonException("Type conversion failed", ex);

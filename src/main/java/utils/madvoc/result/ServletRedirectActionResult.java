@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.madvoc.result;
 
-import jodd.bean.BeanTemplateParser;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.ResultMapper;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.Redirect;
-import jodd.madvoc.result.ServletDispatcherActionResult;
-import jodd.madvoc.result.ServletPermanentRedirectActionResult;
-import jodd.servlet.DispatcherUtil;
+import utils.bean.BeanTemplateParser;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.ResultMapper;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.Redirect;
+import utils.madvoc.result.ServletDispatcherActionResult;
+import utils.madvoc.result.ServletPermanentRedirectActionResult;
+import utils.servlet.DispatcherUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +47,7 @@ import java.io.IOException;
  * @see ServletDispatcherActionResult
  * @see ServletPermanentRedirectActionResult
  */
-public class ServletRedirectActionResult implements ActionResult<jodd.madvoc.result.Redirect> {
+public class ServletRedirectActionResult implements ActionResult<utils.madvoc.result.Redirect> {
 
 	protected final BeanTemplateParser beanTemplateParser = new BeanTemplateParser();
 

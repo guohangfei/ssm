@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,12 +32,12 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Converter for Java Properties to Jodd Props format.
+ * Converter for Java Properties to utils Props format.
  */
 class PropertiesToProps {
 
 	/**
-	 * Convert Java Properties to Jodd Props format
+	 * Convert Java Properties to utils Props format
 	 *
 	 * @param writer     Writer to write Props formatted file content to
 	 * @param properties Properties to convert to Props format

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.util;
 
-import jodd.util.ArraysUtil;
-import jodd.util.ClassLoaderUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.cl.ClassLoaderStrategy;
-import jodd.util.net.URLDecoder;
+import utils.util.ArraysUtil;
+import utils.util.ClassLoaderUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.cl.ClassLoaderStrategy;
+import utils.util.net.URLDecoder;
 
 import java.io.File;
 import java.io.IOException;
@@ -1193,7 +1193,7 @@ public class ClassUtil {
 	}
 
 	/**
-	 * Smart variant of {@link #getCallerClass(int)} that skips all relevant Jodd calls.
+	 * Smart variant of {@link #getCallerClass(int)} that skips all relevant utils calls.
 	 * However, this one does not use the security manager.
 	 */
 	public static Class getCallerClass() {

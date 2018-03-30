@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,13 +26,13 @@
 package utils.props;
 
 /**
- * Jodd PROPS module.
+ * utils PROPS module.
  */
-public class JoddProps {
+public class utilsProps {
 
-	private static final JoddProps instance = new JoddProps();
+	private static final utilsProps instance = new utilsProps();
 
-	public static JoddProps defaults() {
+	public static utilsProps defaults() {
 		return instance;
 	}
 

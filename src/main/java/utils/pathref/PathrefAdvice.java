@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.pathref;
 
-import jodd.pathref.Pathref;
-import jodd.proxetta.ProxyAdvice;
-import jodd.proxetta.ProxyTarget;
+import utils.pathref.Pathref;
+import utils.proxetta.ProxyAdvice;
+import utils.proxetta.ProxyTarget;
 
-import static jodd.proxetta.ProxyTarget.returnType;
-import static jodd.proxetta.ProxyTarget.targetMethodName;
+import static utils.proxetta.ProxyTarget.returnType;
+import static utils.proxetta.ProxyTarget.targetMethodName;
 
 /**
  * Pathref advice applied on all methods.

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,13 +26,13 @@
 package utils.servlet;
 
 /**
- * Jodd SERVLET module.
+ * utils SERVLET module.
  */
-public class JoddServlet {
+public class utilsServlet {
 
-	private static final JoddServlet instance = new JoddServlet();
+	private static final utilsServlet instance = new utilsServlet();
 
-	public static JoddServlet defaults() {
+	public static utilsServlet defaults() {
 		return instance;
 	}
 

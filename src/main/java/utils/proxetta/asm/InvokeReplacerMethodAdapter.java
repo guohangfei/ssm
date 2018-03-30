@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,43 +25,43 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm6.Label;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.Type;
-import jodd.proxetta.InvokeAspect;
-import jodd.proxetta.InvokeInfo;
-import jodd.proxetta.InvokeReplacer;
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxyTargetReplacement;
-import jodd.proxetta.asm.HistoryMethodAdapter;
-import jodd.proxetta.asm.ProxettaAsmUtil;
-import jodd.proxetta.asm.WorkData;
-import jodd.util.StringPool;
+import utils.asm.AsmUtil;
+import utils.asm6.Label;
+import utils.asm6.MethodVisitor;
+import utils.asm6.Type;
+import utils.proxetta.InvokeAspect;
+import utils.proxetta.InvokeInfo;
+import utils.proxetta.InvokeReplacer;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxyTargetReplacement;
+import utils.proxetta.asm.HistoryMethodAdapter;
+import utils.proxetta.asm.ProxettaAsmUtil;
+import utils.proxetta.asm.WorkData;
+import utils.util.StringPool;
 
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.ASTORE;
-import static jodd.asm6.Opcodes.DUP;
-import static jodd.asm6.Opcodes.INVOKEINTERFACE;
-import static jodd.asm6.Opcodes.INVOKESPECIAL;
-import static jodd.asm6.Opcodes.INVOKESTATIC;
-import static jodd.asm6.Opcodes.INVOKEVIRTUAL;
-import static jodd.asm6.Opcodes.NEW;
-import static jodd.asm6.Opcodes.POP;
-import static jodd.proxetta.asm.ProxettaAsmUtil.INIT;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isArgumentMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isArgumentTypeMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isInfoMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetClassAnnotationMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodAnnotationMethod;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.ASTORE;
+import static utils.asm6.Opcodes.DUP;
+import static utils.asm6.Opcodes.INVOKEINTERFACE;
+import static utils.asm6.Opcodes.INVOKESPECIAL;
+import static utils.asm6.Opcodes.INVOKESTATIC;
+import static utils.asm6.Opcodes.INVOKEVIRTUAL;
+import static utils.asm6.Opcodes.NEW;
+import static utils.asm6.Opcodes.POP;
+import static utils.proxetta.asm.ProxettaAsmUtil.INIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.isArgumentMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isArgumentTypeMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isInfoMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetClassAnnotationMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodAnnotationMethod;
 
 /**
  * Invocation replacer method adapter.
  */
-public class InvokeReplacerMethodAdapter extends jodd.proxetta.asm.HistoryMethodAdapter {
+public class InvokeReplacerMethodAdapter extends utils.proxetta.asm.HistoryMethodAdapter {
 
-	protected final jodd.proxetta.asm.WorkData wd;
+	protected final utils.proxetta.asm.WorkData wd;
 	protected final MethodInfo methodInfo;
 	protected final InvokeAspect[] aspects;
 
@@ -141,43 +141,43 @@ public class InvokeReplacerMethodAdapter extends jodd.proxetta.asm.HistoryMethod
 
 		if (ir == null || ir.isNone()) {
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsArrayMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsArrayMethod(name, desc)) {
 				ProxyTargetReplacement.createArgumentsArray(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsClassArrayMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsClassArrayMethod(name, desc)) {
 				ProxyTargetReplacement.createArgumentsClassArray(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isArgumentsCountMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isArgumentsCountMethod(name, desc)) {
 				ProxyTargetReplacement.argumentsCount(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodNameMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodNameMethod(name, desc)) {
 				ProxyTargetReplacement.targetMethodName(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodDescriptionMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodDescriptionMethod(name, desc)) {
 				ProxyTargetReplacement.targetMethodDescription(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodSignatureMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodSignatureMethod(name, desc)) {
 				ProxyTargetReplacement.targetMethodSignature(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;
 			}
 
-			if (jodd.proxetta.asm.ProxettaAsmUtil.isReturnTypeMethod(name, desc)) {
+			if (utils.proxetta.asm.ProxettaAsmUtil.isReturnTypeMethod(name, desc)) {
 				ProxyTargetReplacement.returnType(mv, methodInfo);
 				wd.proxyApplied = true;
 				return;

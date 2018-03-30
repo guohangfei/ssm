@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.json;
 
-import jodd.introspector.Getter;
-import jodd.introspector.PropertyDescriptor;
-import jodd.json.JsonContext;
-import jodd.json.JsonException;
-import jodd.json.TypeJsonVisitor;
+import utils.introspector.Getter;
+import utils.introspector.PropertyDescriptor;
+import utils.json.JsonContext;
+import utils.json.JsonException;
+import utils.json.TypeJsonVisitor;
 
 /**
  * Bean visitor that serializes properties of a bean.

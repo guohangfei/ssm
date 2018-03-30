@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.servlet.upload;
 
-import jodd.core.JoddCore;
-import jodd.io.upload.FileUploadFactory;
-import jodd.io.upload.MultipartStreamParser;
-import jodd.servlet.ServletUtil;
-import jodd.servlet.upload.MultipartRequestWrapper;
+import utils.core.utilsCore;
+import utils.io.upload.FileUploadFactory;
+import utils.io.upload.MultipartStreamParser;
+import utils.servlet.ServletUtil;
+import utils.servlet.upload.MultipartRequestWrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -94,7 +94,7 @@ public class MultipartRequest extends MultipartStreamParser {
 	 *
 	 * <p>
 	 * If not specified, character encoding is read from the request. If not specified there,
-	 * default Jodd encoding is used.
+	 * default utils encoding is used.
 	 *
 	 * <p>
 	 * Multiple instantiation doesn't work, since input stream can be parsed just once.
@@ -114,7 +114,7 @@ public class MultipartRequest extends MultipartStreamParser {
 			this.characterEncoding = request.getCharacterEncoding();
 		}
 		if (this.characterEncoding == null) {
-			this.characterEncoding = JoddCore.defaults().getEncoding();
+			this.characterEncoding = utilsCore.defaults().getEncoding();
 		}
 	}
 

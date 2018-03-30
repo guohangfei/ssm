@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,19 +25,19 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.MethodAdapter;
-import jodd.asm6.Label;
-import jodd.asm6.MethodVisitor;
-import jodd.proxetta.ProxettaException;
+import utils.asm.MethodAdapter;
+import utils.asm6.Label;
+import utils.asm6.MethodVisitor;
+import utils.proxetta.ProxettaException;
 
-import static jodd.asm6.Opcodes.BIPUSH;
-import static jodd.asm6.Opcodes.ICONST_0;
-import static jodd.asm6.Opcodes.ICONST_1;
-import static jodd.asm6.Opcodes.ICONST_2;
-import static jodd.asm6.Opcodes.ICONST_3;
-import static jodd.asm6.Opcodes.ICONST_4;
-import static jodd.asm6.Opcodes.ICONST_5;
-import static jodd.asm6.Opcodes.SIPUSH;
+import static utils.asm6.Opcodes.BIPUSH;
+import static utils.asm6.Opcodes.ICONST_0;
+import static utils.asm6.Opcodes.ICONST_1;
+import static utils.asm6.Opcodes.ICONST_2;
+import static utils.asm6.Opcodes.ICONST_3;
+import static utils.asm6.Opcodes.ICONST_4;
+import static utils.asm6.Opcodes.ICONST_5;
+import static utils.asm6.Opcodes.SIPUSH;
 
 /**
  * Method adapter that tracks history of previous instructions.

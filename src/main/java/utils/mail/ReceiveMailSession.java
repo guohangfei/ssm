@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.mail;
 
-import jodd.mail.Email;
-import jodd.mail.EmailFilter;
-import jodd.mail.EmailUtil;
-import jodd.mail.MailException;
-import jodd.mail.MailSession;
-import jodd.mail.ReceivedEmail;
+import utils.mail.Email;
+import utils.mail.EmailFilter;
+import utils.mail.EmailUtil;
+import utils.mail.MailException;
+import utils.mail.MailSession;
+import utils.mail.ReceivedEmail;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -40,10 +40,10 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 /**
- * Encapsulates {@link jodd.mail.Email} receiving session. Prepares and receives {@link Email}s.
+ * Encapsulates {@link utils.mail.Email} receiving session. Prepares and receives {@link Email}s.
  * Some methods do not work on POP3 servers.
  */
-public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
+public class ReceiveMailSession extends utils.mail.MailSession<Store> {
 
 	/**
 	 * Default folder.
@@ -87,7 +87,7 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 		try {
 			folders = getService().getDefaultFolder().list("*");
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException("Failed to connect to folder", msgexc);
+			throw new utils.mail.MailException("Failed to connect to folder", msgexc);
 		}
 		final String[] folderNames = new String[folders.length];
 
@@ -111,21 +111,21 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 
 			try {
 				openFolder(Folder.READ_WRITE, folderName);
-			} catch (final jodd.mail.MailException ignore) {
+			} catch (final utils.mail.MailException ignore) {
 				openFolder(Folder.READ_ONLY, folderName);
 			}
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException("Failed to connect to folder: " + folderName, msgexc);
+			throw new utils.mail.MailException("Failed to connect to folder: " + folderName, msgexc);
 		}
 	}
 
 	// ---------------------------------------------------------------- open
 
-	private void openFolder(final int mode, final String folderNameForErr) throws jodd.mail.MailException {
+	private void openFolder(final int mode, final String folderNameForErr) throws utils.mail.MailException {
 		try {
 			folder.open(mode);
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException("Failed to open folder: " + folderNameForErr, msgexc);
+			throw new utils.mail.MailException("Failed to open folder: " + folderNameForErr, msgexc);
 		}
 	}
 
@@ -151,7 +151,7 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 		try {
 			return folder.getMessageCount();
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException(msgexc);
+			throw new utils.mail.MailException(msgexc);
 		}
 	}
 
@@ -167,7 +167,7 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 		try {
 			return folder.getNewMessageCount();
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException(msgexc);
+			throw new utils.mail.MailException(msgexc);
 		}
 	}
 
@@ -181,7 +181,7 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 		try {
 			return folder.getUnreadMessageCount();
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException(msgexc);
+			throw new utils.mail.MailException(msgexc);
 		}
 	}
 
@@ -197,7 +197,7 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 		try {
 			return folder.getDeletedMessageCount();
 		} catch (final MessagingException msgexc) {
-			throw new jodd.mail.MailException(msgexc);
+			throw new utils.mail.MailException(msgexc);
 		}
 	}
 
@@ -208,45 +208,45 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 	 * may set SEEN flag anyway, so we force messages to remain
 	 * unseen.
 	 *
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
-	 * @see #receive(jodd.mail.EmailFilter, Flags)
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
+	 * @see #receive(utils.mail.EmailFilter, Flags)
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmail() {
+	public utils.mail.ReceivedEmail[] receiveEmail() {
 		return receive(null, null);
 	}
 
 	/**
-	 * Receives all emails that matches given {@link jodd.mail.EmailFilter}.
+	 * Receives all emails that matches given {@link utils.mail.EmailFilter}.
 	 * Messages are not modified. However, servers may set SEEN flag anyway,
 	 * so we force messages to remain unseen.
 	 *
-	 * @param filter {@link jodd.mail.EmailFilter}
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
-	 * @see #receive(jodd.mail.EmailFilter, Flags)
+	 * @param filter {@link utils.mail.EmailFilter}
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
+	 * @see #receive(utils.mail.EmailFilter, Flags)
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmail(final jodd.mail.EmailFilter filter) {
+	public utils.mail.ReceivedEmail[] receiveEmail(final utils.mail.EmailFilter filter) {
 		return receive(filter, null);
 	}
 
 	/**
 	 * Receives all emails and mark all messages as 'seen' (ie 'read').
 	 *
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
-	 * @see #receiveEmailAndMarkSeen(jodd.mail.EmailFilter)
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
+	 * @see #receiveEmailAndMarkSeen(utils.mail.EmailFilter)
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmailAndMarkSeen() {
+	public utils.mail.ReceivedEmail[] receiveEmailAndMarkSeen() {
 		return receiveEmailAndMarkSeen(null);
 	}
 
 	/**
-	 * Receives all emails that matches given {@link jodd.mail.EmailFilter}
+	 * Receives all emails that matches given {@link utils.mail.EmailFilter}
 	 * and mark them as 'seen' (ie 'read').
 	 *
-	 * @param filter {@link jodd.mail.EmailFilter}
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
-	 * @see #receive(jodd.mail.EmailFilter, Flags)
+	 * @param filter {@link utils.mail.EmailFilter}
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
+	 * @see #receive(utils.mail.EmailFilter, Flags)
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmailAndMarkSeen(final jodd.mail.EmailFilter filter) {
+	public utils.mail.ReceivedEmail[] receiveEmailAndMarkSeen(final utils.mail.EmailFilter filter) {
 		final Flags flags = new Flags();
 		flags.add(Flags.Flag.SEEN);
 		return receive(filter, flags);
@@ -255,21 +255,21 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 	/**
 	 * Receives all emails and mark all messages as 'seen' and 'deleted'.
 	 *
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmailAndDelete() {
+	public utils.mail.ReceivedEmail[] receiveEmailAndDelete() {
 		return receiveEmailAndDelete(null);
 	}
 
 	/**
-	 * Receives all emails that matches given {@link jodd.mail.EmailFilter} and
+	 * Receives all emails that matches given {@link utils.mail.EmailFilter} and
 	 * mark all messages as 'seen' and 'deleted'.
 	 *
-	 * @param filter {@link jodd.mail.EmailFilter}
-	 * @return array of {@link jodd.mail.ReceivedEmail}s.
-	 * @see #receive(jodd.mail.EmailFilter, Flags) s
+	 * @param filter {@link utils.mail.EmailFilter}
+	 * @return array of {@link utils.mail.ReceivedEmail}s.
+	 * @see #receive(utils.mail.EmailFilter, Flags) s
 	 */
-	public jodd.mail.ReceivedEmail[] receiveEmailAndDelete(final jodd.mail.EmailFilter filter) {
+	public utils.mail.ReceivedEmail[] receiveEmailAndDelete(final utils.mail.EmailFilter filter) {
 		final Flags flags = new Flags();
 		flags.add(Flags.Flag.SEEN);
 		flags.add(Flags.Flag.DELETED);
@@ -277,15 +277,15 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 	}
 
 	/**
-	 * Receives all emails that match given {@link jodd.mail.EmailFilter} and set given {@link Flags}.
+	 * Receives all emails that match given {@link utils.mail.EmailFilter} and set given {@link Flags}.
 	 * Both filter and flags to set are optional. If flags to set is not provided, it forces 'seen'
 	 * flag to be unset.
 	 *
-	 * @param filter     {@link jodd.mail.EmailFilter filter}
+	 * @param filter     {@link utils.mail.EmailFilter filter}
 	 * @param flagsToSet {@link Flags} to filter on
-	 * @return array of {@link jodd.mail.ReceivedEmail}.
+	 * @return array of {@link utils.mail.ReceivedEmail}.
 	 */
-	public jodd.mail.ReceivedEmail[] receive(final EmailFilter filter, final Flags flagsToSet) {
+	public utils.mail.ReceivedEmail[] receive(final EmailFilter filter, final Flags flagsToSet) {
 		if (folder == null) {
 			useDefaultFolder();
 		}
@@ -302,12 +302,12 @@ public class ReceiveMailSession extends jodd.mail.MailSession<Store> {
 			}
 
 			if (messages.length == 0) {
-				return jodd.mail.ReceivedEmail.EMPTY_ARRAY;
+				return utils.mail.ReceivedEmail.EMPTY_ARRAY;
 			}
 
 			// process messages
 
-			final jodd.mail.ReceivedEmail[] emails = new jodd.mail.ReceivedEmail[messages.length];
+			final utils.mail.ReceivedEmail[] emails = new utils.mail.ReceivedEmail[messages.length];
 
 			for (int i = 0; i < messages.length; i++) {
 				final Message msg = messages[i];

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.util;
 
-import jodd.util.HashCode;
-import jodd.util.TimeUtil;
+import utils.util.HashCode;
+import utils.util.TimeUtil;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static jodd.util.TimeUtil.MILLIS_IN_DAY;
+import static utils.util.TimeUtil.MILLIS_IN_DAY;
 
 /**
  * Julian Date stamp, for high precision calculations. Julian date is a real

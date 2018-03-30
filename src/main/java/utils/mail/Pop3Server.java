@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.mail;
 
-import jodd.mail.EmailUtil;
-import jodd.mail.MailServer;
-import jodd.mail.ReceiveMailSession;
+import utils.mail.EmailUtil;
+import utils.mail.MailServer;
+import utils.mail.ReceiveMailSession;
 
 import javax.mail.Authenticator;
 import javax.mail.NoSuchProviderException;
@@ -35,7 +35,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import java.util.Properties;
 
-import static jodd.util.StringPool.TRUE;
+import static utils.util.StringPool.TRUE;
 
 /**
  * Represents simple plain POP server for sending emails.
@@ -85,7 +85,7 @@ public class Pop3Server extends MailServer<ReceiveMailSession> {
 	 * {@inheritDoc}
 	 *
 	 * @return {@link ReceiveMailSession}
-	 * @see jodd.mail.EmailUtil#createSession(String, Properties, Authenticator)
+	 * @see utils.mail.EmailUtil#createSession(String, Properties, Authenticator)
 	 */
 	@Override
 	public ReceiveMailSession createSession() {

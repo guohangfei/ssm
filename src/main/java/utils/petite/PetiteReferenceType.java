@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,7 +26,7 @@
 package utils.petite;
 
 /**
- * {@link jodd.petite.meta.PetiteInject Petite injection} references.
+ * {@link utils.petite.meta.PetiteInject Petite injection} references.
  * When injection annotation is used without the explicit bean name,
  * Petite Container will try to resolve name from various sources,
  * defined by this enumeration.

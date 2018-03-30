@@ -1,6 +1,6 @@
 package utils.methref;
 
-import jodd.proxetta.ProxettaException;
+import utils.proxetta.ProxettaException;
 
 public class MethrefException extends ProxettaException {
 	public MethrefException(Throwable throwable) {

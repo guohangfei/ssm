@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.servlet.upload;
 
-import jodd.io.upload.FileUpload;
-import jodd.io.upload.FileUploadFactory;
-import jodd.servlet.ServletUtil;
-import jodd.servlet.upload.MultipartRequest;
+import utils.io.upload.FileUpload;
+import utils.io.upload.FileUploadFactory;
+import utils.servlet.ServletUtil;
+import utils.servlet.upload.MultipartRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -41,37 +41,37 @@ import java.util.Map;
 /**
  * Multi-part HTTP servlet request wrapper.
  * 
- * @see jodd.servlet.upload.MultipartRequest
+ * @see utils.servlet.upload.MultipartRequest
  */
 public class MultipartRequestWrapper extends HttpServletRequestWrapper {
 
 	// ---------------------------------------------------------------- construction
 
-	jodd.servlet.upload.MultipartRequest mreq;
+	utils.servlet.upload.MultipartRequest mreq;
 	HttpServletRequest req;
 
 	public MultipartRequestWrapper(final HttpServletRequest request, final FileUploadFactory fileUploadFactory, final String encoding) throws IOException {
 		super(request);
 		req = request;
 		if (ServletUtil.isMultipartRequest(request)) {
-			mreq = jodd.servlet.upload.MultipartRequest.getInstance(request, fileUploadFactory, encoding);
+			mreq = utils.servlet.upload.MultipartRequest.getInstance(request, fileUploadFactory, encoding);
 		}
 	}
 
 	public MultipartRequestWrapper(final HttpServletRequest request, final FileUploadFactory fileUploadFactory) throws IOException {
 		super(request);
 		if (ServletUtil.isMultipartRequest(request)) {
-			mreq = jodd.servlet.upload.MultipartRequest.getInstance(request, fileUploadFactory, null);
+			mreq = utils.servlet.upload.MultipartRequest.getInstance(request, fileUploadFactory, null);
 		}
 	}
 
-	public MultipartRequestWrapper(final jodd.servlet.upload.MultipartRequest mpreq) {
+	public MultipartRequestWrapper(final utils.servlet.upload.MultipartRequest mpreq) {
 		super(mpreq.getServletRequest());
 		mreq = mpreq;
 	}
 
 	/**
-	 * Returns {@link jodd.servlet.upload.MultipartRequest} instance or <code>null</code> if request is not multi-part.
+	 * Returns {@link utils.servlet.upload.MultipartRequest} instance or <code>null</code> if request is not multi-part.
 	 */
 	public MultipartRequest getMultipartRequest() {
 		return mreq;

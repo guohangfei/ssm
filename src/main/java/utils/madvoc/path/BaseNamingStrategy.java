@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.madvoc.path;
 
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionNames;
-import jodd.madvoc.path.ActionNamingStrategy;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionNames;
+import utils.madvoc.path.ActionNamingStrategy;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 /**
- * Common base for {@link jodd.madvoc.path.ActionNamingStrategy} implementations.
+ * Common base for {@link utils.madvoc.path.ActionNamingStrategy} implementations.
  */
 public abstract class BaseNamingStrategy implements ActionNamingStrategy {
 

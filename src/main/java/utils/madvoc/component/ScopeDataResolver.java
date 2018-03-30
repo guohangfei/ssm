@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.madvoc.component;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.ScopeData;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Out;
-import jodd.madvoc.meta.Scope;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.madvoc.ScopeType;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.ScopeData;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Out;
+import utils.madvoc.meta.Scope;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -237,7 +237,7 @@ public class ScopeDataResolver {
 	 * Returns <code>null</code> if there are no In and Out data.
 	 */
 	protected ScopeData inspectClassScopeData(final Class actionClass, final ScopeType scopeType) {
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(actionClass);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(actionClass);
 
 		PropertyDescriptor[] allProperties = cd.getAllPropertyDescriptors();
 

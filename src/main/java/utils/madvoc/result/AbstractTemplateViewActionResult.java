@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,19 +25,19 @@
 
 package utils.madvoc.result;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocUtil;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.ResultMapper;
-import jodd.madvoc.config.ResultPath;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.PathResult;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocUtil;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.ResultMapper;
+import utils.madvoc.config.ResultPath;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.PathResult;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

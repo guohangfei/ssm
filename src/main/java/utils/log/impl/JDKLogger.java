@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.log.impl;
 
-import jodd.log.Logger;
-import jodd.log.LoggerProvider;
+import utils.log.Logger;
+import utils.log.LoggerProvider;
 
 /**
  * JDK logger.
@@ -43,9 +43,9 @@ public class JDKLogger implements Logger {
 	}
 
 	/**
-	 * Converts Jodd logging level to JDK.
+	 * Converts utils logging level to JDK.
 	 */
-	private java.util.logging.Level jodd2jdk(final Level level) {
+	private java.util.logging.Level utils2jdk(final Level level) {
 		switch (level) {
 			case TRACE: return java.util.logging.Level.FINER;
 			case DEBUG: return java.util.logging.Level.FINE;
@@ -64,22 +64,22 @@ public class JDKLogger implements Logger {
 
 	@Override
 	public boolean isEnabled(final Level level) {
-		return logger.isLoggable(jodd2jdk(level));
+		return logger.isLoggable(utils2jdk(level));
 	}
 
 	@Override
 	public void log(final Level level, final String message) {
-		logger.log(jodd2jdk(level), message);
+		logger.log(utils2jdk(level), message);
 	}
 
 	@Override
 	public void log(final Level level, final String message, final Throwable throwable) {
-		logger.log(jodd2jdk(level), message, throwable);
+		logger.log(utils2jdk(level), message, throwable);
 	}
 
 	@Override
 	public void setLevel(final Level level) {
-		logger.setLevel(jodd2jdk(level));
+		logger.setLevel(utils2jdk(level));
 	}
 
 	@Override

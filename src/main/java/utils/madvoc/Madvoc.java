@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.madvoc;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.AutomagicMadvocConfigurator;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.WebApp;
-import jodd.props.Props;
-import jodd.props.PropsUtil;
-import jodd.typeconverter.Converter;
-import jodd.util.ClassLoaderUtil;
-import jodd.util.ClassUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.AutomagicMadvocConfigurator;
+import utils.madvoc.MadvocException;
+import utils.madvoc.WebApp;
+import utils.props.Props;
+import utils.props.PropsUtil;
+import utils.typeconverter.Converter;
+import utils.util.ClassLoaderUtil;
+import utils.util.ClassUtil;
 
 import javax.servlet.ServletContext;
 

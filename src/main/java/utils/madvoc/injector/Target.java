@@ -1,10 +1,10 @@
 package utils.madvoc.injector;
 
 import java.lang.reflect.Constructor;
-import jodd.bean.BeanUtil;
-import jodd.bean.JoddBean;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.config.ScopeData.Out;
+import utils.bean.BeanUtil;
+import utils.bean.utilsBean;
+import utils.madvoc.MadvocException;
+import utils.madvoc.config.ScopeData.Out;
 
 public class Target {
 	protected final Class type;
@@ -62,7 +62,7 @@ public class Target {
 		if (this.type != null) {
 			int dotNdx = propertyName.indexOf(46);
 			if (dotNdx == -1) {
-				this.value = JoddBean.defaults().getTypeConverterManager().convertType(propertyValue, this.type);
+				this.value = utilsBean.defaults().getTypeConverterManager().convertType(propertyValue, this.type);
 				return;
 			}
 

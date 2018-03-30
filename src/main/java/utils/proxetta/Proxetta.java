@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.ProxettaFactory;
-import jodd.proxetta.impl.InvokeProxetta;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.proxetta.impl.WrapperProxetta;
+import utils.proxetta.ProxettaFactory;
+import utils.proxetta.impl.InvokeProxetta;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.WrapperProxetta;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ import java.util.List;
  * Proxetta creates dynamic proxy classes in the run-time.
  * <p>
  * To wrap a class with proxy Proxetta needs a target class (or its name or <code>InputStream</code>)
- * and one or more {@link jodd.proxetta.ProxyAspect proxy aspects} that will be applied to target.
+ * and one or more {@link utils.proxetta.ProxyAspect proxy aspects} that will be applied to target.
  * Proxetta will examine target class and check if there are any methods to wrap, as defined by aspects pointcut.
  * If there is at least one matched method, new proxy class will be created that extends target class.
  * <p>

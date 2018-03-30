@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.typeconverter.impl;
 
-import jodd.typeconverter.TypeConversionException;
-import jodd.typeconverter.TypeConverter;
-import jodd.util.JulianDate;
-import jodd.util.StringUtil;
+import utils.typeconverter.TypeConversionException;
+import utils.typeconverter.TypeConverter;
+import utils.util.JulianDate;
+import utils.util.StringUtil;
 
 import java.sql.Date;
 import java.util.Calendar;

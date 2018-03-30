@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,19 +25,19 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.json.*;
-import jodd.json.JoddJson;
-import jodd.json.JsonWriter;
-import jodd.json.Path;
-import jodd.util.ClassUtil;
-import jodd.util.Wildcard;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.json.*;
+import utils.json.utilsJson;
+import utils.json.JsonWriter;
+import utils.json.Path;
+import utils.util.ClassUtil;
+import utils.util.Wildcard;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jodd.util.StringPool.NULL;
+import static utils.util.StringPool.NULL;
 
 /**
  * JSON context used during serialization for building the JSON string.
@@ -49,14 +49,14 @@ public class JsonContext extends JsonWriter {
 	protected final JsonSerializer jsonSerializer;
 	protected final List<JsonValueContext> bag;
 	protected int bagSize = 0;
-	protected final jodd.json.Path path;
+	protected final utils.json.Path path;
 	protected final boolean excludeNulls;
 
 	public JsonContext(final JsonSerializer jsonSerializer, final Appendable appendable, final boolean excludeNulls, final boolean strictStringEncoding) {
 		super(appendable, strictStringEncoding);
 		this.jsonSerializer = jsonSerializer;
 		this.bag = new ArrayList<>();
-		this.path = new jodd.json.Path();
+		this.path = new utils.json.Path();
 		this.excludeNulls = excludeNulls;
 	}
 
@@ -164,7 +164,7 @@ public class JsonContext extends JsonWriter {
 	// ---------------------------------------------------------------- serializer
 
 	/**
-	 * Serializes the object using {@link jodd.json.TypeJsonSerializer type serializer}.
+	 * Serializes the object using {@link utils.json.TypeJsonSerializer type serializer}.
 	 * Returns <code>true</code> if object was written, otherwise returns <code>false</code>.
 	 */
 	public boolean serialize(final Object object) {
@@ -211,7 +211,7 @@ public class JsonContext extends JsonWriter {
 
 		if (propertyType != null) {
 			if (!jsonSerializer.deep) {
-				ClassDescriptor propertyTypeClassDescriptor = JoddBean.defaults().getClassIntrospector().lookup(propertyType);
+				ClassDescriptor propertyTypeClassDescriptor = utilsBean.defaults().getClassIntrospector().lookup(propertyType);
 
 				if (propertyTypeClassDescriptor.isArray()) {
 					return false;
@@ -230,8 +230,8 @@ public class JsonContext extends JsonWriter {
 
 			// + excluded types
 
-			if (jodd.json.JoddJson.defaults().getExcludedTypes() != null) {
-				for (Class excludedType : jodd.json.JoddJson.defaults().getExcludedTypes()) {
+			if (utils.json.utilsJson.defaults().getExcludedTypes() != null) {
+				for (Class excludedType : utils.json.utilsJson.defaults().getExcludedTypes()) {
 					if (ClassUtil.isTypeOf(propertyType, excludedType)) {
 						return false;
 					}
@@ -249,8 +249,8 @@ public class JsonContext extends JsonWriter {
 
 			String propertyTypeName = propertyType.getName();
 
-			if (jodd.json.JoddJson.defaults().getExcludedTypeNames() != null) {
-				for (String excludedTypeName : JoddJson.defaults().getExcludedTypeNames()) {
+			if (utils.json.utilsJson.defaults().getExcludedTypeNames() != null) {
+				for (String excludedTypeName : utilsJson.defaults().getExcludedTypeNames()) {
 					if (Wildcard.match(propertyTypeName, excludedTypeName)) {
 						return false;
 					}

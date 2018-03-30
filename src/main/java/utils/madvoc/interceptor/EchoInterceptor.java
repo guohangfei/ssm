@@ -1,8 +1,8 @@
 package utils.madvoc.interceptor;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.util.StringUtil;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.util.StringUtil;
 
 public class EchoInterceptor implements ActionInterceptor {
 	protected String prefixIn = "-----> ";

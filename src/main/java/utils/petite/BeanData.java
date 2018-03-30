@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.petite;
 
-import jodd.petite.BeanDefinition;
+import utils.petite.BeanDefinition;
 
 /**
- * Petite bean is defined by {@link jodd.petite.BeanDefinition bean definition}
+ * Petite bean is defined by {@link utils.petite.BeanDefinition bean definition}
  * and it's bean instance.
  */
 public class BeanData {

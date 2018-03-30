@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,64 +25,64 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AnnotationVisitorAdapter;
-import jodd.asm.AsmUtil;
-import jodd.asm.EmptyClassVisitor;
-import jodd.asm.EmptyMethodVisitor;
-import jodd.asm6.AnnotationVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxyTarget;
-import jodd.proxetta.ProxyTargetReplacement;
-import jodd.proxetta.asm.HistoryMethodAdapter;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.ProxettaAsmUtil;
-import jodd.proxetta.asm.ProxyAspectData;
-import jodd.proxetta.asm.TargetMethodData;
-import jodd.proxetta.asm.WorkData;
+import utils.asm.AnnotationVisitorAdapter;
+import utils.asm.AsmUtil;
+import utils.asm.EmptyClassVisitor;
+import utils.asm.EmptyMethodVisitor;
+import utils.asm6.AnnotationVisitor;
+import utils.asm6.MethodVisitor;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxyTarget;
+import utils.proxetta.ProxyTargetReplacement;
+import utils.proxetta.asm.HistoryMethodAdapter;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.ProxettaAsmUtil;
+import utils.proxetta.asm.ProxyAspectData;
+import utils.proxetta.asm.TargetMethodData;
+import utils.proxetta.asm.WorkData;
 
 import java.util.List;
 
-import static jodd.asm6.Opcodes.ACC_ABSTRACT;
-import static jodd.asm6.Opcodes.ACC_NATIVE;
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.ARETURN;
-import static jodd.asm6.Opcodes.ASTORE;
-import static jodd.asm6.Opcodes.GETFIELD;
-import static jodd.asm6.Opcodes.INVOKEINTERFACE;
-import static jodd.asm6.Opcodes.INVOKESPECIAL;
-import static jodd.asm6.Opcodes.INVOKESTATIC;
-import static jodd.asm6.Opcodes.INVOKEVIRTUAL;
-import static jodd.asm6.Opcodes.POP;
-import static jodd.asm6.Opcodes.POP2;
-import static jodd.proxetta.asm.ProxettaAsmUtil.adviceFieldName;
-import static jodd.proxetta.asm.ProxettaAsmUtil.adviceMethodName;
-import static jodd.proxetta.asm.ProxettaAsmUtil.castToReturnType;
-import static jodd.proxetta.asm.ProxettaAsmUtil.checkArgumentIndex;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isArgumentMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isArgumentTypeMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isArgumentsCountMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsArrayMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsClassArrayMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isInfoMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isInvokeMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isReturnTypeMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isReturnValueMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isSetArgumentMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetClassAnnotationMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetClassMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodAnnotationMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodDescriptionMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodNameMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.isTargetMethodSignatureMethod;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadSpecialMethodArguments;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadStaticMethodArguments;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadVirtualMethodArguments;
-import static jodd.proxetta.asm.ProxettaAsmUtil.prepareReturnValue;
-import static jodd.proxetta.asm.ProxettaAsmUtil.storeMethodArgumentFromObject;
-import static jodd.proxetta.asm.ProxettaAsmUtil.visitReturn;
+import static utils.asm6.Opcodes.ACC_ABSTRACT;
+import static utils.asm6.Opcodes.ACC_NATIVE;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.ARETURN;
+import static utils.asm6.Opcodes.ASTORE;
+import static utils.asm6.Opcodes.GETFIELD;
+import static utils.asm6.Opcodes.INVOKEINTERFACE;
+import static utils.asm6.Opcodes.INVOKESPECIAL;
+import static utils.asm6.Opcodes.INVOKESTATIC;
+import static utils.asm6.Opcodes.INVOKEVIRTUAL;
+import static utils.asm6.Opcodes.POP;
+import static utils.asm6.Opcodes.POP2;
+import static utils.proxetta.asm.ProxettaAsmUtil.adviceFieldName;
+import static utils.proxetta.asm.ProxettaAsmUtil.adviceMethodName;
+import static utils.proxetta.asm.ProxettaAsmUtil.castToReturnType;
+import static utils.proxetta.asm.ProxettaAsmUtil.checkArgumentIndex;
+import static utils.proxetta.asm.ProxettaAsmUtil.isArgumentMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isArgumentTypeMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isArgumentsCountMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsArrayMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isCreateArgumentsClassArrayMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isInfoMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isInvokeMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isReturnTypeMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isReturnValueMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isSetArgumentMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetClassAnnotationMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetClassMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodAnnotationMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodDescriptionMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodNameMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.isTargetMethodSignatureMethod;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadSpecialMethodArguments;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadStaticMethodArguments;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadVirtualMethodArguments;
+import static utils.proxetta.asm.ProxettaAsmUtil.prepareReturnValue;
+import static utils.proxetta.asm.ProxettaAsmUtil.storeMethodArgumentFromObject;
+import static utils.proxetta.asm.ProxettaAsmUtil.visitReturn;
 
 @SuppressWarnings({"AnonymousClassVariableHidesContainingMethodVariable"})
 public class ProxettaMethodBuilder extends EmptyMethodVisitor {
@@ -90,10 +90,10 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 	public static final String TARGET_CLASS_NAME = ProxyTarget.class.getSimpleName();        // extract ProxyTarget name for recognition
 
 	protected final MethodSignatureVisitor msign;
-	protected final jodd.proxetta.asm.WorkData wd;
-	protected final List<jodd.proxetta.asm.ProxyAspectData> aspectList;
+	protected final utils.proxetta.asm.WorkData wd;
+	protected final List<utils.proxetta.asm.ProxyAspectData> aspectList;
 
-	public ProxettaMethodBuilder(final MethodSignatureVisitor msign, final WorkData wd, final List<jodd.proxetta.asm.ProxyAspectData> aspectList) {
+	public ProxettaMethodBuilder(final MethodSignatureVisitor msign, final WorkData wd, final List<utils.proxetta.asm.ProxyAspectData> aspectList) {
 		this.msign = msign;
 		this.wd = wd;
 		this.aspectList = aspectList;
@@ -139,7 +139,7 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 
 	// ---------------------------------------------------------------- creating
 
-	protected jodd.proxetta.asm.TargetMethodData tmd;
+	protected utils.proxetta.asm.TargetMethodData tmd;
 	protected MethodVisitor methodVisitor;
 
 	/**
@@ -153,7 +153,7 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 		}
 
 		// create proxy methods
-		tmd = new jodd.proxetta.asm.TargetMethodData(msign, aspectList);
+		tmd = new utils.proxetta.asm.TargetMethodData(msign, aspectList);
 
 		access &= ~ACC_NATIVE;
 		access &= ~ACC_ABSTRACT;
@@ -166,7 +166,7 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 	 * Continues the creation of the very first method in calling chain that simply delegates invocation to the first proxy method.
 	 * This method mirrors the target method.
 	 */
-	protected void createFirstChainDelegate_Continue(final jodd.proxetta.asm.TargetMethodData tmd) {
+	protected void createFirstChainDelegate_Continue(final utils.proxetta.asm.TargetMethodData tmd) {
 		methodVisitor.visitCode();
 
 		if (tmd.msign.isStatic) {
@@ -201,8 +201,8 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 	 * <p>
 	 * Invocation chain example: {@code name -> name$p0 -> name$p1 -> name$p4 -> super}.
 	 */
-	public void createProxyMethod(final jodd.proxetta.asm.TargetMethodData td) {
-		final jodd.proxetta.asm.ProxyAspectData aspectData = td.getProxyData();
+	public void createProxyMethod(final utils.proxetta.asm.TargetMethodData td) {
+		final utils.proxetta.asm.ProxyAspectData aspectData = td.getProxyData();
 
 		int access = td.msign.getAccessFlags();
 
@@ -219,11 +219,11 @@ public class ProxettaMethodBuilder extends EmptyMethodVisitor {
 			@Override
 			public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature, final String[] exceptions) {
 
-				if (!name.equals(JoddProxetta.defaults().getExecuteMethodName())) {
+				if (!name.equals(utilsProxetta.defaults().getExecuteMethodName())) {
 					return null;
 				}
 
-				return new jodd.proxetta.asm.HistoryMethodAdapter(mv) {
+				return new utils.proxetta.asm.HistoryMethodAdapter(mv) {
 
 					@Override
 					public void visitFieldInsn(final int opcode, String owner, String name, final String desc) {

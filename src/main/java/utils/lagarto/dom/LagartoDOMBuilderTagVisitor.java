@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,28 +25,28 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.Doctype;
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagType;
-import jodd.lagarto.TagVisitor;
-import jodd.lagarto.dom.*;
-import jodd.lagarto.dom.CData;
-import jodd.lagarto.dom.Comment;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.DocumentType;
-import jodd.lagarto.dom.Element;
-import jodd.lagarto.dom.HtmlFosterRules;
-import jodd.lagarto.dom.HtmlImplicitClosingRules;
-import jodd.lagarto.dom.HtmlVoidRules;
-import jodd.lagarto.dom.LagartoDOMBuilder;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.Text;
-import jodd.lagarto.dom.XmlDeclaration;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.util.CharSequenceUtil;
-import jodd.util.StringPool;
-import jodd.util.Util;
+import utils.lagarto.Doctype;
+import utils.lagarto.Tag;
+import utils.lagarto.TagType;
+import utils.lagarto.TagVisitor;
+import utils.lagarto.dom.*;
+import utils.lagarto.dom.CData;
+import utils.lagarto.dom.Comment;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.DocumentType;
+import utils.lagarto.dom.Element;
+import utils.lagarto.dom.HtmlFosterRules;
+import utils.lagarto.dom.HtmlImplicitClosingRules;
+import utils.lagarto.dom.HtmlVoidRules;
+import utils.lagarto.dom.LagartoDOMBuilder;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.Text;
+import utils.lagarto.dom.XmlDeclaration;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.util.CharSequenceUtil;
+import utils.util.StringPool;
+import utils.util.Util;
 
 /**
  * Lagarto tag visitor that builds DOM tree.
@@ -66,12 +66,12 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 
 	private static final Logger log = LoggerFactory.getLogger(LagartoDOMBuilderTagVisitor.class);
 
-	protected final jodd.lagarto.dom.LagartoDOMBuilder domBuilder;
-	protected final jodd.lagarto.dom.HtmlImplicitClosingRules implRules = new HtmlImplicitClosingRules();
-	protected jodd.lagarto.dom.HtmlVoidRules htmlVoidRules;
+	protected final utils.lagarto.dom.LagartoDOMBuilder domBuilder;
+	protected final utils.lagarto.dom.HtmlImplicitClosingRules implRules = new HtmlImplicitClosingRules();
+	protected utils.lagarto.dom.HtmlVoidRules htmlVoidRules;
 
-	protected jodd.lagarto.dom.Document rootNode;
-	protected jodd.lagarto.dom.Node parentNode;
+	protected utils.lagarto.dom.Document rootNode;
+	protected utils.lagarto.dom.Node parentNode;
 
 	/**
 	 * While enabled, nodes will be added to the DOM tree.
@@ -84,9 +84,9 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	}
 
 	/**
-	 * Returns root {@link jodd.lagarto.dom.Document document} node of parsed DOM tree.
+	 * Returns root {@link utils.lagarto.dom.Document document} node of parsed DOM tree.
 	 */
-	public jodd.lagarto.dom.Document getDocument() {
+	public utils.lagarto.dom.Document getDocument() {
 		return rootNode;
 	}
 
@@ -94,7 +94,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 
 	/**
 	 * Starts with DOM building.
-	 * Creates root {@link jodd.lagarto.dom.Document} node.
+	 * Creates root {@link utils.lagarto.dom.Document} node.
 	 */
 	@Override
 	public void start() {
@@ -118,7 +118,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	public void end() {
 		if (parentNode != rootNode) {
 
-			jodd.lagarto.dom.Node thisNode = parentNode;
+			utils.lagarto.dom.Node thisNode = parentNode;
 
 			while (thisNode != rootNode) {
 				if (domBuilder.config.isImpliedEndTags()) {
@@ -141,7 +141,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 
 		// foster
 		if (domBuilder.config.isUseFosterRules()) {
-			jodd.lagarto.dom.HtmlFosterRules fosterRules = new HtmlFosterRules();
+			utils.lagarto.dom.HtmlFosterRules fosterRules = new HtmlFosterRules();
 			fosterRules.fixFosterElements(rootNode);
 		}
 
@@ -158,7 +158,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	/**
 	 * Creates new element with correct configuration.
 	 */
-	protected jodd.lagarto.dom.Element createElementNode(final Tag tag) {
+	protected utils.lagarto.dom.Element createElementNode(final Tag tag) {
 		boolean hasVoidTags = htmlVoidRules != null;
 
 		boolean isVoid = false;
@@ -177,7 +177,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			selfClosed = domBuilder.config.isSelfCloseVoidTags();
 		}
 
-		return new jodd.lagarto.dom.Element(rootNode, tag, isVoid, selfClosed);
+		return new utils.lagarto.dom.Element(rootNode, tag, isVoid, selfClosed);
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 		}
 
 		TagType tagType = tag.getType();
-		jodd.lagarto.dom.Element node;
+		utils.lagarto.dom.Element node;
 
 		switch (tagType) {
 			case START:
@@ -228,7 +228,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 
 				String tagName = tag.getName().toString();
 
-				jodd.lagarto.dom.Node matchingParent = findMatchingParentOpenTag(tagName);
+				utils.lagarto.dom.Node matchingParent = findMatchingParentOpenTag(tagName);
 
 				if (matchingParent == parentNode) {		// regular situation
 					parentNode = parentNode.getParentNode();
@@ -285,17 +285,17 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	/**
 	 * Removes last child node if contains just empty text.
 	 */
-	protected void removeLastChildNodeIfEmptyText(final jodd.lagarto.dom.Node parentNode, final boolean closedTag) {
+	protected void removeLastChildNodeIfEmptyText(final utils.lagarto.dom.Node parentNode, final boolean closedTag) {
 		if (parentNode == null) {
 			return;
 		}
 
-		jodd.lagarto.dom.Node lastChild = parentNode.getLastChild();
+		utils.lagarto.dom.Node lastChild = parentNode.getLastChild();
 		if (lastChild == null) {
 			return;
 		}
 		
-		if (lastChild.getNodeType() != jodd.lagarto.dom.Node.NodeType.TEXT) {
+		if (lastChild.getNodeType() != utils.lagarto.dom.Node.NodeType.TEXT) {
 			return;
 		}
 
@@ -305,7 +305,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			}
 		}
 
-		jodd.lagarto.dom.Text text = (jodd.lagarto.dom.Text) lastChild;
+		utils.lagarto.dom.Text text = (utils.lagarto.dom.Text) lastChild;
 
 		if (text.isBlank()) {
 			lastChild.detachFromParent();
@@ -315,8 +315,8 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	/**
 	 * Finds matching parent open tag or <code>null</code> if not found.
 	 */
-	protected jodd.lagarto.dom.Node findMatchingParentOpenTag(String tagName) {
-		jodd.lagarto.dom.Node parent = parentNode;
+	protected utils.lagarto.dom.Node findMatchingParentOpenTag(String tagName) {
+		utils.lagarto.dom.Node parent = parentNode;
 		
 		if (!rootNode.config.isCaseSensitive()) {
 			tagName = tagName.toLowerCase();
@@ -351,9 +351,9 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 	 * <p>
 	 * This is just a generic solutions, closest to the rules.
 	 */
-	protected void fixUnclosedTagsUpToMatchingParent(final Tag tag, final jodd.lagarto.dom.Node matchingParent) {
+	protected void fixUnclosedTagsUpToMatchingParent(final Tag tag, final utils.lagarto.dom.Node matchingParent) {
 		if (domBuilder.config.isUnclosedTagAsOrphanCheck()) {
-			jodd.lagarto.dom.Node thisNode = parentNode;
+			utils.lagarto.dom.Node thisNode = parentNode;
 
 			if (!CharSequenceUtil.equalsIgnoreCase(tag.getName(), "table")) {
 
@@ -383,7 +383,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 				break;
 			}
 
-			jodd.lagarto.dom.Node parentParentNode = parentNode.getParentNode();
+			utils.lagarto.dom.Node parentParentNode = parentNode.getParentNode();
 
 			if (domBuilder.config.isImpliedEndTags()) {
 				if (implRules.implicitlyCloseParentTagOnNewTag(
@@ -418,7 +418,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 		parentNode.addChild(node);
 
 		if (body.length() != 0) {
-			jodd.lagarto.dom.Node text = new jodd.lagarto.dom.Text(rootNode, body.toString());
+			utils.lagarto.dom.Node text = new utils.lagarto.dom.Text(rootNode, body.toString());
 			node.addChild(text);
 		}
 	}
@@ -437,7 +437,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			return;
 		}
 
-		jodd.lagarto.dom.Node node = new Comment(rootNode, comment.toString());
+		utils.lagarto.dom.Node node = new Comment(rootNode, comment.toString());
 
 		parentNode.addChild(node);
 	}
@@ -461,7 +461,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			return;
 		}
 
-		jodd.lagarto.dom.CData cdataNode = new CData(rootNode, cdata.toString());
+		utils.lagarto.dom.CData cdataNode = new CData(rootNode, cdata.toString());
 
 		parentNode.addChild(cdataNode);
 	}
@@ -472,7 +472,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			return;
 		}
 
-		jodd.lagarto.dom.XmlDeclaration xmlDeclaration = new XmlDeclaration(rootNode, version, encoding, standalone);
+		utils.lagarto.dom.XmlDeclaration xmlDeclaration = new XmlDeclaration(rootNode, version, encoding, standalone);
 
 		parentNode.addChild(xmlDeclaration);
 	}
@@ -483,7 +483,7 @@ public class LagartoDOMBuilderTagVisitor implements TagVisitor {
 			return;
 		}
 
-		jodd.lagarto.dom.DocumentType documentType = new DocumentType(rootNode,
+		utils.lagarto.dom.DocumentType documentType = new DocumentType(rootNode,
 				Util.toString(doctype.getName()),
 				Util.toString(doctype.getPublicIdentifier()),
 				Util.toString(doctype.getSystemIdentifier())

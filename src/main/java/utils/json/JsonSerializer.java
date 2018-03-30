@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.json;
 
-import jodd.json.JoddJson;
-import jodd.json.JsonContext;
-import jodd.json.Path;
-import jodd.json.PathQuery;
-import jodd.json.PrettyJsonSerializer;
-import jodd.json.TypeJsonSerializer;
-import jodd.json.TypeJsonSerializerMap;
-import jodd.util.ArraysUtil;
-import jodd.util.buffer.FastCharBuffer;
-import jodd.util.inex.InExRules;
+import utils.json.utilsJson;
+import utils.json.JsonContext;
+import utils.json.Path;
+import utils.json.PathQuery;
+import utils.json.PrettyJsonSerializer;
+import utils.json.TypeJsonSerializer;
+import utils.json.TypeJsonSerializerMap;
+import utils.util.ArraysUtil;
+import utils.util.buffer.FastCharBuffer;
+import utils.util.inex.InExRules;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static jodd.json.JoddJson.DEFAULT_CLASS_METADATA_NAME;
+import static utils.json.utilsJson.DEFAULT_CLASS_METADATA_NAME;
 
 /**
  * JSON serializer.
@@ -63,19 +63,19 @@ public class JsonSerializer {
 
 	// ---------------------------------------------------------------- config
 
-	protected Map<jodd.json.Path, TypeJsonSerializer> pathSerializersMap;
+	protected Map<utils.json.Path, TypeJsonSerializer> pathSerializersMap;
 	protected TypeJsonSerializerMap typeSerializersMap;
 
-	protected InExRules<jodd.json.Path, jodd.json.PathQuery, jodd.json.PathQuery> rules = new InExRules<jodd.json.Path, jodd.json.PathQuery, jodd.json.PathQuery>() {
+	protected InExRules<utils.json.Path, utils.json.PathQuery, utils.json.PathQuery> rules = new InExRules<utils.json.Path, utils.json.PathQuery, utils.json.PathQuery>() {
 		@Override
-		public boolean accept(final jodd.json.Path value, final jodd.json.PathQuery rule, final boolean include) {
+		public boolean accept(final utils.json.Path value, final utils.json.PathQuery rule, final boolean include) {
 			return rule.matches(value);
 		}
 	};
 
-	protected String classMetadataName = jodd.json.JoddJson.defaults().getClassMetadataName();
-	protected boolean strictStringEncoding = jodd.json.JoddJson.defaults().isStrictStringEncoding();
-	protected boolean deep = jodd.json.JoddJson.defaults().isDeepSerialization();
+	protected String classMetadataName = utils.json.utilsJson.defaults().getClassMetadataName();
+	protected boolean strictStringEncoding = utils.json.utilsJson.defaults().isStrictStringEncoding();
+	protected boolean deep = utils.json.utilsJson.defaults().isDeepSerialization();
 	protected Class[] excludedTypes = null;
 	protected String[] excludedTypeNames = null;
 	protected boolean excludeNulls = false;
@@ -98,7 +98,7 @@ public class JsonSerializer {
 	 */
 	public JsonSerializer withSerializer(final Class type, final TypeJsonSerializer typeJsonSerializer) {
 		if (typeSerializersMap == null) {
-			typeSerializersMap = new TypeJsonSerializerMap(jodd.json.JoddJson.defaults().getTypeSerializers());
+			typeSerializersMap = new TypeJsonSerializerMap(utils.json.utilsJson.defaults().getTypeSerializers());
 		}
 
 		typeSerializersMap.register(type, typeJsonSerializer);
@@ -110,7 +110,7 @@ public class JsonSerializer {
 	 * Adds include path query.
 	 */
 	public JsonSerializer include(final String include) {
-		rules.include(new jodd.json.PathQuery(include, true));
+		rules.include(new utils.json.PathQuery(include, true));
 
 		return this;
 	}
@@ -129,7 +129,7 @@ public class JsonSerializer {
 	 * Adds exclude path query.
 	 */
 	public JsonSerializer exclude(final String exclude) {
-		rules.exclude(new jodd.json.PathQuery(exclude, false));
+		rules.exclude(new utils.json.PathQuery(exclude, false));
 
 		return this;
 	}
@@ -154,13 +154,13 @@ public class JsonSerializer {
 			if (includeParent) {
 				int dotIndex = exclude.lastIndexOf('.');
 				if (dotIndex != -1) {
-					jodd.json.PathQuery pathQuery = new jodd.json.PathQuery(exclude.substring(0, dotIndex), true);
+					utils.json.PathQuery pathQuery = new utils.json.PathQuery(exclude.substring(0, dotIndex), true);
 
 					rules.include(pathQuery);
 				}
 			}
 
-			jodd.json.PathQuery pathQuery = new PathQuery(exclude, false);
+			utils.json.PathQuery pathQuery = new PathQuery(exclude, false);
 
 			rules.exclude(pathQuery);
 		}
@@ -235,7 +235,7 @@ public class JsonSerializer {
 
 	/**
 	 * Specifies strict string encoding.
-	 * @see JoddJson#strictStringEncoding
+	 * @see utilsJson#strictStringEncoding
 	 */
 	public JsonSerializer strictStringEncoding(final boolean strictStringEncoding) {
 		this.strictStringEncoding = strictStringEncoding;
@@ -248,7 +248,7 @@ public class JsonSerializer {
 	 * Serializes object into provided appendable.
 	 */
 	public void serialize(final Object source, final Appendable target) {
-		jodd.json.JsonContext jsonContext = createJsonContext(target);
+		utils.json.JsonContext jsonContext = createJsonContext(target);
 
 		jsonContext.serialize(source);
 	}
@@ -280,7 +280,7 @@ public class JsonSerializer {
 	/**
 	 * Creates new JSON context.
 	 */
-	public jodd.json.JsonContext createJsonContext(final Appendable appendable) {
+	public utils.json.JsonContext createJsonContext(final Appendable appendable) {
 		return new JsonContext(this, appendable, excludeNulls, strictStringEncoding);
 	}
 }

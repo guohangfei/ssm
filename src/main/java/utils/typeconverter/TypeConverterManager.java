@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,60 +25,60 @@
 
 package utils.typeconverter;
 
-import jodd.io.upload.FileUpload;
-import jodd.mutable.MutableByte;
-import jodd.mutable.MutableDouble;
-import jodd.mutable.MutableFloat;
-import jodd.mutable.MutableInteger;
-import jodd.mutable.MutableLong;
-import jodd.mutable.MutableShort;
-import jodd.typeconverter.Converter;
-import jodd.typeconverter.TypeConversionException;
-import jodd.typeconverter.TypeConverter;
-import jodd.typeconverter.impl.ArrayConverter;
-import jodd.typeconverter.impl.BigDecimalConverter;
-import jodd.typeconverter.impl.BigIntegerConverter;
-import jodd.typeconverter.impl.BooleanArrayConverter;
-import jodd.typeconverter.impl.BooleanConverter;
-import jodd.typeconverter.impl.ByteArrayConverter;
-import jodd.typeconverter.impl.ByteConverter;
-import jodd.typeconverter.impl.CalendarConverter;
-import jodd.typeconverter.impl.CharacterArrayConverter;
-import jodd.typeconverter.impl.CharacterConverter;
-import jodd.typeconverter.impl.ClassArrayConverter;
-import jodd.typeconverter.impl.ClassConverter;
-import jodd.typeconverter.impl.CollectionConverter;
-import jodd.typeconverter.impl.DateConverter;
-import jodd.typeconverter.impl.DoubleArrayConverter;
-import jodd.typeconverter.impl.DoubleConverter;
-import jodd.typeconverter.impl.FileConverter;
-import jodd.typeconverter.impl.FileUploadConverter;
-import jodd.typeconverter.impl.FloatArrayConverter;
-import jodd.typeconverter.impl.FloatConverter;
-import jodd.typeconverter.impl.IntegerArrayConverter;
-import jodd.typeconverter.impl.IntegerConverter;
-import jodd.typeconverter.impl.LocalDateTimeConverter;
-import jodd.typeconverter.impl.LocaleConverter;
-import jodd.typeconverter.impl.LongArrayConverter;
-import jodd.typeconverter.impl.LongConverter;
-import jodd.typeconverter.impl.MutableByteConverter;
-import jodd.typeconverter.impl.MutableDoubleConverter;
-import jodd.typeconverter.impl.MutableFloatConverter;
-import jodd.typeconverter.impl.MutableIntegerConverter;
-import jodd.typeconverter.impl.MutableLongConverter;
-import jodd.typeconverter.impl.MutableShortConverter;
-import jodd.typeconverter.impl.ShortArrayConverter;
-import jodd.typeconverter.impl.ShortConverter;
-import jodd.typeconverter.impl.SqlDateConverter;
-import jodd.typeconverter.impl.SqlTimeConverter;
-import jodd.typeconverter.impl.SqlTimestampConverter;
-import jodd.typeconverter.impl.StringArrayConverter;
-import jodd.typeconverter.impl.StringConverter;
-import jodd.typeconverter.impl.TimeZoneConverter;
-import jodd.typeconverter.impl.URIConverter;
-import jodd.typeconverter.impl.URLConverter;
-import jodd.typeconverter.impl.UUIDConverter;
-import jodd.util.ClassUtil;
+import utils.io.upload.FileUpload;
+import utils.mutable.MutableByte;
+import utils.mutable.MutableDouble;
+import utils.mutable.MutableFloat;
+import utils.mutable.MutableInteger;
+import utils.mutable.MutableLong;
+import utils.mutable.MutableShort;
+import utils.typeconverter.Converter;
+import utils.typeconverter.TypeConversionException;
+import utils.typeconverter.TypeConverter;
+import utils.typeconverter.impl.ArrayConverter;
+import utils.typeconverter.impl.BigDecimalConverter;
+import utils.typeconverter.impl.BigIntegerConverter;
+import utils.typeconverter.impl.BooleanArrayConverter;
+import utils.typeconverter.impl.BooleanConverter;
+import utils.typeconverter.impl.ByteArrayConverter;
+import utils.typeconverter.impl.ByteConverter;
+import utils.typeconverter.impl.CalendarConverter;
+import utils.typeconverter.impl.CharacterArrayConverter;
+import utils.typeconverter.impl.CharacterConverter;
+import utils.typeconverter.impl.ClassArrayConverter;
+import utils.typeconverter.impl.ClassConverter;
+import utils.typeconverter.impl.CollectionConverter;
+import utils.typeconverter.impl.DateConverter;
+import utils.typeconverter.impl.DoubleArrayConverter;
+import utils.typeconverter.impl.DoubleConverter;
+import utils.typeconverter.impl.FileConverter;
+import utils.typeconverter.impl.FileUploadConverter;
+import utils.typeconverter.impl.FloatArrayConverter;
+import utils.typeconverter.impl.FloatConverter;
+import utils.typeconverter.impl.IntegerArrayConverter;
+import utils.typeconverter.impl.IntegerConverter;
+import utils.typeconverter.impl.LocalDateTimeConverter;
+import utils.typeconverter.impl.LocaleConverter;
+import utils.typeconverter.impl.LongArrayConverter;
+import utils.typeconverter.impl.LongConverter;
+import utils.typeconverter.impl.MutableByteConverter;
+import utils.typeconverter.impl.MutableDoubleConverter;
+import utils.typeconverter.impl.MutableFloatConverter;
+import utils.typeconverter.impl.MutableIntegerConverter;
+import utils.typeconverter.impl.MutableLongConverter;
+import utils.typeconverter.impl.MutableShortConverter;
+import utils.typeconverter.impl.ShortArrayConverter;
+import utils.typeconverter.impl.ShortConverter;
+import utils.typeconverter.impl.SqlDateConverter;
+import utils.typeconverter.impl.SqlTimeConverter;
+import utils.typeconverter.impl.SqlTimestampConverter;
+import utils.typeconverter.impl.StringArrayConverter;
+import utils.typeconverter.impl.StringConverter;
+import utils.typeconverter.impl.TimeZoneConverter;
+import utils.typeconverter.impl.URIConverter;
+import utils.typeconverter.impl.URLConverter;
+import utils.typeconverter.impl.UUIDConverter;
+import utils.util.ClassUtil;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -102,12 +102,12 @@ import java.util.UUID;
  */
 public class TypeConverterManager {
 
-	private final HashMap<Class, jodd.typeconverter.TypeConverter> converters = new HashMap<>();
-	private final jodd.typeconverter.Converter converter;
+	private final HashMap<Class, utils.typeconverter.TypeConverter> converters = new HashMap<>();
+	private final utils.typeconverter.Converter converter;
 
 	// ---------------------------------------------------------------- methods
 
-	public TypeConverterManager(final jodd.typeconverter.Converter converter) {
+	public TypeConverterManager(final utils.typeconverter.Converter converter) {
 		this.converter = converter;
 		registerDefaults();
 	}
@@ -258,7 +258,7 @@ public class TypeConverterManager {
 	 * @param type		class that converter is for
 	 * @param typeConverter	converter for provided class
 	 */
-	public void register(final Class type, final jodd.typeconverter.TypeConverter typeConverter) {
+	public void register(final Class type, final utils.typeconverter.TypeConverter typeConverter) {
 		converter.register(type, typeConverter);
 		converters.put(type, typeConverter);
 	}
@@ -279,7 +279,7 @@ public class TypeConverterManager {
 	 *
 	 * @return founded converter or <code>null</code>
 	 */
-	public jodd.typeconverter.TypeConverter lookup(final Class type) {
+	public utils.typeconverter.TypeConverter lookup(final Class type) {
 		return converters.get(type);
 	}
 
@@ -287,7 +287,7 @@ public class TypeConverterManager {
 
 	/**
 	 * Converts an object to destination type. If type is registered, it's
-	 * {@link jodd.typeconverter.TypeConverter} will be used. If not, it scans of destination is
+	 * {@link utils.typeconverter.TypeConverter} will be used. If not, it scans of destination is
 	 * an array or enum, as those two cases are handled in a special way.
 	 * <p>
 	 * If destination type is one of common types, consider using {@link Converter}

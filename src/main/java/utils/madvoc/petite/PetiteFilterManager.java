@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.madvoc.petite;
 
-import jodd.madvoc.component.FiltersManager;
-import jodd.madvoc.filter.ActionFilter;
-import jodd.petite.PetiteContainer;
-import jodd.petite.meta.PetiteInject;
+import utils.madvoc.component.FiltersManager;
+import utils.madvoc.filter.ActionFilter;
+import utils.petite.PetiteContainer;
+import utils.petite.meta.PetiteInject;
 
 /**
  * Petite-aware filters manager.

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.Tag;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.NodeVisitor;
-import jodd.util.Util;
+import utils.lagarto.Tag;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.NodeVisitor;
+import utils.util.Util;
 
 /**
  * Tag node.

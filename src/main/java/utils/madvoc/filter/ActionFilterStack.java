@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,26 +25,26 @@
 
 package utils.madvoc.filter;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.BaseActionWrapperStack;
-import jodd.madvoc.filter.ActionFilter;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.BaseActionWrapperStack;
+import utils.madvoc.filter.ActionFilter;
 
 /**
  * Action filter stack.
  */
-public class ActionFilterStack extends BaseActionWrapperStack<jodd.madvoc.filter.ActionFilter> implements jodd.madvoc.filter.ActionFilter {
+public class ActionFilterStack extends BaseActionWrapperStack<utils.madvoc.filter.ActionFilter> implements utils.madvoc.filter.ActionFilter {
 
 	public ActionFilterStack() {
 	}
 
-	public ActionFilterStack(final Class<? extends jodd.madvoc.filter.ActionFilter>... filterClasses) {
+	public ActionFilterStack(final Class<? extends utils.madvoc.filter.ActionFilter>... filterClasses) {
 		super(filterClasses);
 	}
 
 	/**
 	 * Sets filter classes.
 	 */
-	public void setFilters(final Class<? extends jodd.madvoc.filter.ActionFilter>... filters) {
+	public void setFilters(final Class<? extends utils.madvoc.filter.ActionFilter>... filters) {
 		this.wrappers = filters;
 	}
 

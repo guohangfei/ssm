@@ -5,12 +5,12 @@ import java.io.InputStream;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import jodd.asm6.ClassReader;
-import jodd.io.StreamUtil;
-import jodd.paramo.MethodFinder;
-import jodd.paramo.MethodParameter;
-import jodd.paramo.ParamoException;
-import jodd.util.ClassLoaderUtil;
+import utils.asm6.ClassReader;
+import utils.io.StreamUtil;
+import utils.paramo.MethodFinder;
+import utils.paramo.MethodParameter;
+import utils.paramo.ParamoException;
+import utils.util.ClassLoaderUtil;
 
 public class Paramo {
 	protected static final String CTOR_METHOD = "<init>";

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,31 +25,31 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm6.ClassVisitor;
-import jodd.asm6.FieldVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.Opcodes;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.ProxettaAsmUtil;
-import jodd.proxetta.asm.ProxettaClassBuilder;
-import jodd.proxetta.asm.ProxettaMethodBuilder;
-import jodd.proxetta.asm.ProxyAspectData;
-import jodd.proxetta.asm.TargetClassInfoReader;
+import utils.asm.AsmUtil;
+import utils.asm6.ClassVisitor;
+import utils.asm6.FieldVisitor;
+import utils.asm6.MethodVisitor;
+import utils.asm6.Opcodes;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.ProxettaAsmUtil;
+import utils.proxetta.asm.ProxettaClassBuilder;
+import utils.proxetta.asm.ProxettaMethodBuilder;
+import utils.proxetta.asm.ProxyAspectData;
+import utils.proxetta.asm.TargetClassInfoReader;
 
 import java.util.List;
 
-import static jodd.asm6.Opcodes.ACC_ABSTRACT;
-import static jodd.asm6.Opcodes.ACC_NATIVE;
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.GETFIELD;
-import static jodd.asm6.Opcodes.INVOKEINTERFACE;
-import static jodd.asm6.Opcodes.INVOKEVIRTUAL;
-import static jodd.proxetta.asm.ProxettaAsmUtil.CLINIT;
-import static jodd.proxetta.asm.ProxettaAsmUtil.INIT;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadVirtualMethodArguments;
-import static jodd.proxetta.asm.ProxettaAsmUtil.visitReturn;
+import static utils.asm6.Opcodes.ACC_ABSTRACT;
+import static utils.asm6.Opcodes.ACC_NATIVE;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.GETFIELD;
+import static utils.asm6.Opcodes.INVOKEINTERFACE;
+import static utils.asm6.Opcodes.INVOKEVIRTUAL;
+import static utils.proxetta.asm.ProxettaAsmUtil.CLINIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.INIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadVirtualMethodArguments;
+import static utils.proxetta.asm.ProxettaAsmUtil.visitReturn;
 
 public class ProxettaWrapperClassBuilder extends ProxettaClassBuilder {
 
@@ -108,9 +108,9 @@ public class ProxettaWrapperClassBuilder extends ProxettaClassBuilder {
 		}
 		wd.dest.visit(version, access, wd.thisReference, signature, wd.superName, interfaces);
 
-		wd.proxyAspects = new jodd.proxetta.asm.ProxyAspectData[aspects.length];
+		wd.proxyAspects = new utils.proxetta.asm.ProxyAspectData[aspects.length];
 		for (int i = 0; i < aspects.length; i++) {
-			wd.proxyAspects[i] = new jodd.proxetta.asm.ProxyAspectData(wd, aspects[i], i);
+			wd.proxyAspects[i] = new utils.proxetta.asm.ProxyAspectData(wd, aspects[i], i);
 		}
 
 		// create new field wrapper field and store it's reference into work-data
@@ -145,7 +145,7 @@ public class ProxettaWrapperClassBuilder extends ProxettaClassBuilder {
 	 */
 	@Override
 	public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature, final String[] exceptions) {
-		jodd.proxetta.asm.MethodSignatureVisitor msign = targetClassInfo.lookupMethodSignatureVisitor(access, name, desc, wd.superReference);
+		utils.proxetta.asm.MethodSignatureVisitor msign = targetClassInfo.lookupMethodSignatureVisitor(access, name, desc, wd.superReference);
 		if (msign == null) {
 			return null;
 		}
@@ -163,8 +163,8 @@ public class ProxettaWrapperClassBuilder extends ProxettaClassBuilder {
 	}
 
 	@Override
-	protected jodd.proxetta.asm.ProxettaMethodBuilder applyProxy(final jodd.proxetta.asm.MethodSignatureVisitor msign) {
-		List<jodd.proxetta.asm.ProxyAspectData> aspectList = matchMethodPointcuts(msign);
+	protected utils.proxetta.asm.ProxettaMethodBuilder applyProxy(final utils.proxetta.asm.MethodSignatureVisitor msign) {
+		List<utils.proxetta.asm.ProxyAspectData> aspectList = matchMethodPointcuts(msign);
 
 		if (aspectList == null) {
 			wd.proxyApplied = true;

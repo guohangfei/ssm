@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,19 +25,19 @@
 
 package utils.proxetta.advice;
 
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.advice.DelegateAdvice;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.util.ClassUtil;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.advice.DelegateAdvice;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.util.ClassUtil;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
 /**
- * Utilities for applying {@link jodd.proxetta.advice.DelegateAdvice} to target.
+ * Utilities for applying {@link utils.proxetta.advice.DelegateAdvice} to target.
  */
 public class DelegateAdviceUtil {
 

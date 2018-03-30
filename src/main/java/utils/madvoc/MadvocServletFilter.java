@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.madvoc;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.Madvoc;
-import jodd.madvoc.MadvocResponseWrapper;
-import jodd.madvoc.WebApp;
-import jodd.madvoc.component.MadvocController;
-import jodd.servlet.DispatcherUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.Madvoc;
+import utils.madvoc.MadvocResponseWrapper;
+import utils.madvoc.WebApp;
+import utils.madvoc.component.MadvocController;
+import utils.servlet.DispatcherUtil;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -53,7 +53,7 @@ public class MadvocServletFilter implements Filter {
 
 	private static Logger log;
 
-	protected jodd.madvoc.Madvoc madvoc;
+	protected utils.madvoc.Madvoc madvoc;
 	protected MadvocController madvocController;
 
 	/**
@@ -73,7 +73,7 @@ public class MadvocServletFilter implements Filter {
 
 			return;
 		}
-		jodd.madvoc.WebApp webApp = WebApp.get(servletContext);
+		utils.madvoc.WebApp webApp = WebApp.get(servletContext);
 
 		if (webApp != null) {
 			log = LoggerFactory.getLogger(this.getClass());

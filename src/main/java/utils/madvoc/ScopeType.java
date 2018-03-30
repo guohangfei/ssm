@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.madvoc;
 
-import jodd.madvoc.meta.Scope;
+import utils.madvoc.meta.Scope;
 
 /**
- * Parameters scope for injection ({@link jodd.madvoc.meta.In})
- * and outjection ({@link jodd.madvoc.meta.Out}).
+ * Parameters scope for injection ({@link utils.madvoc.meta.In})
+ * and outjection ({@link utils.madvoc.meta.Out}).
  */
 public enum ScopeType {
 	/**

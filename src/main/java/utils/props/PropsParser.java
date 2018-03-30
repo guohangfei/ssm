@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.props;
 
-import jodd.props.Props;
-import jodd.props.PropsData;
-import jodd.util.CharUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.props.Props;
+import utils.props.PropsData;
+import utils.util.CharUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class PropsParser implements Cloneable {
 
 	protected static final String PROFILE_RIGHT = ">";
 
-	protected final jodd.props.PropsData propsData;
+	protected final utils.props.PropsData propsData;
 
 	/**
 	 * Value that will be inserted when escaping the new line.
@@ -79,10 +79,10 @@ public class PropsParser implements Cloneable {
 	protected boolean skipEmptyProps = true;
 
 	public PropsParser() {
-		this.propsData = new jodd.props.PropsData();
+		this.propsData = new utils.props.PropsData();
 	}
 
-	public PropsParser(final jodd.props.PropsData propsData) {
+	public PropsParser(final utils.props.PropsData propsData) {
 		this.propsData = propsData;
 	}
 

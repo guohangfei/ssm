@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,25 +25,25 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.ProxyAdvice;
-import jodd.proxetta.ProxyPointcut;
+import utils.proxetta.ProxyAdvice;
+import utils.proxetta.ProxyPointcut;
 
 /**
  * Proxy aspect contains advice and pointcut rules for applying advice.
  */
 public class ProxyAspect {
 
-	protected final Class<? extends jodd.proxetta.ProxyAdvice> advice;
+	protected final Class<? extends utils.proxetta.ProxyAdvice> advice;
 	protected final ProxyPointcut pointcut;
 
-	public static ProxyAspect of(final Class<? extends jodd.proxetta.ProxyAdvice> advice, final ProxyPointcut pointcut) {
+	public static ProxyAspect of(final Class<? extends utils.proxetta.ProxyAdvice> advice, final ProxyPointcut pointcut) {
 		return new ProxyAspect(advice, pointcut);
 	}
 
 	/**
 	 * Creates aspect defined with provided advice and pointcut.
 	 */
-	public ProxyAspect(final Class<? extends jodd.proxetta.ProxyAdvice> advice, final ProxyPointcut pointcut) {
+	public ProxyAspect(final Class<? extends utils.proxetta.ProxyAdvice> advice, final ProxyPointcut pointcut) {
 		this.advice = advice;
 		this.pointcut = pointcut;
 	}

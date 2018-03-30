@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.madvoc.proxetta;
 
-import jodd.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.ProxyProxetta;
 
 import java.util.function.Supplier;
 

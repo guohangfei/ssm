@@ -1,9 +1,9 @@
 package utils.paramo;
 
-import jodd.asm.EmptyMethodVisitor;
-import jodd.asm6.Label;
-import jodd.paramo.MethodParameter;
-import jodd.util.ArraysUtil;
+import utils.asm.EmptyMethodVisitor;
+import utils.asm6.Label;
+import utils.paramo.MethodParameter;
+import utils.util.ArraysUtil;
 
 final class ParamExtractor extends EmptyMethodVisitor {
 	private final int paramCount;

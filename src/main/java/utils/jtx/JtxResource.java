@@ -1,8 +1,8 @@
 package utils.jtx;
 
-import jodd.jtx.JtxResourceManager;
-import jodd.jtx.JtxTransaction;
-import jodd.util.ClassUtil;
+import utils.jtx.JtxResourceManager;
+import utils.jtx.JtxTransaction;
+import utils.util.ClassUtil;
 
 final class JtxResource<E> {
 	final JtxTransaction transaction;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.typeconverter.impl;
 
-import jodd.mutable.MutableDouble;
-import jodd.typeconverter.TypeConverter;
-import jodd.typeconverter.TypeConverterManager;
+import utils.mutable.MutableDouble;
+import utils.typeconverter.TypeConverter;
+import utils.typeconverter.TypeConverterManager;
 
 /**
  * Converts given object to {@link MutableDouble}.

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.InvokeInfo;
-import jodd.proxetta.InvokeReplacer;
-import jodd.proxetta.MethodInfo;
+import utils.proxetta.InvokeInfo;
+import utils.proxetta.InvokeReplacer;
+import utils.proxetta.MethodInfo;
 
 /**
  * Invoke aspect defines method pointcuts that should be replaced and

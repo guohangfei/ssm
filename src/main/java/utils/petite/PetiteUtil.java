@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.petite;
 
-import jodd.petite.BeanData;
-import jodd.petite.PetiteContainer;
-import jodd.petite.PetiteException;
-import jodd.petite.def.DestroyMethodPoint;
-import jodd.util.ClassUtil;
+import utils.petite.BeanData;
+import utils.petite.PetiteContainer;
+import utils.petite.PetiteException;
+import utils.petite.def.DestroyMethodPoint;
+import utils.util.ClassUtil;
 
 import java.lang.reflect.Constructor;
 

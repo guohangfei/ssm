@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.CtorDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.introspector.Setter;
-import jodd.json.JsonException;
-import jodd.json.LazyList;
-import jodd.json.LazyMap;
-import jodd.json.MapToBean;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.CtorDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.introspector.Setter;
+import utils.json.JsonException;
+import utils.json.LazyList;
+import utils.json.LazyMap;
+import utils.json.MapToBean;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,7 +45,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 /**
- * Just a base class of {@link jodd.json.JsonParser} that contains
+ * Just a base class of {@link utils.json.JsonParser} that contains
  * various utilities, to reduce the size of a parser.
  */
 public abstract class JsonParserBase {
@@ -60,9 +60,9 @@ public abstract class JsonParserBase {
 	protected Supplier<List> listSupplier = ARRAYLIST_SUPPLIER;
 
 	/**
-	 * Creates new instance of {@link jodd.json.MapToBean}.
+	 * Creates new instance of {@link utils.json.MapToBean}.
 	 */
-	protected jodd.json.MapToBean createMapToBean(final String classMetadataName) {
+	protected utils.json.MapToBean createMapToBean(final String classMetadataName) {
 		return new MapToBean(this, classMetadataName);
 	}
 
@@ -90,7 +90,7 @@ public abstract class JsonParserBase {
 		try {
 			return (Collection<Object>) targetType.getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
-			throw new jodd.json.JsonException(e);
+			throw new utils.json.JsonException(e);
 		}
 	}
 
@@ -104,18 +104,18 @@ public abstract class JsonParserBase {
 			return mapSupplier.get();
 		}
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(targetType);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(targetType);
 
 		CtorDescriptor ctorDescriptor = cd.getDefaultCtorDescriptor(true);
 		if (ctorDescriptor == null) {
-			throw new jodd.json.JsonException("Default ctor not found for: " + targetType.getName());
+			throw new utils.json.JsonException("Default ctor not found for: " + targetType.getName());
 		}
 
 		try {
 //			return ClassUtil.newInstance(targetType);
 			return ctorDescriptor.getConstructor().newInstance();
 		} catch (Exception e) {
-			throw new jodd.json.JsonException(e);
+			throw new utils.json.JsonException(e);
 		}
 	}
 
@@ -137,7 +137,7 @@ public abstract class JsonParserBase {
 				setter.invokeSetter(target, convertedValue);
 			}
 		} catch (Exception ex) {
-			throw new jodd.json.JsonException(ex);
+			throw new utils.json.JsonException(ex);
 		}
 	}
 
@@ -152,7 +152,7 @@ public abstract class JsonParserBase {
 		}
 
 		try {
-			return JoddBean.defaults().getTypeConverterManager().convertType(value, targetType);
+			return utilsBean.defaults().getTypeConverterManager().convertType(value, targetType);
 		}
 		catch (Exception ex) {
 			throw new JsonException("Type conversion failed", ex);

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,18 +25,18 @@
 
 package utils.madvoc.component;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.MethodDescriptor;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.component.ActionMethodParser;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.RouteChunk;
-import jodd.madvoc.config.Routes;
-import jodd.petite.meta.PetiteInject;
+import utils.bean.utilsBean;
+import utils.introspector.MethodDescriptor;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.component.ActionMethodParser;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.RouteChunk;
+import utils.madvoc.config.Routes;
+import utils.petite.meta.PetiteInject;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static jodd.util.StringUtil.ifNotNull;
+import static utils.util.StringUtil.ifNotNull;
 
 /**
  * Manages all Madvoc action and aliases registrations.
@@ -108,7 +108,7 @@ public class ActionsManager {
 	 * Resolves action method for given action class ane method name.
 	 */
 	public Method resolveActionMethod(final Class<?> actionClass, final String methodName) {
-		MethodDescriptor methodDescriptor = JoddBean.defaults().getClassIntrospector().lookup(actionClass).getMethodDescriptor(methodName, false);
+		MethodDescriptor methodDescriptor = utilsBean.defaults().getClassIntrospector().lookup(actionClass).getMethodDescriptor(methodName, false);
 		if (methodDescriptor == null) {
 			throw new MadvocException("Public method not found: " + actionClass.getSimpleName() + "#" + methodName);
 		}

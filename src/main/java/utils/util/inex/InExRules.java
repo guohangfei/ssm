@@ -3,8 +3,8 @@ package utils.util.inex;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import jodd.util.inex.InExRuleMatcher;
-import jodd.util.inex.InExRules.Rule;
+import utils.util.inex.InExRuleMatcher;
+import utils.util.inex.InExRules.Rule;
 
 public class InExRules<V, D, R> implements InExRuleMatcher<V, R> {
 	protected List<Rule<R>> rules;

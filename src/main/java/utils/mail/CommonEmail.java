@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.mail;
 
-import jodd.mail.*;
-import jodd.mail.Email;
-import jodd.util.ArraysUtil;
-import jodd.util.net.MimeTypes;
+import utils.mail.*;
+import utils.mail.Email;
+import utils.util.ArraysUtil;
+import utils.util.net.MimeTypes;
 
 import javax.activation.DataSource;
 import javax.mail.Address;
@@ -752,8 +752,8 @@ public abstract class CommonEmail<T extends CommonEmail<T>> {
 	public T embeddedAttachment(final EmailAttachmentBuilder builder) {
 		builder.setContentIdFromNameIfMissing();
 
-		// https://github.com/oblac/jodd/issues/546
-		// https://github.com/oblac/jodd/issues/404#issuecomment-297011351
+		// https://github.com/oblac/utils/issues/546
+		// https://github.com/oblac/utils/issues/404#issuecomment-297011351
 		// content disposition will be set to "inline"
 		builder.inline(true);
 

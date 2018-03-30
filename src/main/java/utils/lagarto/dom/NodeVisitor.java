@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.dom.*;
-import jodd.lagarto.dom.CData;
-import jodd.lagarto.dom.Comment;
-import jodd.lagarto.dom.Document;
-import jodd.lagarto.dom.Element;
-import jodd.lagarto.dom.Text;
+import utils.lagarto.dom.*;
+import utils.lagarto.dom.CData;
+import utils.lagarto.dom.Comment;
+import utils.lagarto.dom.Document;
+import utils.lagarto.dom.Element;
+import utils.lagarto.dom.Text;
 
 /**
- * Similar to {@link jodd.lagarto.TagVisitor}, this is
+ * Similar to {@link utils.lagarto.TagVisitor}, this is
  * a visitor for DOM tree.
  */
 public interface NodeVisitor {

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.servlet;
 
-import jodd.core.JoddCore;
-import jodd.io.FileNameUtil;
-import jodd.io.StreamUtil;
-import jodd.io.upload.FileUpload;
-import jodd.servlet.upload.MultipartRequest;
-import jodd.servlet.upload.MultipartRequestWrapper;
-import jodd.util.Base64;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.net.MimeTypes;
-import jodd.util.net.URLCoder;
+import utils.core.utilsCore;
+import utils.io.FileNameUtil;
+import utils.io.StreamUtil;
+import utils.io.upload.FileUpload;
+import utils.servlet.upload.MultipartRequest;
+import utils.servlet.upload.MultipartRequestWrapper;
+import utils.util.Base64;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.net.MimeTypes;
+import utils.util.net.URLCoder;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -244,7 +244,7 @@ public class ServletUtil {
 	public static String readRequestBodyFromStream(final HttpServletRequest request) throws IOException {
 		String charEncoding = request.getCharacterEncoding();
 		if (charEncoding == null) {
-			charEncoding = JoddCore.defaults().getEncoding();
+			charEncoding = utilsCore.defaults().getEncoding();
 		}
 		CharArrayWriter charArrayWriter = new CharArrayWriter();
 		BufferedReader bufferedReader = null;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.lagarto.filter;
 
-import jodd.io.FileNameUtil;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.servlet.DispatcherUtil;
-import jodd.servlet.wrapper.BufferResponseWrapper;
+import utils.io.FileNameUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.servlet.DispatcherUtil;
+import utils.servlet.wrapper.BufferResponseWrapper;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,13 +36,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jodd.io.StreamGobbler;
-import jodd.util.RuntimeUtil;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.io.StreamGobbler;
+import utils.util.RuntimeUtil;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
-import static jodd.util.RuntimeUtil.ERROR_PREFIX;
-import static jodd.util.RuntimeUtil.OUTPUT_PREFIX;
+import static utils.util.RuntimeUtil.ERROR_PREFIX;
+import static utils.util.RuntimeUtil.OUTPUT_PREFIX;
 
 /**
  * Simple user-friendly wrapper over {@code ProcessBuilder}. Has the following:

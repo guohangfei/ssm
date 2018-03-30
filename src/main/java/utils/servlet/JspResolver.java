@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.servlet;
 
-import jodd.bean.BeanUtil;
-import jodd.servlet.ServletUtil;
+import utils.bean.BeanUtil;
+import utils.servlet.ServletUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -68,7 +68,7 @@ public class JspResolver {
 
 	/**
 	 * Resolves value from scopes.
-	 * @see jodd.servlet.ServletUtil#value(HttpServletRequest, String)
+	 * @see utils.servlet.ServletUtil#value(HttpServletRequest, String)
 	 */
 	public static Object value(final String name, final HttpServletRequest request) {
 		String thisRef = BeanUtil.pojo.extractThisReference(name);

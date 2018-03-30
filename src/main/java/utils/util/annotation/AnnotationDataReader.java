@@ -2,9 +2,9 @@ package utils.util.annotation;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
-import jodd.util.ClassUtil;
-import jodd.util.StringUtil;
-import jodd.util.annotation.AnnotationData;
+import utils.util.ClassUtil;
+import utils.util.StringUtil;
+import utils.util.annotation.AnnotationData;
 
 public abstract class AnnotationDataReader<A extends Annotation, D extends AnnotationData<A>> {
 	protected final Annotation defaultAnnotation;

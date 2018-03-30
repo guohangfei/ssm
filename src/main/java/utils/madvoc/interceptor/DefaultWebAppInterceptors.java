@@ -1,8 +1,8 @@
 package utils.madvoc.interceptor;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocException;
+import utils.madvoc.interceptor.ActionInterceptor;
 
 public final class DefaultWebAppInterceptors implements ActionInterceptor {
 	public String intercept(ActionRequest actionRequest) {

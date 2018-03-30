@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.lagarto.dom;
 
-import jodd.csselly.CSSelly;
-import jodd.csselly.CssSelector;
-import jodd.lagarto.dom.Node;
+import utils.csselly.CSSelly;
+import utils.csselly.CssSelector;
+import utils.lagarto.dom.Node;
 
 import java.util.Collection;
 import java.util.List;
 
 public class NodeMatcher {
 
-	protected final jodd.lagarto.dom.Node rootNode;
+	protected final utils.lagarto.dom.Node rootNode;
 
 	public NodeMatcher(final Node rootNode) {
 		this.rootNode = rootNode;

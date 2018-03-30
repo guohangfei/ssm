@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.util;
 
-import jodd.exception.UncheckedException;
-import jodd.io.StreamUtil;
-import jodd.io.findfile.ClassScanner;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.template.StringTemplateParser;
+import utils.exception.UncheckedException;
+import utils.io.StreamUtil;
+import utils.io.findfile.ClassScanner;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.template.StringTemplateParser;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -159,7 +159,7 @@ public class PropertiesUtil {
 	 * Loads properties from string.
 	 */
 	public static void loadFromString(final Properties p, final String data) throws IOException {
-		try (ByteArrayInputStream is = new ByteArrayInputStream(data.getBytes(jodd.util.StringPool.ISO_8859_1))) {
+		try (ByteArrayInputStream is = new ByteArrayInputStream(data.getBytes(utils.util.StringPool.ISO_8859_1))) {
 			p.load(is);
 		}
 	}

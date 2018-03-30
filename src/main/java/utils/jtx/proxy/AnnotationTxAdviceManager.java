@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.jtx.proxy;
 
-import jodd.jtx.JoddJtx;
-import jodd.jtx.JtxTransactionManager;
-import jodd.jtx.JtxTransactionMode;
-import jodd.jtx.meta.TransactionAnnotation;
-import jodd.jtx.meta.TransactionAnnotationData;
-import jodd.jtx.worker.LeanJtxWorker;
-import jodd.proxetta.ProxettaException;
-import jodd.util.StringUtil;
+import utils.jtx.utilsJtx;
+import utils.jtx.JtxTransactionManager;
+import utils.jtx.JtxTransactionMode;
+import utils.jtx.meta.TransactionAnnotation;
+import utils.jtx.meta.TransactionAnnotationData;
+import utils.jtx.worker.LeanJtxWorker;
+import utils.proxetta.ProxettaException;
+import utils.util.StringUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Manager for {@link jodd.jtx.proxy.AnnotationTxAdvice}.
+ * Manager for {@link utils.jtx.proxy.AnnotationTxAdvice}.
  */
 public class AnnotationTxAdviceManager {
 
@@ -85,7 +85,7 @@ public class AnnotationTxAdviceManager {
 		this.jtxWorker = jtxWorker;
 		this.defaultTransactionMode = defaultTxMode == null ? new JtxTransactionMode().propagationSupports() : defaultTxMode;
 		this.scopePattern = scopePattern;
-		registerAnnotations(JoddJtx.defaults().getTxAnnotations());
+		registerAnnotations(utilsJtx.defaults().getTxAnnotations());
 	}
 
 	// ---------------------------------------------------------------- methods

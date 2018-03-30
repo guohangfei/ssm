@@ -1,11 +1,11 @@
 package utils.methref;
 
-import jodd.methref.MethrefAdvice;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.proxetta.impl.ProxyProxettaFactory;
-import jodd.proxetta.pointcuts.AllMethodsPointcut;
+import utils.methref.MethrefAdvice;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.ProxyProxettaFactory;
+import utils.proxetta.pointcuts.AllMethodsPointcut;
 
 public class MethrefProxetta {
 	protected final ProxyProxetta proxetta;

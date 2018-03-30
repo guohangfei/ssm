@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.proxetta.asm;
 
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.ProxyAspectData;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.ProxyAspectData;
 
 import java.util.List;
 
@@ -38,12 +38,12 @@ final class TargetMethodData {
 
 	final MethodSignatureVisitor msign;
 	final String methodName;
-	final jodd.proxetta.asm.ProxyAspectData[] proxyData;            // list of ***only*** applied proxies for the target
+	final utils.proxetta.asm.ProxyAspectData[] proxyData;            // list of ***only*** applied proxies for the target
 
-	TargetMethodData(final MethodSignatureVisitor msign, final List<jodd.proxetta.asm.ProxyAspectData> aspectList) {
+	TargetMethodData(final MethodSignatureVisitor msign, final List<utils.proxetta.asm.ProxyAspectData> aspectList) {
 		this.msign = msign;
 		this.methodName = msign.getMethodName();
-		this.proxyData = aspectList.toArray(new jodd.proxetta.asm.ProxyAspectData[aspectList.size()]);
+		this.proxyData = aspectList.toArray(new utils.proxetta.asm.ProxyAspectData[aspectList.size()]);
 	}
 
 	// ---------------------------------------------------------------- current
@@ -57,14 +57,14 @@ final class TargetMethodData {
 		this.currentIndex = currentIndex;
 	}
 
-	jodd.proxetta.asm.ProxyAspectData getProxyData() {
+	utils.proxetta.asm.ProxyAspectData getProxyData() {
 		return proxyData[currentIndex];
 	}
 
 	// ---------------------------------------------------------------- method names
 
 	private String methodName(final int index) {
-		return methodName + JoddProxetta.defaults().getMethodDivider() + proxyData[index].aspectIndex;
+		return methodName + utilsProxetta.defaults().getMethodDivider() + proxyData[index].aspectIndex;
 	}
 
 	/**

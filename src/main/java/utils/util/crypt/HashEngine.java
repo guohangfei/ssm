@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util.crypt;
 
-import jodd.util.crypt.BCrypt;
-import jodd.util.crypt.PBKDF2Hash;
+import utils.util.crypt.BCrypt;
+import utils.util.crypt.PBKDF2Hash;
 
 /**
  * Hash engines.
@@ -34,20 +34,20 @@ import jodd.util.crypt.PBKDF2Hash;
 public interface HashEngine {
 
 	/**
-	 * Returns the {@link jodd.util.crypt.BCrypt} hash tool with given rounds number for salt generation.
+	 * Returns the {@link utils.util.crypt.BCrypt} hash tool with given rounds number for salt generation.
 	 */
 	public static HashEngine bcrypt(final int rounds) {
-		return bcrypt(jodd.util.crypt.BCrypt.gensalt(rounds));
+		return bcrypt(utils.util.crypt.BCrypt.gensalt(rounds));
 	}
 
 	/**
-	 * Returns the {@link jodd.util.crypt.BCrypt} hash tool with given salt.
+	 * Returns the {@link utils.util.crypt.BCrypt} hash tool with given salt.
 	 */
 	public static HashEngine bcrypt(final String salt) {
 		return new HashEngine() {
 			@Override
 			public String hash(final String input) {
-				return jodd.util.crypt.BCrypt.hashpw(input, salt);
+				return utils.util.crypt.BCrypt.hashpw(input, salt);
 			}
 
 			@Override

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm6.ClassVisitor;
-import jodd.proxetta.asm.ProxyAspectData;
-import jodd.util.StringPool;
+import utils.asm6.ClassVisitor;
+import utils.proxetta.asm.ProxyAspectData;
+import utils.util.StringPool;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jodd.util.StringPool.DOT;
+import static utils.util.StringPool.DOT;
 
 /**
  * Holds various information about the current process of making proxy.

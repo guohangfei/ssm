@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.CsrfShield;
+import utils.servlet.CsrfShield;
 
 public class CsrfTokenTag extends SimpleTagSupport {
 	protected String name;

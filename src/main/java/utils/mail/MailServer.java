@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.mail;
 
-import jodd.mail.*;
-import jodd.mail.ImapServer;
+import utils.mail.*;
+import utils.mail.ImapServer;
 
 import javax.mail.Authenticator;
 import javax.mail.Session;
@@ -138,7 +138,7 @@ public abstract class MailServer<MailSessionImpl extends MailSession> {
 	/**
 	 * Used to create implementing instances of {@link MailServer}.
 	 *
-	 * @see jodd.mail.ImapServer
+	 * @see utils.mail.ImapServer
 	 * @see ImapSslServer
 	 * @see Pop3Server
 	 * @see Pop3SslServer
@@ -214,11 +214,11 @@ public abstract class MailServer<MailSessionImpl extends MailSession> {
 		// ---------------------------------------------------------------- build
 
 		/**
-		 * Create a {@link jodd.mail.ImapServer} from current data.
+		 * Create a {@link utils.mail.ImapServer} from current data.
 		 *
-		 * @return {@link jodd.mail.ImapServer} from current data.
+		 * @return {@link utils.mail.ImapServer} from current data.
 		 */
-		public jodd.mail.ImapServer buildImapMailServer() {
+		public utils.mail.ImapServer buildImapMailServer() {
 			if (ssl) {
 				return new ImapSslServer(host, port, authenticator);
 			}

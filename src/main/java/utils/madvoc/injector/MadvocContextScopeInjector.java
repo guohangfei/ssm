@@ -1,12 +1,12 @@
 package utils.madvoc.injector;
 
 import java.util.function.BiConsumer;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.injector.ContextInjector;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Targets;
-import jodd.petite.PetiteContainer;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.injector.ContextInjector;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Targets;
+import utils.petite.PetiteContainer;
 
 public class MadvocContextScopeInjector implements Injector, ContextInjector<PetiteContainer> {
 	private static final ScopeType SCOPE_TYPE;

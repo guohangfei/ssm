@@ -3,9 +3,9 @@ package utils.log;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import jodd.log.Logger;
-import jodd.log.LoggerProvider;
-import jodd.log.impl.NOPLogger;
+import utils.log.Logger;
+import utils.log.LoggerProvider;
+import utils.log.impl.NOPLogger;
 
 public final class LoggerFactory {
 	private static Function<String, Logger> loggerProvider;

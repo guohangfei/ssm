@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.mail;
 
-import jodd.mail.*;
-import jodd.mail.CommonEmail;
-import jodd.mail.EmailMessage;
-import jodd.mail.EmailUtil;
-import jodd.mail.MailException;
-import jodd.util.StringPool;
+import utils.mail.*;
+import utils.mail.CommonEmail;
+import utils.mail.EmailMessage;
+import utils.mail.EmailUtil;
+import utils.mail.MailException;
+import utils.util.StringPool;
 
 import javax.mail.Address;
 import javax.mail.Flags;
@@ -211,14 +211,14 @@ public class ReceivedEmail extends CommonEmail<ReceivedEmail> {
 	 */
 	private void addStringContent(final Part part, final String content) throws MessagingException, UnsupportedEncodingException {
 		final String contentType = part.getContentType();
-		final String encoding = jodd.mail.EmailUtil.extractEncoding(contentType, StringPool.US_ASCII);
+		final String encoding = utils.mail.EmailUtil.extractEncoding(contentType, StringPool.US_ASCII);
 
 		final String disposition = part.getDisposition();
 
 		if (disposition != null && disposition.equalsIgnoreCase(Part.ATTACHMENT)) {
 			addAttachment(part, content.getBytes(encoding));
 		} else {
-			final String mimeType = jodd.mail.EmailUtil.extractMimeType(contentType);
+			final String mimeType = utils.mail.EmailUtil.extractMimeType(contentType);
 			message(content, mimeType, encoding);
 		}
 	}

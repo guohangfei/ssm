@@ -1,7 +1,7 @@
 package utils.lagarto;
 
-import jodd.lagarto.Doctype;
-import jodd.lagarto.Tag;
+import utils.lagarto.Doctype;
+import utils.lagarto.Tag;
 
 public interface TagVisitor {
 	void start();

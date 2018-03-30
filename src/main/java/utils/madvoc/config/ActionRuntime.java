@@ -1,15 +1,15 @@
 package utils.madvoc.config;
 
 import java.lang.reflect.Method;
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.ActionHandler;
-import jodd.madvoc.config.ActionDefinition;
-import jodd.madvoc.config.MethodParam;
-import jodd.madvoc.config.RouteChunk;
-import jodd.madvoc.config.ScopeData;
-import jodd.madvoc.filter.ActionFilter;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.madvoc.result.ActionResult;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.ActionHandler;
+import utils.madvoc.config.ActionDefinition;
+import utils.madvoc.config.MethodParam;
+import utils.madvoc.config.RouteChunk;
+import utils.madvoc.config.ScopeData;
+import utils.madvoc.filter.ActionFilter;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.result.ActionResult;
 
 public class ActionRuntime {
 	private final ActionHandler actionHandler;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.pathref;
 
-import jodd.pathref.PathrefAdvice;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.proxetta.impl.ProxyProxettaFactory;
-import jodd.proxetta.pointcuts.AllMethodsPointcut;
+import utils.pathref.PathrefAdvice;
+import utils.proxetta.Proxetta;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.ProxyProxettaFactory;
+import utils.proxetta.pointcuts.AllMethodsPointcut;
 
 /**
  * Methref Proxetta builder and holder and facade.

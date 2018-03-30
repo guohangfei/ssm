@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.json;
 
-import jodd.json.JsonException;
-import jodd.util.CharUtil;
-import jodd.util.StringPool;
+import utils.json.JsonException;
+import utils.util.CharUtil;
+import utils.util.StringPool;
 
 import java.io.IOException;
 
-import static jodd.util.StringPool.NULL;
+import static utils.util.StringPool.NULL;
 
 /**
  * Simple JSON writer.

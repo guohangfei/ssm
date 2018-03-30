@@ -1,8 +1,8 @@
 package utils.lagarto;
 
-import jodd.lagarto.Scanner.Position;
-import jodd.util.CharArraySequence;
-import jodd.util.CharUtil;
+import utils.lagarto.Scanner.Position;
+import utils.util.CharArraySequence;
+import utils.util.CharUtil;
 
 class Scanner {
 	protected char[] input;

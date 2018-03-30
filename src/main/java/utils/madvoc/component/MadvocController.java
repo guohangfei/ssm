@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,20 +25,20 @@
 
 package utils.madvoc.component;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.MadvocUtil;
-import jodd.madvoc.component.*;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.component.ResultsManager;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.result.ActionResult;
-import jodd.petite.meta.PetiteInject;
-import jodd.servlet.ServletUtil;
-import jodd.util.ClassUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.MadvocUtil;
+import utils.madvoc.component.*;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.component.ResultsManager;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.result.ActionResult;
+import utils.petite.meta.PetiteInject;
+import utils.servlet.ServletUtil;
+import utils.util.ClassUtil;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

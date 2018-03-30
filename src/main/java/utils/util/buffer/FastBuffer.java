@@ -1,7 +1,7 @@
 package utils.util.buffer;
 
 import java.util.Iterator;
-import java.util.RandomAccess;import jodd.util.buffer.FastBuffer.1;
+import java.util.RandomAccess;import utils.util.buffer.FastBuffer.1;
 
 public class FastBuffer<E> implements RandomAccess, Iterable<E> {
 	private E[][] buffers = (Object[][]) (new Object[16][]);

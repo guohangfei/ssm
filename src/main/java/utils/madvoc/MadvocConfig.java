@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,23 +25,23 @@
 
 package utils.madvoc;
 
-import jodd.io.upload.FileUploadFactory;
-import jodd.io.upload.impl.AdaptiveFileUploadFactory;
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.config.RootPackages;
-import jodd.madvoc.interceptor.ServletConfigInterceptor;
-import jodd.madvoc.macro.PathMacros;
-import jodd.madvoc.macro.RegExpPathMacros;
-import jodd.madvoc.meta.Action;
-import jodd.madvoc.meta.ActionAnnotation;
-import jodd.madvoc.meta.ActionAnnotationData;
-import jodd.madvoc.meta.ActionConfiguredBy;
-import jodd.madvoc.meta.RestAction;
-import jodd.madvoc.path.DefaultActionPathNamingStrategy;
-import jodd.util.ArraysUtil;
-import jodd.util.ClassUtil;
-import jodd.util.StringPool;
+import utils.io.upload.FileUploadFactory;
+import utils.io.upload.impl.AdaptiveFileUploadFactory;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.config.RootPackages;
+import utils.madvoc.interceptor.ServletConfigInterceptor;
+import utils.madvoc.macro.PathMacros;
+import utils.madvoc.macro.RegExpPathMacros;
+import utils.madvoc.meta.Action;
+import utils.madvoc.meta.ActionAnnotation;
+import utils.madvoc.meta.ActionAnnotationData;
+import utils.madvoc.meta.ActionConfiguredBy;
+import utils.madvoc.meta.RestAction;
+import utils.madvoc.path.DefaultActionPathNamingStrategy;
+import utils.util.ArraysUtil;
+import utils.util.ClassUtil;
+import utils.util.StringPool;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -49,9 +49,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static jodd.util.StringPool.COLON;
-import static jodd.util.StringPool.LEFT_BRACE;
-import static jodd.util.StringPool.RIGHT_BRACE;
+import static utils.util.StringPool.COLON;
+import static utils.util.StringPool.LEFT_BRACE;
+import static utils.util.StringPool.RIGHT_BRACE;
 
 /**
  * Madvoc configuration. This is the single place where component configuration is stored.
@@ -62,7 +62,7 @@ public final class MadvocConfig {
 
 	@SuppressWarnings({"unchecked"})
 	public MadvocConfig() {
-		actionConfig = new jodd.madvoc.ActionConfig(null);
+		actionConfig = new utils.madvoc.ActionConfig(null);
 		actionConfig.setActionMethodNames("view", "execute");
 		actionConfig.setActionResult(null);
 		actionConfig.setFilters();
@@ -84,26 +84,26 @@ public final class MadvocConfig {
 
 	// ---------------------------------------------------------------- action configs
 
-	private jodd.madvoc.ActionConfig actionConfig;
+	private utils.madvoc.ActionConfig actionConfig;
 
 	/**
-	 * Returns default {@link jodd.madvoc.ActionConfig}.
+	 * Returns default {@link utils.madvoc.ActionConfig}.
 	 */
-	public jodd.madvoc.ActionConfig getActionConfig() {
+	public utils.madvoc.ActionConfig getActionConfig() {
 		return actionConfig;
 	}
 
 	/**
 	 * Sets default action configuration.
 	 */
-	public void setActionConfig(final jodd.madvoc.ActionConfig actionConfig) {
+	public void setActionConfig(final utils.madvoc.ActionConfig actionConfig) {
 		Objects.requireNonNull(actionConfig);
 		this.actionConfig = actionConfig;
 	}
 
 	// ---------------------------------------------------------------- action method annotations
 
-	private Map<Class<? extends Annotation>, jodd.madvoc.ActionConfig> annotations = new HashMap<>();
+	private Map<Class<? extends Annotation>, utils.madvoc.ActionConfig> annotations = new HashMap<>();
 	private Class<? extends Annotation>[] actionAnnotations = ClassUtil.emptyClassArray();
 	private ActionAnnotation<?>[] actionAnnotationInstances = new ActionAnnotation[0];
 
@@ -113,11 +113,11 @@ public final class MadvocConfig {
 			ActionConfiguredBy actionConfiguredBy = annotation.getAnnotation(ActionConfiguredBy.class);
 
 			if (actionConfiguredBy != null) {
-				Class<? extends jodd.madvoc.ActionConfig> actionConfigClass = actionConfiguredBy.value();
-				jodd.madvoc.ActionConfig newActionConfig;
+				Class<? extends utils.madvoc.ActionConfig> actionConfigClass = actionConfiguredBy.value();
+				utils.madvoc.ActionConfig newActionConfig;
 
 				try {
-					Constructor<? extends jodd.madvoc.ActionConfig> ctor = actionConfigClass.getDeclaredConstructor(jodd.madvoc.ActionConfig.class);
+					Constructor<? extends utils.madvoc.ActionConfig> ctor = actionConfigClass.getDeclaredConstructor(utils.madvoc.ActionConfig.class);
 					newActionConfig = ctor.newInstance(this.actionConfig);
 				}
 				catch (Exception ex) {
@@ -150,7 +150,7 @@ public final class MadvocConfig {
 	 * Lookups action config for given annotation. If annotations is not registered, returns default
 	 * action configuration.
 	 */
-	public jodd.madvoc.ActionConfig lookupActionConfig(final Class<? extends Annotation> annotationType) {
+	public utils.madvoc.ActionConfig lookupActionConfig(final Class<? extends Annotation> annotationType) {
 		return annotations.getOrDefault(annotationType, actionConfig);
 	}
 	public ActionConfig lookupActionConfig(final ActionAnnotationData actionAnnotationData) {

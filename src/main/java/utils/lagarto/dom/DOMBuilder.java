@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.dom.Document;
+import utils.lagarto.dom.Document;
 
 /**
  * DOM Builder. Generic interface for DOM builder
@@ -34,12 +34,12 @@ import jodd.lagarto.dom.Document;
 public interface DOMBuilder {
 
 	/**
-	 * Parses content and returns root {@link jodd.lagarto.dom.Document document node}.
+	 * Parses content and returns root {@link utils.lagarto.dom.Document document node}.
 	 */
-	jodd.lagarto.dom.Document parse(char[] content);
+	utils.lagarto.dom.Document parse(char[] content);
 
 	/**
-	 * Parses content and returns root {@link jodd.lagarto.dom.Document document node}.
+	 * Parses content and returns root {@link utils.lagarto.dom.Document document node}.
 	 */
 	Document parse(String content);
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.util.crypt;
 
-import jodd.util.StringUtil;
-import jodd.util.crypt.PBKDF2Encryptor;
-import jodd.util.crypt.Threefish;
+import utils.util.StringUtil;
+import utils.util.crypt.PBKDF2Encryptor;
+import utils.util.crypt.Threefish;
 
 /**
  * Symmetric encryption engines.
@@ -54,10 +54,10 @@ public interface CryptoEngine {
 	}
 
 	/**
-	 * Creates new {@link jodd.util.crypt.Threefish} encryptor.
+	 * Creates new {@link utils.util.crypt.Threefish} encryptor.
 	 */
 	public static CryptoEngine threefish(String password) {
-		final jodd.util.crypt.Threefish threefish = new Threefish(512);
+		final utils.util.crypt.Threefish threefish = new Threefish(512);
 		threefish.init(password, 0x1122334455667788L, 0xFF00FF00AABB9933L);
 
 		return new CryptoEngine() {

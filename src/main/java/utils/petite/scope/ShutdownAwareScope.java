@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,16 +25,16 @@
 
 package utils.petite.scope;
 
-import jodd.petite.BeanData;
-import jodd.petite.PetiteUtil;
-import jodd.petite.def.DestroyMethodPoint;
-import jodd.petite.scope.Scope;
+import utils.petite.BeanData;
+import utils.petite.PetiteUtil;
+import utils.petite.def.DestroyMethodPoint;
+import utils.petite.scope.Scope;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Base {@link jodd.petite.scope.Scope} class for scopes that collect
+ * Base {@link utils.petite.scope.Scope} class for scopes that collect
  * destroyable beans and implement shutdown routine.
  */
 public abstract class ShutdownAwareScope implements Scope {

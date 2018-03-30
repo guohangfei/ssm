@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,23 +25,23 @@
 
 package utils.madvoc;
 
-import jodd.madvoc.Madvoc;
-import jodd.madvoc.WebApp;
+import utils.madvoc.Madvoc;
+import utils.madvoc.WebApp;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * Creates {@link jodd.madvoc.Madvoc} {@link jodd.madvoc.WebApp}. It's an alternative way how to
- * start web application - before any other Jodd framework is used and called.
+ * Creates {@link utils.madvoc.Madvoc} {@link utils.madvoc.WebApp}. It's an alternative way how to
+ * start web application - before any other utils framework is used and called.
  */
 public class MadvocContextListener implements ServletContextListener {
 
-	protected jodd.madvoc.Madvoc madvoc;
+	protected utils.madvoc.Madvoc madvoc;
 
 	/**
-	 * Creates new {@link jodd.madvoc.Madvoc} {@link WebApp} that is configured
+	 * Creates new {@link utils.madvoc.Madvoc} {@link WebApp} that is configured
 	 * by context init parameters.
 	 */
 	@Override

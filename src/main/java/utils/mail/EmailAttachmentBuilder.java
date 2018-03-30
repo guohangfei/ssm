@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.mail;
 
-import jodd.io.FileNameUtil;
-import jodd.io.FileUtil;
-import jodd.mail.EmailAttachment;
-import jodd.mail.EmailMessage;
-import jodd.mail.MailException;
-import jodd.util.net.MimeTypes;
+import utils.io.FileNameUtil;
+import utils.io.FileUtil;
+import utils.mail.EmailAttachment;
+import utils.mail.EmailMessage;
+import utils.mail.MailException;
+import utils.util.net.MimeTypes;
 
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -39,17 +39,17 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static jodd.mail.EmailUtil.NO_NAME;
+import static utils.mail.EmailUtil.NO_NAME;
 
 /**
- * Helper class for convenient {@link jodd.mail.EmailAttachment} creation.
+ * Helper class for convenient {@link utils.mail.EmailAttachment} creation.
  */
 public class EmailAttachmentBuilder {
 
 	// ---------------------------------------------------------------- constructor
 
 	/**
-	 * Only allow instantiation from {@link jodd.mail.EmailAttachment} class
+	 * Only allow instantiation from {@link utils.mail.EmailAttachment} class
 	 */
 	protected EmailAttachmentBuilder() {
 	}
@@ -57,29 +57,29 @@ public class EmailAttachmentBuilder {
 	// ---------------------------------------------------------------- properties
 
 	/**
-	 * {@link String} with name of {@link jodd.mail.EmailAttachment}.
+	 * {@link String} with name of {@link utils.mail.EmailAttachment}.
 	 */
 	private String name;
 
 	/**
-	 * Content ID of {@link jodd.mail.EmailAttachment}.
+	 * Content ID of {@link utils.mail.EmailAttachment}.
 	 */
 	private String contentId;
 
 	/**
-	 * Whether the {@link jodd.mail.EmailAttachment} is inline. Defaults to false.
+	 * Whether the {@link utils.mail.EmailAttachment} is inline. Defaults to false.
 	 */
 	private boolean isInline = false;
 
 	/**
-	 * {@link DataSource} containing {@link jodd.mail.EmailAttachment} content.
+	 * {@link DataSource} containing {@link utils.mail.EmailAttachment} content.
 	 */
 	private DataSource dataSource;
 
 	/**
-	 * Target {@link jodd.mail.EmailMessage}.
+	 * Target {@link utils.mail.EmailMessage}.
 	 */
-	private jodd.mail.EmailMessage targetMessage;
+	private utils.mail.EmailMessage targetMessage;
 
 	// ---------------------------------------------------------------- data
 
@@ -99,7 +99,7 @@ public class EmailAttachmentBuilder {
 	/**
 	 * Sets content ID.
 	 *
-	 * @param contentId content ID of {@link jodd.mail.EmailAttachment}.
+	 * @param contentId content ID of {@link utils.mail.EmailAttachment}.
 	 * @return this
 	 */
 	public EmailAttachmentBuilder contentId(final String contentId) {
@@ -108,7 +108,7 @@ public class EmailAttachmentBuilder {
 	}
 
 	/**
-	 * Sets whether {@link jodd.mail.EmailAttachment} is inline.
+	 * Sets whether {@link utils.mail.EmailAttachment} is inline.
 	 *
 	 * @param isInline {@code true} for inline.
 	 * @return this
@@ -119,9 +119,9 @@ public class EmailAttachmentBuilder {
 	}
 
 	/**
-	 * Sets target {@link jodd.mail.EmailMessage}.
+	 * Sets target {@link utils.mail.EmailMessage}.
 	 *
-	 * @param targetMessage Target {@link jodd.mail.EmailMessage}.
+	 * @param targetMessage Target {@link utils.mail.EmailMessage}.
 	 * @return this
 	 */
 	public EmailAttachmentBuilder embeddedMessage(final EmailMessage targetMessage) {
@@ -146,7 +146,7 @@ public class EmailAttachmentBuilder {
 	 * Creates new {@link ByteArrayDataSource} and then calls {@link #content(DataSource)}.
 	 *
 	 * @param inputStream {@link InputStream}
-	 * @param contentType content type from {@link jodd.mail.EmailAttachment}.
+	 * @param contentType content type from {@link utils.mail.EmailAttachment}.
 	 * @return this
 	 * @throws IOException if {@link ByteArrayDataSource} cannot be created from {@link InputStream}
 	 * @see #content(DataSource)
@@ -160,7 +160,7 @@ public class EmailAttachmentBuilder {
 	 * Creates new {@link ByteArrayDataSource} and then calls {@link #content(DataSource)}.
 	 *
 	 * @param bytes       array of bytes
-	 * @param contentType content type from {@link jodd.mail.EmailAttachment}.
+	 * @param contentType content type from {@link utils.mail.EmailAttachment}.
 	 * @return this
 	 * @see #content(DataSource)
 	 */
@@ -200,12 +200,12 @@ public class EmailAttachmentBuilder {
 	// ---------------------------------------------------------------- factory/builder
 
 	/**
-	 * Creates {@link jodd.mail.EmailAttachment}.
+	 * Creates {@link utils.mail.EmailAttachment}.
 	 *
-	 * @return {@link jodd.mail.EmailAttachment}.
-	 * @throws jodd.mail.MailException if issue with {@link DataSource}.
+	 * @return {@link utils.mail.EmailAttachment}.
+	 * @throws utils.mail.MailException if issue with {@link DataSource}.
 	 */
-	public jodd.mail.EmailAttachment<ByteArrayDataSource> buildByteArrayDataSource() throws jodd.mail.MailException {
+	public utils.mail.EmailAttachment<ByteArrayDataSource> buildByteArrayDataSource() throws utils.mail.MailException {
 		try {
 			final ByteArrayDataSource bads;
 			if (dataSource instanceof ByteArrayDataSource) {
@@ -214,19 +214,19 @@ public class EmailAttachmentBuilder {
 				bads = new ByteArrayDataSource(dataSource.getInputStream(), dataSource.getContentType());
 			}
 			checkDataSource();
-			return new jodd.mail.EmailAttachment<>(name, contentId, isInline, bads).setEmbeddedMessage(targetMessage);
+			return new utils.mail.EmailAttachment<>(name, contentId, isInline, bads).setEmbeddedMessage(targetMessage);
 		} catch (final IOException ioexc) {
-			throw new jodd.mail.MailException(ioexc);
+			throw new utils.mail.MailException(ioexc);
 		}
 	}
 
 	/**
-	 * Creates {@link jodd.mail.EmailAttachment}.
+	 * Creates {@link utils.mail.EmailAttachment}.
 	 *
-	 * @return {@link jodd.mail.EmailAttachment}.
-	 * @throws jodd.mail.MailException if issue with {@link DataSource}.
+	 * @return {@link utils.mail.EmailAttachment}.
+	 * @throws utils.mail.MailException if issue with {@link DataSource}.
 	 */
-	public jodd.mail.EmailAttachment<FileDataSource> buildFileDataSource() throws jodd.mail.MailException {
+	public utils.mail.EmailAttachment<FileDataSource> buildFileDataSource() throws utils.mail.MailException {
 		try {
 			final FileDataSource fds;
 			if (dataSource instanceof FileDataSource) {
@@ -239,14 +239,14 @@ public class EmailAttachmentBuilder {
 			checkDataSource();
 			return new EmailAttachment<>(name, contentId, isInline, fds).setEmbeddedMessage(targetMessage);
 		} catch (final IOException ioexc) {
-			throw new jodd.mail.MailException(ioexc);
+			throw new utils.mail.MailException(ioexc);
 		}
 	}
 
 	/**
 	 * Check to ensure {@link DataSource} ds is valid.
 	 *
-	 * @throws jodd.mail.MailException if DataSource is {@code null}.
+	 * @throws utils.mail.MailException if DataSource is {@code null}.
 	 */
 	private void checkDataSource() {
 		if (dataSource == null) {

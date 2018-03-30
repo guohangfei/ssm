@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.util.cl;
 
-import jodd.util.ArraysUtil;
-import jodd.util.StringUtil;
-import jodd.util.SystemUtil;
-import jodd.util.Wildcard;
+import utils.util.ArraysUtil;
+import utils.util.StringUtil;
+import utils.util.SystemUtil;
+import utils.util.Wildcard;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,7 +60,7 @@ import java.util.List;
  * {@link SystemUtil#jrePackages() JRE packages}.
  * <p>
  * When <b>parent-last</b> strategy is used, be aware how you use
- * {@link jodd.util.ClassLoaderUtil} as it is designed to follow <b>parent-first</b>
+ * {@link utils.util.ClassLoaderUtil} as it is designed to follow <b>parent-first</b>
  * strategy. Use with caution as setting <b>parent-last</b> violates the
  * class loader hierarchy.
  */

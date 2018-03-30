@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.servlet.wrapper;
 
-import jodd.servlet.wrapper.Buffer;
-import jodd.servlet.wrapper.ContentTypeHeaderResolver;
-import jodd.servlet.wrapper.LastModifiedData;
-import jodd.util.CharUtil;
+import utils.servlet.wrapper.Buffer;
+import utils.servlet.wrapper.ContentTypeHeaderResolver;
+import utils.servlet.wrapper.LastModifiedData;
+import utils.util.CharUtil;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -46,15 +46,15 @@ public class BufferResponseWrapper extends HttpServletResponseWrapper {
 	protected static final String CONTENT_LENGTH = "content-length";
 	protected static final String LAST_MODIFIED = "last-modified";
 
-	protected final jodd.servlet.wrapper.LastModifiedData lastModifiedData;
+	protected final utils.servlet.wrapper.LastModifiedData lastModifiedData;
 
-	protected jodd.servlet.wrapper.Buffer buffer;
+	protected utils.servlet.wrapper.Buffer buffer;
 
 	public BufferResponseWrapper(final HttpServletResponse originalResponse) {
-		this(originalResponse, new jodd.servlet.wrapper.LastModifiedData());
+		this(originalResponse, new utils.servlet.wrapper.LastModifiedData());
 	}
 
-	public BufferResponseWrapper(final HttpServletResponse originalResponse, final jodd.servlet.wrapper.LastModifiedData lastModifiedData) {
+	public BufferResponseWrapper(final HttpServletResponse originalResponse, final utils.servlet.wrapper.LastModifiedData lastModifiedData) {
 		super(originalResponse);
 		this.lastModifiedData = lastModifiedData;
 		lastModifiedData.startNewResponse();

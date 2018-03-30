@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.mail;
 
-import jodd.core.JoddCore;
-import jodd.mail.EmailMessage;
-import jodd.util.StringUtil;
+import utils.core.utilsCore;
+import utils.mail.EmailMessage;
+import utils.util.StringUtil;
 
 import javax.mail.Address;
 import javax.mail.MessagingException;
@@ -158,7 +158,7 @@ public class EmailAddress {
 	 */
 	public InternetAddress toInternetAddress() throws AddressException {
 		try {
-			return new InternetAddress(email, personalName, JoddCore.defaults().getEncoding());
+			return new InternetAddress(email, personalName, utilsCore.defaults().getEncoding());
 		} catch (final UnsupportedEncodingException ueex) {
 			throw new AddressException(ueex.toString());
 		}

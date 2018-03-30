@@ -4,13 +4,13 @@ import java.util.function.BiConsumer;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.injector.Injector;
-import jodd.madvoc.injector.Outjector;
-import jodd.madvoc.injector.Targets;
-import jodd.servlet.ServletUtil;
-import jodd.util.StringUtil;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.ScopeType;
+import utils.madvoc.injector.Injector;
+import utils.madvoc.injector.Outjector;
+import utils.madvoc.injector.Targets;
+import utils.servlet.ServletUtil;
+import utils.util.StringUtil;
 
 public class CookieScopeInjector implements Injector, Outjector {
 	private static final ScopeType SCOPE_TYPE;

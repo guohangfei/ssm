@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.mail;
 
-import jodd.mail.EmailAddress;
-import jodd.util.StringPool;
+import utils.mail.EmailAddress;
+import utils.util.StringPool;
 
 import javax.mail.internet.InternetAddress;
 import java.io.UnsupportedEncodingException;
@@ -336,9 +336,9 @@ public class RFC2822AddressParser {
 	}
 
 	/**
-	 * Convenient shortcut of {@link #parse(String)} that returns {@link jodd.mail.EmailAddress} or {@code null}.
+	 * Convenient shortcut of {@link #parse(String)} that returns {@link utils.mail.EmailAddress} or {@code null}.
 	 */
-	public jodd.mail.EmailAddress parseToEmailAddress(final String email) {
+	public utils.mail.EmailAddress parseToEmailAddress(final String email) {
 		final ParsedAddress parsedAddress = parse(email);
 
 		if (parsedAddress == null) {

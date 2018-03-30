@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.mail;
 
-import jodd.mail.MailException;
-import jodd.mail.MailServer;
-import jodd.mail.SendMailSession;
+import utils.mail.MailException;
+import utils.mail.MailServer;
+import utils.mail.SendMailSession;
 
 import javax.mail.Authenticator;
 import javax.mail.NoSuchProviderException;
@@ -35,7 +35,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import java.util.Properties;
 
-import static jodd.util.StringPool.TRUE;
+import static utils.util.StringPool.TRUE;
 
 /**
  * Represents simple plain SMTP server for sending emails.

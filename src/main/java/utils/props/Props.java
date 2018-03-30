@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.props;
 
-import jodd.io.FastCharArrayWriter;
-import jodd.io.FileNameUtil;
-import jodd.io.FileUtil;
-import jodd.io.StreamUtil;
-import jodd.props.PropsData;
-import jodd.props.PropsEntries;
-import jodd.props.PropsEntry;
-import jodd.props.PropsParser;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.Wildcard;
+import utils.io.FastCharArrayWriter;
+import utils.io.FileNameUtil;
+import utils.io.FileUtil;
+import utils.io.StreamUtil;
+import utils.props.PropsData;
+import utils.props.PropsEntries;
+import utils.props.PropsEntry;
+import utils.props.PropsParser;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.Wildcard;
 
 import java.io.File;
 import java.io.IOException;

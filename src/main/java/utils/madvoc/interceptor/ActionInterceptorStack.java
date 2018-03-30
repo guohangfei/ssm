@@ -1,8 +1,8 @@
 package utils.madvoc.interceptor;
 
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.BaseActionWrapperStack;
-import jodd.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.BaseActionWrapperStack;
+import utils.madvoc.interceptor.ActionInterceptor;
 
 public class ActionInterceptorStack extends BaseActionWrapperStack<ActionInterceptor> implements ActionInterceptor {
 	public ActionInterceptorStack() {

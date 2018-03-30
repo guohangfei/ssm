@@ -3,12 +3,12 @@ package utils.paramo;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-import jodd.asm.EmptyClassVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.asm6.Type;
-import jodd.paramo.MethodParameter;
-import jodd.paramo.ParamExtractor;
-import jodd.paramo.ParamoException;
+import utils.asm.EmptyClassVisitor;
+import utils.asm6.MethodVisitor;
+import utils.asm6.Type;
+import utils.paramo.MethodParameter;
+import utils.paramo.ParamExtractor;
+import utils.paramo.ParamoException;
 
 final class MethodFinder extends EmptyClassVisitor {
 	private static final Map<String, String> primitives = new HashMap(8);

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,13 +26,13 @@
 package utils.proxetta;
 
 /**
- * Jodd PROXETTA module.
+ * utils PROXETTA module.
  */
-public class JoddProxetta {
+public class utilsProxetta {
 
-	private static final JoddProxetta instance = new JoddProxetta();
+	private static final utilsProxetta instance = new utilsProxetta();
 
-	public static JoddProxetta defaults() {
+	public static utilsProxetta defaults() {
 		return instance;
 	}
 
@@ -58,7 +58,7 @@ public class JoddProxetta {
 	}
 
 	/**
-	 * {@link jodd.proxetta.ProxyAdvice#execute()}
+	 * {@link utils.proxetta.ProxyAdvice#execute()}
 	 */
 	public void setExecuteMethodName(final String executeMethodName) {
 		this.executeMethodName = executeMethodName;

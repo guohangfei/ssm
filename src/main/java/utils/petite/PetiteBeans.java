@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,31 +25,31 @@
 
 package utils.petite;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.CtorDescriptor;
-import jodd.introspector.MethodDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.petite.*;
-import jodd.petite.PetiteUtil;
-import jodd.petite.WiringMode;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.def.CtorInjectionPoint;
-import jodd.petite.def.DestroyMethodPoint;
-import jodd.petite.def.InitMethodPoint;
-import jodd.petite.def.MethodInjectionPoint;
-import jodd.petite.def.PropertyInjectionPoint;
-import jodd.petite.def.ProviderDefinition;
-import jodd.petite.def.SetInjectionPoint;
-import jodd.petite.meta.InitMethodInvocationStrategy;
-import jodd.petite.resolver.ReferencesResolver;
-import jodd.petite.scope.Scope;
-import jodd.petite.scope.SingletonScope;
-import jodd.props.Props;
-import jodd.util.ClassUtil;
-import jodd.util.StringPool;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.CtorDescriptor;
+import utils.introspector.MethodDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.petite.*;
+import utils.petite.PetiteUtil;
+import utils.petite.WiringMode;
+import utils.petite.def.BeanReferences;
+import utils.petite.def.CtorInjectionPoint;
+import utils.petite.def.DestroyMethodPoint;
+import utils.petite.def.InitMethodPoint;
+import utils.petite.def.MethodInjectionPoint;
+import utils.petite.def.PropertyInjectionPoint;
+import utils.petite.def.ProviderDefinition;
+import utils.petite.def.SetInjectionPoint;
+import utils.petite.meta.InitMethodInvocationStrategy;
+import utils.petite.resolver.ReferencesResolver;
+import utils.petite.scope.Scope;
+import utils.petite.scope.SingletonScope;
+import utils.props.Props;
+import utils.util.ClassUtil;
+import utils.util.StringPool;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -240,12 +240,12 @@ public abstract class PetiteBeans {
 
 	/**
 	 * Creates {@link BeanDefinition} on
-	 * {@link #registerPetiteBean(Class, String, Class, jodd.petite.WiringMode, boolean, Consumer) bean registration}.
+	 * {@link #registerPetiteBean(Class, String, Class, utils.petite.WiringMode, boolean, Consumer) bean registration}.
 	 * This is a hook for modifying the bean data, like passing proxifed class etc.
 	 * By default returns new instance of {@link BeanDefinition}.
 	 */
 	protected <T> BeanDefinition createBeanDefinitionForRegistration(
-            final String name, final Class<T> type, final Scope scope, final jodd.petite.WiringMode wiringMode, final Consumer<T> consumer) {
+            final String name, final Class<T> type, final Scope scope, final utils.petite.WiringMode wiringMode, final Consumer<T> consumer) {
 
 		return new BeanDefinition<>(name, type, scope, wiringMode, consumer);
 	}
@@ -275,7 +275,7 @@ public abstract class PetiteBeans {
 	public <T> BeanDefinition<T> registerPetiteBean(
 		final Class<T> type, String name,
 		Class<? extends Scope> scopeType,
-		jodd.petite.WiringMode wiringMode,
+		utils.petite.WiringMode wiringMode,
 		final boolean define,
 		final Consumer<T> consumer
 	) {
@@ -470,7 +470,7 @@ public abstract class PetiteBeans {
 	public void registerPetiteCtorInjectionPoint(final String beanName, final Class[] paramTypes, final String[] references) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 		Constructor constructor = null;
 
 		if (paramTypes == null) {
@@ -508,7 +508,7 @@ public abstract class PetiteBeans {
 	public void registerPetitePropertyInjectionPoint(final String beanName, final String property, final String reference) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 		PropertyDescriptor propertyDescriptor = cd.getPropertyDescriptor(property, true);
 
 		if (propertyDescriptor == null) {
@@ -530,7 +530,7 @@ public abstract class PetiteBeans {
 	 */
 	public void registerPetiteSetInjectionPoint(final String beanName, final String property) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 
 		PropertyDescriptor propertyDescriptor = cd.getPropertyDescriptor(property, true);
 
@@ -554,7 +554,7 @@ public abstract class PetiteBeans {
 	public void registerPetiteMethodInjectionPoint(final String beanName, final String methodName, final Class[] arguments, final String[] references) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 
 		Method method = null;
 		if (arguments == null) {
@@ -593,7 +593,7 @@ public abstract class PetiteBeans {
 	public void registerPetiteInitMethods(final String beanName, final InitMethodInvocationStrategy invocationStrategy, String... initMethodNames) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 		if (initMethodNames == null) {
 			initMethodNames = StringPool.EMPTY_ARRAY;
 		}
@@ -622,7 +622,7 @@ public abstract class PetiteBeans {
 	public void registerPetiteDestroyMethods(final String beanName, String... destroyMethodNames) {
 		BeanDefinition beanDefinition = lookupExistingBeanDefinition(beanName);
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanDefinition.type);
 		if (destroyMethodNames == null) {
 			destroyMethodNames = StringPool.EMPTY_ARRAY;
 		}
@@ -661,7 +661,7 @@ public abstract class PetiteBeans {
 
 		Class beanType = beanDefinition.type;
 
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(beanType);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(beanType);
 		MethodDescriptor md = cd.getMethodDescriptor(methodName, arguments, true);
 
 		if (md == null) {
@@ -682,7 +682,7 @@ public abstract class PetiteBeans {
 	 * @param arguments method argument types
 	 */
 	public void registerPetiteProvider(final String providerName, final Class type, final String staticMethodName, final Class[] arguments) {
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 		MethodDescriptor md = cd.getMethodDescriptor(staticMethodName, arguments, true);
 
 		if (md == null) {

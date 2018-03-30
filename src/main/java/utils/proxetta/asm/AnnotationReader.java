@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm.EmptyAnnotationVisitor;
-import jodd.asm6.AnnotationVisitor;
-import jodd.proxetta.AnnotationInfo;
+import utils.asm.AsmUtil;
+import utils.asm.EmptyAnnotationVisitor;
+import utils.asm6.AnnotationVisitor;
+import utils.proxetta.AnnotationInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

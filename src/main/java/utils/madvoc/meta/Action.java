@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.madvoc.meta;
 
-import jodd.madvoc.ActionConfig;
-import jodd.madvoc.meta.ActionConfiguredBy;
-import jodd.util.StringPool;
+import utils.madvoc.ActionConfig;
+import utils.madvoc.meta.ActionConfiguredBy;
+import utils.util.StringPool;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -39,7 +39,7 @@ import java.lang.annotation.Target;
  * Marker for action methods. It is not necessary to mark a method, however, this annotation 
  * may be used to specify non-default action path. Moreover, this annotation may be used
  * to mark custom annotations!
- * @see jodd.madvoc.meta.ActionAnnotationData
+ * @see utils.madvoc.meta.ActionAnnotationData
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

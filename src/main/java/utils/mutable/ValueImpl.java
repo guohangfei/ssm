@@ -1,6 +1,6 @@
 package utils.mutable;
 
-import jodd.mutable.Value;
+import utils.mutable.Value;
 
 class ValueImpl<T> implements Value<T> {
 	private T value;

@@ -3,20 +3,20 @@ package utils.jtx;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import jodd.jtx.JtxException;
-import jodd.jtx.JtxResource;
-import jodd.jtx.JtxResourceManager;
-import jodd.jtx.JtxStatus;
-import jodd.jtx.JtxTransactionManager;
-import jodd.jtx.JtxTransactionMode;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
+import utils.jtx.JtxException;
+import utils.jtx.JtxResource;
+import utils.jtx.JtxResourceManager;
+import utils.jtx.JtxStatus;
+import utils.jtx.JtxTransactionManager;
+import utils.jtx.JtxTransactionMode;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
 
 public class JtxTransaction {
 	private static final Logger log = LoggerFactory.getLogger(JtxTransaction.class);
 	protected final JtxTransactionManager txManager;
 	protected final JtxTransactionMode mode;
-	protected final Set<jodd.jtx.JtxResource> resources;
+	protected final Set<utils.jtx.JtxResource> resources;
 	protected final Object scope;
 	protected final long deadline;
 	protected final boolean startAsActive;
@@ -155,7 +155,7 @@ public class JtxTransaction {
 		Iterator it = this.resources.iterator();
 
 		while (it.hasNext()) {
-			jodd.jtx.JtxResource resource = (jodd.jtx.JtxResource) it.next();
+			utils.jtx.JtxResource resource = (utils.jtx.JtxResource) it.next();
 
 			try {
 				resource.commitTransaction();
@@ -180,7 +180,7 @@ public class JtxTransaction {
 		Iterator it = this.resources.iterator();
 
 		while (it.hasNext()) {
-			jodd.jtx.JtxResource resource = (jodd.jtx.JtxResource) it.next();
+			utils.jtx.JtxResource resource = (utils.jtx.JtxResource) it.next();
 
 			try {
 				resource.rollbackTransaction();
@@ -219,7 +219,7 @@ public class JtxTransaction {
 
 				JtxResourceManager resourceManager = this.txManager.lookupResourceManager(resourceType);
 				resource = resourceManager.beginTransaction(this.mode, this.isActive());
-				this.resources.add(new jodd.jtx.JtxResource(this, resourceManager, resource));
+				this.resources.add(new utils.jtx.JtxResource(this, resourceManager, resource));
 			}
 
 			return resource;
@@ -229,13 +229,13 @@ public class JtxTransaction {
 	protected <E> E lookupResource(Class<E> resourceType) {
 		Iterator arg1 = this.resources.iterator();
 
-		jodd.jtx.JtxResource jtxResource;
+		utils.jtx.JtxResource jtxResource;
 		do {
 			if (!arg1.hasNext()) {
 				return null;
 			}
 
-			jtxResource = (jodd.jtx.JtxResource) arg1.next();
+			jtxResource = (utils.jtx.JtxResource) arg1.next();
 		} while (!jtxResource.isSameTypeAsResource(resourceType));
 
 		return jtxResource.getResource();

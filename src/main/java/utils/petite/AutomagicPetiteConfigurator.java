@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.petite;
 
-import jodd.io.findfile.ClassScanner;
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.petite.PetiteContainer;
-import jodd.petite.PetiteException;
-import jodd.petite.meta.PetiteBean;
+import utils.io.findfile.ClassScanner;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.petite.PetiteContainer;
+import utils.petite.PetiteException;
+import utils.petite.meta.PetiteBean;
 import java.util.function.Consumer;
 
 /**
@@ -44,7 +44,7 @@ public class AutomagicPetiteConfigurator {
 
 	private static final Logger log = LoggerFactory.getLogger(AutomagicPetiteConfigurator.class);
 	private final ClassScanner classScanner = new ClassScanner();
-	private jodd.petite.PetiteContainer container;
+	private utils.petite.PetiteContainer container;
 	private final byte[] petiteBeanAnnotationBytes;
 	protected long elapsed;
 
@@ -65,7 +65,7 @@ public class AutomagicPetiteConfigurator {
 	}
 
 	/**
-	 * Configures {@link jodd.petite.PetiteContainer} with specified class path.
+	 * Configures {@link utils.petite.PetiteContainer} with specified class path.
 	 */
 	public void configure(final PetiteContainer petiteContainer) {
 		this.container = petiteContainer;
@@ -78,7 +78,7 @@ public class AutomagicPetiteConfigurator {
 		try {
 			classScanner.start();
 		} catch (Exception ex) {
-			throw new jodd.petite.PetiteException("Scan classpath error", ex);
+			throw new utils.petite.PetiteException("Scan classpath error", ex);
 		}
 		elapsed = System.currentTimeMillis() - elapsed;
 		log.info("Petite configured in " + elapsed + " ms. Total beans: " + petiteContainer.beansCount());

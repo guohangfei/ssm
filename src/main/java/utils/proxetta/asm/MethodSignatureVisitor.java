@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,26 +25,26 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AsmUtil;
-import jodd.asm.TraceSignatureVisitor;
-import jodd.asm6.Opcodes;
-import jodd.asm6.signature.SignatureVisitor;
-import jodd.proxetta.AnnotationInfo;
-import jodd.proxetta.ClassInfo;
-import jodd.proxetta.GenericsReader;
-import jodd.proxetta.MethodInfo;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.TypeInfo;
-import jodd.proxetta.asm.TypeInfoImpl;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.collection.IntArrayList;
+import utils.asm.AsmUtil;
+import utils.asm.TraceSignatureVisitor;
+import utils.asm6.Opcodes;
+import utils.asm6.signature.SignatureVisitor;
+import utils.proxetta.AnnotationInfo;
+import utils.proxetta.ClassInfo;
+import utils.proxetta.GenericsReader;
+import utils.proxetta.MethodInfo;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.TypeInfo;
+import utils.proxetta.asm.TypeInfoImpl;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.collection.IntArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static jodd.proxetta.asm.AnnotationReader.NO_ANNOTATIONS;
+import static utils.proxetta.asm.AnnotationReader.NO_ANNOTATIONS;
 
 /**
  * Resolves method signature and holds all information. Uses {@link TraceSignatureVisitor} from ASM library.
@@ -60,7 +60,7 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 	protected final boolean isStatic;
 	protected final ClassInfo targetClassInfo;
 	protected final IntArrayList argumentsOffset;
-	protected final List<jodd.proxetta.asm.TypeInfoImpl> arguments;
+	protected final List<utils.proxetta.asm.TypeInfoImpl> arguments;
 	protected final int access;
 	protected final String description;
 
@@ -90,7 +90,7 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 		this.exceptionsArray = exceptions;
 
 		this.arguments = new ArrayList<>();
-		this.arguments.add(new jodd.proxetta.asm.TypeInfoImpl('L', null, null, null));
+		this.arguments.add(new utils.proxetta.asm.TypeInfoImpl('L', null, null, null));
 
 		this.argumentsOffset = new IntArrayList();
 		this.argumentsOffset.add(0);
@@ -142,7 +142,7 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 	}
 
 	@Override
-	public jodd.proxetta.asm.TypeInfoImpl getArgument(final int ndx) {
+	public utils.proxetta.asm.TypeInfoImpl getArgument(final int ndx) {
 		return arguments.get(ndx);
 	}
 
@@ -316,7 +316,7 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 			}
 		}
 
-		final jodd.proxetta.asm.TypeInfoImpl typeInfo = new TypeInfoImpl(
+		final utils.proxetta.asm.TypeInfoImpl typeInfo = new TypeInfoImpl(
 			type,
 			typeName,
 			bytecodeName,

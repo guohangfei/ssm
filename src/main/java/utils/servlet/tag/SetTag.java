@@ -3,7 +3,7 @@ package utils.servlet.tag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.tag.TagUtil;
+import utils.servlet.tag.TagUtil;
 
 public class SetTag extends SimpleTagSupport {
 	protected String name;

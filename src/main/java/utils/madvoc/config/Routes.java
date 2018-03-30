@@ -1,13 +1,13 @@
 package utils.madvoc.config;
 
 import java.util.function.Supplier;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.RouteChunk;
-import jodd.madvoc.macro.PathMacros;
-import jodd.util.ClassUtil;
-import jodd.util.StringUtil;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.RouteChunk;
+import utils.madvoc.macro.PathMacros;
+import utils.util.ClassUtil;
+import utils.util.StringUtil;
 
 public class Routes {
 	private static final String ANY_METHOD = "*";

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.util;
 
-import jodd.core.JoddCore;
-import jodd.util.SystemUtil;
-import jodd.util.UnsafeInternal;
+import utils.core.utilsCore;
+import utils.util.SystemUtil;
+import utils.util.UnsafeInternal;
 
 /**
  * Few methods using infamous <code>java.misc.Unsafe</code>, mostly for private use.
@@ -61,7 +61,7 @@ public class UnsafeUtil {
 			return null;
 		}
 
-		if (!HAS_UNSAFE || !JoddCore.defaults().isUnsafeUsageEnabled()) {
+		if (!HAS_UNSAFE || !utilsCore.defaults().isUnsafeUsageEnabled()) {
 			return string.toCharArray();
 		}
 

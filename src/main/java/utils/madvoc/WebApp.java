@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,30 +25,30 @@
 
 package utils.madvoc;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.MadvocException;
-import jodd.madvoc.MadvocRouter;
-import jodd.madvoc.component.ActionMethodParamNameResolver;
-import jodd.madvoc.component.ActionMethodParser;
-import jodd.madvoc.component.ActionPathRewriter;
-import jodd.madvoc.component.ActionsManager;
-import jodd.madvoc.component.AsyncActionExecutor;
-import jodd.madvoc.component.ContextInjectorComponent;
-import jodd.madvoc.component.FiltersManager;
-import jodd.madvoc.component.InjectorsManager;
-import jodd.madvoc.component.InterceptorsManager;
-import jodd.madvoc.component.MadvocComponentLifecycle;
-import jodd.madvoc.component.MadvocContainer;
-import jodd.madvoc.component.MadvocController;
-import jodd.madvoc.component.ResultMapper;
-import jodd.madvoc.component.ResultsManager;
-import jodd.madvoc.component.ScopeDataResolver;
-import jodd.madvoc.component.ServletContextProvider;
-import jodd.props.Props;
-import jodd.util.ClassConsumer;
-import jodd.util.Consumers;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.MadvocException;
+import utils.madvoc.MadvocRouter;
+import utils.madvoc.component.ActionMethodParamNameResolver;
+import utils.madvoc.component.ActionMethodParser;
+import utils.madvoc.component.ActionPathRewriter;
+import utils.madvoc.component.ActionsManager;
+import utils.madvoc.component.AsyncActionExecutor;
+import utils.madvoc.component.ContextInjectorComponent;
+import utils.madvoc.component.FiltersManager;
+import utils.madvoc.component.InjectorsManager;
+import utils.madvoc.component.InterceptorsManager;
+import utils.madvoc.component.MadvocComponentLifecycle;
+import utils.madvoc.component.MadvocContainer;
+import utils.madvoc.component.MadvocController;
+import utils.madvoc.component.ResultMapper;
+import utils.madvoc.component.ResultsManager;
+import utils.madvoc.component.ScopeDataResolver;
+import utils.madvoc.component.ServletContextProvider;
+import utils.props.Props;
+import utils.util.ClassConsumer;
+import utils.util.Consumers;
 
 import javax.servlet.ServletContext;
 import java.util.ArrayList;

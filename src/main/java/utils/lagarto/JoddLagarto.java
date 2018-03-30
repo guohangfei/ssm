@@ -1,9 +1,9 @@
 package utils.lagarto;
 
-public class JoddLagarto {
-	private static final JoddLagarto instance = new JoddLagarto();
+public class utilsLagarto {
+	private static final utilsLagarto instance = new utilsLagarto();
 
-	public static JoddLagarto defaults() {
+	public static utilsLagarto defaults() {
 		return instance;
 	}
 }

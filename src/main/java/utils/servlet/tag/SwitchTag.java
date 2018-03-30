@@ -2,7 +2,7 @@ package utils.servlet.tag;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.tag.TagUtil;
+import utils.servlet.tag.TagUtil;
 
 public class SwitchTag extends SimpleTagSupport {
 	static final String MSG_PARENT_SWITCH_REQUIRED = "Parent switch tag is required.";

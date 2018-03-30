@@ -1,6 +1,6 @@
 package utils.jtx;
 
-import jodd.jtx.JtxTransactionMode;
+import utils.jtx.JtxTransactionMode;
 
 public interface JtxResourceManager<E> {
 	Class<E> getResourceType();

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.util.template;
 
-import jodd.util.template.ContextTemplateParser;
-import jodd.util.template.StringTemplateParser;
+import utils.util.template.ContextTemplateParser;
+import utils.util.template.StringTemplateParser;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.petite.resolver;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.introspector.PropertyDescriptor;
-import jodd.petite.def.BeanReferences;
-import jodd.petite.def.PropertyInjectionPoint;
-import jodd.petite.resolver.ReferencesResolver;
-import jodd.util.ClassUtil;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.introspector.PropertyDescriptor;
+import utils.petite.def.BeanReferences;
+import utils.petite.def.PropertyInjectionPoint;
+import utils.petite.resolver.ReferencesResolver;
+import utils.util.ClassUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,7 +53,7 @@ public class PropertyResolver {
 	 */
 	public PropertyInjectionPoint[] resolve(final Class type, final boolean autowire) {
 		// lookup fields
-		ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+		ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 		List<PropertyInjectionPoint> list = new ArrayList<>();
 		PropertyDescriptor[] allPropertyDescriptors = cd.getAllPropertyDescriptors();
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.madvoc.meta;
 
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Out;
+import utils.madvoc.ScopeType;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Out;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

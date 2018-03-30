@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,20 +25,20 @@
 
 package utils.proxetta.impl;
 
-import jodd.asm6.ClassReader;
-import jodd.proxetta.ProxettaFactory;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.asm.ProxettaClassBuilder;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
-import jodd.proxetta.impl.ProxyProxetta;
+import utils.asm6.ClassReader;
+import utils.proxetta.ProxettaFactory;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.asm.ProxettaClassBuilder;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
+import utils.proxetta.impl.ProxyProxetta;
 
 import java.io.InputStream;
 
 /**
  * Creates the proxy subclass using ASM library.
  */
-public class ProxyProxettaFactory extends ProxettaFactory<ProxyProxettaFactory, jodd.proxetta.impl.ProxyProxetta> {
+public class ProxyProxettaFactory extends ProxettaFactory<ProxyProxettaFactory, utils.proxetta.impl.ProxyProxetta> {
 
 	public ProxyProxettaFactory(final ProxyProxetta proxyProxetta) {
 		super(proxyProxetta);

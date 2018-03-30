@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,36 +25,36 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.AnnotationVisitorAdapter;
-import jodd.asm.AsmUtil;
-import jodd.asm.EmptyClassVisitor;
-import jodd.asm6.AnnotationVisitor;
-import jodd.asm6.Attribute;
-import jodd.asm6.ClassReader;
-import jodd.asm6.ClassVisitor;
-import jodd.asm6.FieldVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.ProxettaCtorBuilder;
-import jodd.proxetta.asm.ProxettaMethodBuilder;
-import jodd.proxetta.asm.ProxyAspectData;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
+import utils.asm.AnnotationVisitorAdapter;
+import utils.asm.AsmUtil;
+import utils.asm.EmptyClassVisitor;
+import utils.asm6.AnnotationVisitor;
+import utils.asm6.Attribute;
+import utils.asm6.ClassReader;
+import utils.asm6.ClassVisitor;
+import utils.asm6.FieldVisitor;
+import utils.asm6.MethodVisitor;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.ProxettaCtorBuilder;
+import utils.proxetta.asm.ProxettaMethodBuilder;
+import utils.proxetta.asm.ProxyAspectData;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jodd.asm6.Opcodes.ACC_ABSTRACT;
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.INVOKESPECIAL;
-import static jodd.asm6.Opcodes.INVOKESTATIC;
-import static jodd.asm6.Opcodes.RETURN;
-import static jodd.proxetta.asm.ProxettaAsmUtil.CLINIT;
-import static jodd.proxetta.asm.ProxettaAsmUtil.DESC_VOID;
-import static jodd.proxetta.asm.ProxettaAsmUtil.INIT;
+import static utils.asm6.Opcodes.ACC_ABSTRACT;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.INVOKESPECIAL;
+import static utils.asm6.Opcodes.INVOKESTATIC;
+import static utils.asm6.Opcodes.RETURN;
+import static utils.proxetta.asm.ProxettaAsmUtil.CLINIT;
+import static utils.proxetta.asm.ProxettaAsmUtil.DESC_VOID;
+import static utils.proxetta.asm.ProxettaAsmUtil.INIT;
 
 /**
  * Proxetta class builder.
@@ -66,7 +66,7 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 	protected final String reqProxyClassName;
 	protected final TargetClassInfoReader targetClassInfo;
 
-	protected final jodd.proxetta.asm.WorkData wd;
+	protected final utils.proxetta.asm.WorkData wd;
 
 	/**
 	 * Constructs new Proxetta class builder.
@@ -77,7 +77,7 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 	 * @param targetClassInfoReader	target info reader, already invoked.
 	 */
 	public ProxettaClassBuilder(final ClassVisitor dest, final ProxyAspect[] aspects, final String suffix, final String reqProxyClassName, final TargetClassInfoReader targetClassInfoReader) {
-		this.wd = new jodd.proxetta.asm.WorkData(dest);
+		this.wd = new utils.proxetta.asm.WorkData(dest);
 		this.aspects = aspects;
 		this.suffix = suffix;
 		this.reqProxyClassName = reqProxyClassName;
@@ -108,9 +108,9 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 		// write destination class
 		wd.dest.visit(version, access, wd.thisReference, signature, wd.superName, null);
 
-		wd.proxyAspects = new jodd.proxetta.asm.ProxyAspectData[aspects.length];
+		wd.proxyAspects = new utils.proxetta.asm.ProxyAspectData[aspects.length];
 		for (int i = 0; i < aspects.length; i++) {
-			wd.proxyAspects[i] = new jodd.proxetta.asm.ProxyAspectData(wd, aspects[i], i);
+			wd.proxyAspects[i] = new utils.proxetta.asm.ProxyAspectData(wd, aspects[i], i);
 		}
 	}
 
@@ -119,7 +119,7 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 
 	/**
 	 * Creates proxified methods and constructors.
-	 * Destination proxy will have all constructors as a target class, using {@link jodd.proxetta.asm.ProxettaCtorBuilder}.
+	 * Destination proxy will have all constructors as a target class, using {@link utils.proxetta.asm.ProxettaCtorBuilder}.
 	 * Static initializers are removed, since they will be execute in target anyway.
 	 * For each method, {@link ProxettaMethodBuilder} determines if method matches pointcut. If so, method will be proxified.
 	 */
@@ -205,7 +205,7 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 	 * This created init method is called from each destination's constructor.
 	 */
 	protected void makeProxyConstructor() {
-		MethodVisitor mv = wd.dest.visitMethod(AsmUtil.ACC_PRIVATE | AsmUtil.ACC_FINAL, JoddProxetta.defaults().getInitMethodName(), DESC_VOID, null, null);
+		MethodVisitor mv = wd.dest.visitMethod(AsmUtil.ACC_PRIVATE | AsmUtil.ACC_FINAL, utilsProxetta.defaults().getInitMethodName(), DESC_VOID, null, null);
 		mv.visitCode();
 		if (wd.adviceInits != null) {
 			for (String name : wd.adviceInits) {
@@ -294,7 +294,7 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 	 * Otherwise, returns <code>null</code>.
 	 */
 	protected ProxettaMethodBuilder applyProxy(final MethodSignatureVisitor msign) {
-		List<jodd.proxetta.asm.ProxyAspectData> aspectList = matchMethodPointcuts(msign);
+		List<utils.proxetta.asm.ProxyAspectData> aspectList = matchMethodPointcuts(msign);
 
 		if (aspectList == null) {
 			// no pointcuts on this method, return
@@ -313,9 +313,9 @@ public class ProxettaClassBuilder extends EmptyClassVisitor {
 	/**
 	 * Matches pointcuts on method. If no pointcut found, returns <code>null</code>.
 	 */
-	protected List<jodd.proxetta.asm.ProxyAspectData> matchMethodPointcuts(final MethodSignatureVisitor msign) {
-		List<jodd.proxetta.asm.ProxyAspectData> aspectList = null;
-		for (jodd.proxetta.asm.ProxyAspectData aspectData : wd.proxyAspects) {
+	protected List<utils.proxetta.asm.ProxyAspectData> matchMethodPointcuts(final MethodSignatureVisitor msign) {
+		List<utils.proxetta.asm.ProxyAspectData> aspectList = null;
+		for (utils.proxetta.asm.ProxyAspectData aspectData : wd.proxyAspects) {
 			if (aspectData.apply(msign)) {
 				if (aspectList == null) {
 					aspectList = new ArrayList<>(wd.proxyAspects.length);

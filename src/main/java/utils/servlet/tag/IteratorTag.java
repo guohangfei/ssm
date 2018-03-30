@@ -6,9 +6,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.tag.IteratorStatus;
-import jodd.servlet.tag.TagUtil;
-import jodd.typeconverter.Converter;
+import utils.servlet.tag.IteratorStatus;
+import utils.servlet.tag.TagUtil;
+import utils.typeconverter.Converter;
 
 public class IteratorTag extends SimpleTagSupport {
 	protected Object items;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.proxetta;
 
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.impl.WrapperProxettaFactory;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.impl.WrapperProxettaFactory;
 
 import java.lang.reflect.Field;
 
@@ -43,11 +43,11 @@ public class ProxettaUtil {
 	public static Class getTargetClass(final Class proxy) {
 		String name = proxy.getName();
 
-		if (name.endsWith(jodd.proxetta.JoddProxetta.defaults().getProxyClassNameSuffix())) {
+		if (name.endsWith(utils.proxetta.utilsProxetta.defaults().getProxyClassNameSuffix())) {
 			return proxy.getSuperclass();
 		}
 
-		if (name.endsWith(jodd.proxetta.JoddProxetta.defaults().getWrapperClassNameSuffix())) {
+		if (name.endsWith(utils.proxetta.utilsProxetta.defaults().getWrapperClassNameSuffix())) {
 			return getTargetWrapperType(proxy);
 		}
 
@@ -56,7 +56,7 @@ public class ProxettaUtil {
 
 
 	/**
-	 * Injects some target instance into {@link jodd.proxetta.impl.WrapperProxetta wrapper} proxy
+	 * Injects some target instance into {@link utils.proxetta.impl.WrapperProxetta wrapper} proxy
 	 * in given {@link WrapperProxettaFactory#setTargetFieldName(String) target field name}.
 	 */
 	public static void injectTargetIntoWrapper(final Object target, final Object wrapper, final String targetFieldName) {
@@ -74,7 +74,7 @@ public class ProxettaUtil {
 	 * @see #injectTargetIntoWrapper(Object, Object, String)
 	 */
 	public static void injectTargetIntoWrapper(final Object target, final Object wrapper) {
-		injectTargetIntoWrapper(target, wrapper, jodd.proxetta.JoddProxetta.defaults().getWrapperTargetFieldName());
+		injectTargetIntoWrapper(target, wrapper, utils.proxetta.utilsProxetta.defaults().getWrapperTargetFieldName());
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class ProxettaUtil {
 	public static Class getTargetWrapperType(final Class wrapperClass) {
 		Field field;
 		try {
-			field = wrapperClass.getField(JoddProxetta.defaults().getWrapperTargetFieldName());
+			field = wrapperClass.getField(utilsProxetta.defaults().getWrapperTargetFieldName());
 		} catch (NoSuchFieldException nsfex) {
 			throw new ProxettaException(nsfex);
 		}

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.madvoc.result;
 
-import jodd.madvoc.meta.RenderWith;
-import jodd.madvoc.result.PathResult;
-import jodd.madvoc.result.ServletDispatcherActionResult;
+import utils.madvoc.meta.RenderWith;
+import utils.madvoc.result.PathResult;
+import utils.madvoc.result.ServletDispatcherActionResult;
 
 import java.util.function.Consumer;
 

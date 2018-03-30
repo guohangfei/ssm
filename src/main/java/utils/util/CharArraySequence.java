@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -27,7 +27,7 @@ package utils.util;
 
 /**
  * Simple {@code CharSequence} wrapper of the char array.
- * For {@code Appendable} version use {@link jodd.util.buffer.FastCharBuffer}.
+ * For {@code Appendable} version use {@link utils.util.buffer.FastCharBuffer}.
  */
 public class CharArraySequence implements CharSequence {
 

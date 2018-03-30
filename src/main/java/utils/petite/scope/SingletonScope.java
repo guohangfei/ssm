@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 
 package utils.petite.scope;
 
-import jodd.petite.BeanData;
-import jodd.petite.BeanDefinition;
-import jodd.petite.PetiteUtil;
-import jodd.petite.scope.ProtoScope;
-import jodd.petite.scope.Scope;
+import utils.petite.BeanData;
+import utils.petite.BeanDefinition;
+import utils.petite.PetiteUtil;
+import utils.petite.scope.ProtoScope;
+import utils.petite.scope.Scope;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ import java.util.Map;
  * Singleton scope pools all bean instances so they will be created only once in
  * the container context.
  */
-public class SingletonScope implements jodd.petite.scope.Scope {
+public class SingletonScope implements utils.petite.scope.Scope {
 
 	protected Map<String, BeanData> instances = new HashMap<>();
 
@@ -66,7 +66,7 @@ public class SingletonScope implements jodd.petite.scope.Scope {
 	 * Allows only singleton scoped beans to be injected into the target singleton bean.
 	 */
 	@Override
-	public boolean accept(final jodd.petite.scope.Scope referenceScope) {
+	public boolean accept(final utils.petite.scope.Scope referenceScope) {
 		Class<? extends Scope> refScopeType = referenceScope.getClass();
 
 		if (refScopeType == ProtoScope.class) {

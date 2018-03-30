@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.petite.def;
 
-import jodd.petite.def.BeanReferences;
+import utils.petite.def.BeanReferences;
 
 import java.lang.reflect.Constructor;
 import java.util.Objects;
@@ -36,7 +36,7 @@ import java.util.Objects;
 public class CtorInjectionPoint {
 
 	public final Constructor constructor;
-	public final jodd.petite.def.BeanReferences[] references;
+	public final utils.petite.def.BeanReferences[] references;
 
 	public CtorInjectionPoint(final Constructor constructor, final BeanReferences[] references) {
 		Objects.requireNonNull(constructor);

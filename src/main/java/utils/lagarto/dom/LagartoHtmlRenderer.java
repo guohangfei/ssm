@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.lagarto.dom;
 
-import jodd.lagarto.dom.LagartoHtmlRendererNodeVisitor;
-import jodd.lagarto.dom.Node;
-import jodd.lagarto.dom.NodeVisitor;
+import utils.lagarto.dom.LagartoHtmlRendererNodeVisitor;
+import utils.lagarto.dom.Node;
+import utils.lagarto.dom.NodeVisitor;
 
 /**
- * Renderer is a factory for {@link jodd.lagarto.dom.NodeVisitor} that
+ * Renderer is a factory for {@link utils.lagarto.dom.NodeVisitor} that
  * renders DOM tree to string.
  */
 public class LagartoHtmlRenderer {
@@ -38,8 +38,8 @@ public class LagartoHtmlRenderer {
 	/**
 	 * Renders node to appendable.
 	 */
-	public String toHtml(final jodd.lagarto.dom.Node node, final Appendable appendable) {
-		jodd.lagarto.dom.NodeVisitor renderer = createRenderer(appendable);
+	public String toHtml(final utils.lagarto.dom.Node node, final Appendable appendable) {
+		utils.lagarto.dom.NodeVisitor renderer = createRenderer(appendable);
 
 		node.visit(renderer);
 
@@ -50,7 +50,7 @@ public class LagartoHtmlRenderer {
 	 * Renders node children to appendable.
 	 */
 	public String toInnerHtml(final Node node, final Appendable appendable) {
-		jodd.lagarto.dom.NodeVisitor renderer = createRenderer(appendable);
+		utils.lagarto.dom.NodeVisitor renderer = createRenderer(appendable);
 
 		node.visitChildren(renderer);
 

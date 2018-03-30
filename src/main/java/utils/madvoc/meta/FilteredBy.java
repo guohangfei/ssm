@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.madvoc.meta;
 
-import jodd.madvoc.filter.ActionFilter;
+import utils.madvoc.filter.ActionFilter;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

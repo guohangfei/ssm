@@ -1,9 +1,9 @@
 package utils.madvoc.config;
 
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.config.Routes;
-import jodd.madvoc.macro.PathMacros;
-import jodd.util.ArraysUtil;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.config.Routes;
+import utils.madvoc.macro.PathMacros;
+import utils.util.ArraysUtil;
 
 public class RouteChunk {
 	private final String value;

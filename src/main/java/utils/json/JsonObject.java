@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.json;
 
-import jodd.json.JsonArray;
-import jodd.json.JsonException;
-import jodd.json.JsonSerializer;
-import jodd.util.collection.MapEntry;
+import utils.json.JsonArray;
+import utils.json.JsonException;
+import utils.json.JsonSerializer;
+import utils.util.collection.MapEntry;
 
 import java.util.Base64;
 import java.util.Iterator;
@@ -41,7 +41,7 @@ import java.util.stream.Stream;
 
 /**
  * Representation of JSON object.
- * @see jodd.json.JsonArray
+ * @see utils.json.JsonArray
  */
 public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 
@@ -151,15 +151,15 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 	}
 
 	/**
-	 * Returns the {@link jodd.json.JsonArray} value with the specified key
+	 * Returns the {@link utils.json.JsonArray} value with the specified key
 	 */
-	public jodd.json.JsonArray getJsonArray(final String key) {
+	public utils.json.JsonArray getJsonArray(final String key) {
 		Object val = map.get(key);
 
 		if (val instanceof List) {
-			val = new jodd.json.JsonArray((List) val);
+			val = new utils.json.JsonArray((List) val);
 		}
-		return (jodd.json.JsonArray) val;
+		return (utils.json.JsonArray) val;
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 			return (T) new JsonObject((Map) val);
 		}
 		if (val instanceof List) {
-			return (T) new jodd.json.JsonArray((List) val);
+			return (T) new utils.json.JsonArray((List) val);
 		}
 		return val;
 	}
@@ -306,8 +306,8 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 	/**
 	 * Like {@link #getJsonArray(String)} but specifies a default value to return if there is no entry.
 	 */
-	public jodd.json.JsonArray getJsonArray(final String key, final jodd.json.JsonArray def) {
-		jodd.json.JsonArray val = getJsonArray(key);
+	public utils.json.JsonArray getJsonArray(final String key, final utils.json.JsonArray def) {
+		utils.json.JsonArray val = getJsonArray(key);
 
 		if (val == null) {
 			if (map.containsKey(key)) {
@@ -465,9 +465,9 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 	}
 
 	/**
-	 * Puts a {@link jodd.json.JsonArray} into the JSON object with the specified key.
+	 * Puts a {@link utils.json.JsonArray} into the JSON object with the specified key.
 	 */
-	public JsonObject put(final String key, final jodd.json.JsonArray value) {
+	public JsonObject put(final String key, final utils.json.JsonArray value) {
 		Objects.requireNonNull(key);
 		map.put(key, value);
 		return this;
@@ -520,14 +520,14 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 		else if (value instanceof JsonObject) {
 			// OK
 		}
-		else if (value instanceof jodd.json.JsonArray) {
+		else if (value instanceof utils.json.JsonArray) {
 			// OK
 		}
 		else if (value instanceof Map) {
 			value = new JsonObject((Map) value);
 		}
 		else if (value instanceof List) {
-			value = new jodd.json.JsonArray((List) value);
+			value = new utils.json.JsonArray((List) value);
 		}
 		else if (value instanceof byte[]) {
 			value = Base64.getEncoder().encodeToString((byte[]) value);
@@ -706,11 +706,11 @@ public class JsonObject implements Iterable<Map.Entry<String, Object>> {
 		if (o1 instanceof Map<?, ?>) {
 			return objectEquals((Map<?, ?>) o1, o2);
 		}
-		if (o1 instanceof jodd.json.JsonArray) {
-			return jodd.json.JsonArray.arrayEquals(((jodd.json.JsonArray) o1).list(), o2);
+		if (o1 instanceof utils.json.JsonArray) {
+			return utils.json.JsonArray.arrayEquals(((utils.json.JsonArray) o1).list(), o2);
 		}
 		if (o1 instanceof List<?>) {
-			return jodd.json.JsonArray.arrayEquals((List<?>) o1, o2);
+			return utils.json.JsonArray.arrayEquals((List<?>) o1, o2);
 		}
 		if (o1 instanceof Number && o2 instanceof Number && o1.getClass() != o2.getClass()) {
 			Number n1 = (Number) o1;

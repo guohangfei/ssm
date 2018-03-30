@@ -2,7 +2,7 @@ package utils.mutable;
 
 import java.util.Optional;
 import java.util.function.Supplier;
-import jodd.mutable.ValueImpl;
+import utils.mutable.ValueImpl;
 
 public interface Value<T> extends Supplier<T> {
 	static default <R> Value<R> of(R value) {

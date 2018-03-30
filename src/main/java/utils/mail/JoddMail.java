@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -28,13 +28,13 @@ package utils.mail;
 import javax.mail.internet.MimeUtility;
 
 /**
- * Jodd MAIL module.
+ * utils MAIL module.
  */
-public class JoddMail {
+public class utilsMail {
 
-	private static final JoddMail instance = new JoddMail();
+	private static final utilsMail instance = new utilsMail();
 
-	public static JoddMail defaults() {
+	public static utilsMail defaults() {
 		return instance;
 	}
 

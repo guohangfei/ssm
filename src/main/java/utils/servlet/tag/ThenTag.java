@@ -3,8 +3,8 @@ package utils.servlet.tag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.JspTag;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.tag.IfElseTag;
-import jodd.servlet.tag.TagUtil;
+import utils.servlet.tag.IfElseTag;
+import utils.servlet.tag.TagUtil;
 
 public class ThenTag extends SimpleTagSupport {
 	public void doTag() throws JspException {

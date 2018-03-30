@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.madvoc.result;
 
-import jodd.log.Logger;
-import jodd.log.LoggerFactory;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.result.AbstractTemplateViewActionResult;
-import jodd.madvoc.result.ServletRedirectActionResult;
-import jodd.servlet.DispatcherUtil;
+import utils.log.Logger;
+import utils.log.LoggerFactory;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.result.AbstractTemplateViewActionResult;
+import utils.madvoc.result.ServletRedirectActionResult;
+import utils.servlet.DispatcherUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;

@@ -2,9 +2,9 @@ package utils.servlet.tag;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import jodd.servlet.tag.TagUtil;
-import jodd.typeconverter.Converter;
-import jodd.typeconverter.TypeConversionException;
+import utils.servlet.tag.TagUtil;
+import utils.typeconverter.Converter;
+import utils.typeconverter.TypeConversionException;
 
 public class IfElseTag extends SimpleTagSupport {
 	private boolean testValue;

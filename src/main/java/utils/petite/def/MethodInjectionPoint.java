@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.petite.def;
 
-import jodd.petite.def.BeanReferences;
+import utils.petite.def.BeanReferences;
 
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -38,7 +38,7 @@ public class MethodInjectionPoint {
 	public static final MethodInjectionPoint[] EMPTY = new MethodInjectionPoint[0]; 
 
 	public final Method method;
-	public final jodd.petite.def.BeanReferences[] references;
+	public final utils.petite.def.BeanReferences[] references;
 
 	public MethodInjectionPoint(final Method method, final BeanReferences[] references) {
 		Objects.requireNonNull(method);

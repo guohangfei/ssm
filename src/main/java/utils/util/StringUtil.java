@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.util;
 
-import jodd.core.JoddCore;
-import jodd.util.ArraysUtil;
-import jodd.util.CharUtil;
-import jodd.util.StringBand;
-import jodd.util.StringPool;
-import jodd.util.Util;
+import utils.core.utilsCore;
+import utils.util.ArraysUtil;
+import utils.util.CharUtil;
+import utils.util.StringBand;
+import utils.util.StringPool;
+import utils.util.Util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.function.Function;
 
-import static jodd.util.StringPool.EMPTY;
+import static utils.util.StringPool.EMPTY;
 
 /**
  * Various String utilities.
@@ -351,7 +351,7 @@ public class StringUtil {
 		int size = string.length();
 		for (int i = 0; i < size; i++) {
 			char c = string.charAt(i);
-			if (!jodd.util.CharUtil.isWhitespace(c)) {
+			if (!utils.util.CharUtil.isWhitespace(c)) {
 				return false;
 			}
 		}
@@ -365,7 +365,7 @@ public class StringUtil {
 		int size = string.length();
 		for (int i = 0; i < size; i++) {
 			char c = string.charAt(i);
-			if (!jodd.util.CharUtil.isDigit(c)) {
+			if (!utils.util.CharUtil.isDigit(c)) {
 				return false;
 			}
 		}
@@ -380,7 +380,7 @@ public class StringUtil {
 		int size = string.length();
 		for (int i = 0; i < size; i++) {
 			char c = string.charAt(i);
-			if ((!jodd.util.CharUtil.isDigit(c)) && (c != '-') && (c != '+')) {
+			if ((!utils.util.CharUtil.isDigit(c)) && (c != '-') && (c != '+')) {
 				return false;
 			}
 		}
@@ -422,7 +422,7 @@ public class StringUtil {
 	 */
 	public static String toPrettyString(final Object value) {
 		if (value == null) {
-			return jodd.util.StringPool.NULL;
+			return utils.util.StringPool.NULL;
 		}
 
 		Class<?> type = value.getClass();
@@ -435,25 +435,25 @@ public class StringUtil {
 				sb.append('[');
 
 				if (componentType == int.class) {
-					sb.append(jodd.util.ArraysUtil.toString((int[]) value));
+					sb.append(utils.util.ArraysUtil.toString((int[]) value));
 				}
 				else if (componentType == long.class) {
-					sb.append(jodd.util.ArraysUtil.toString((long[]) value));
+					sb.append(utils.util.ArraysUtil.toString((long[]) value));
 				}
 				else if (componentType == double.class) {
-					sb.append(jodd.util.ArraysUtil.toString((double[]) value));
+					sb.append(utils.util.ArraysUtil.toString((double[]) value));
 				}
 				else if (componentType == float.class) {
-					sb.append(jodd.util.ArraysUtil.toString((float[]) value));
+					sb.append(utils.util.ArraysUtil.toString((float[]) value));
 				}
 				else if (componentType == boolean.class) {
-					sb.append(jodd.util.ArraysUtil.toString((boolean[]) value));
+					sb.append(utils.util.ArraysUtil.toString((boolean[]) value));
 				}
 				else if (componentType == short.class) {
-					sb.append(jodd.util.ArraysUtil.toString((short[]) value));
+					sb.append(utils.util.ArraysUtil.toString((short[]) value));
 				}
 				else if (componentType == byte.class) {
-					sb.append(jodd.util.ArraysUtil.toString((byte[]) value));
+					sb.append(utils.util.ArraysUtil.toString((byte[]) value));
 				} else {
 					throw new IllegalArgumentException();
 				}
@@ -512,25 +512,25 @@ public class StringUtil {
 
 		if (componentType.isPrimitive()) {
 			if (componentType == int.class) {
-				return jodd.util.ArraysUtil.toStringArray((int[]) value);
+				return utils.util.ArraysUtil.toStringArray((int[]) value);
 			}
 			else if (componentType == long.class) {
-				return jodd.util.ArraysUtil.toStringArray((long[]) value);
+				return utils.util.ArraysUtil.toStringArray((long[]) value);
 			}
 			else if (componentType == double.class) {
-				return jodd.util.ArraysUtil.toStringArray((double[]) value);
+				return utils.util.ArraysUtil.toStringArray((double[]) value);
 			}
 			else if (componentType == float.class) {
-				return jodd.util.ArraysUtil.toStringArray((float[]) value);
+				return utils.util.ArraysUtil.toStringArray((float[]) value);
 			}
 			else if (componentType == boolean.class) {
-				return jodd.util.ArraysUtil.toStringArray((boolean[]) value);
+				return utils.util.ArraysUtil.toStringArray((boolean[]) value);
 			}
 			else if (componentType == short.class) {
-				return jodd.util.ArraysUtil.toStringArray((short[]) value);
+				return utils.util.ArraysUtil.toStringArray((short[]) value);
 			}
 			else if (componentType == byte.class) {
-				return jodd.util.ArraysUtil.toStringArray((byte[]) value);
+				return utils.util.ArraysUtil.toStringArray((byte[]) value);
 			}
 			else {
 				throw new IllegalArgumentException();
@@ -640,7 +640,7 @@ public class StringUtil {
 		for (int i = 0; i < chars.length; i++) {
 			char c = chars[i];
 			
-			if (jodd.util.CharUtil.isWhitespace(c)) {
+			if (utils.util.CharUtil.isWhitespace(c)) {
 				wasWhitespace = true;
 			} else {
 				if (wasWhitespace) {
@@ -705,7 +705,7 @@ public class StringUtil {
 			toIndex = len;
 		}
 		if (fromIndex >= toIndex) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		return string.substring(fromIndex, toIndex);
@@ -814,10 +814,10 @@ public class StringUtil {
 
 		start[0] = 0;
 		int s = 0, e;
-		if (jodd.util.CharUtil.equalsOne(srcc[0], delimiters)) {	// string starts with delimiter
+		if (utils.util.CharUtil.equalsOne(srcc[0], delimiters)) {	// string starts with delimiter
 			end[0] = 0;
 			count++;
-			s = jodd.util.CharUtil.findFirstDiff(srcc, 1, delimiters);
+			s = utils.util.CharUtil.findFirstDiff(srcc, 1, delimiters);
 			if (s == -1) {							// nothing after delimiters
 				return new String[] {EMPTY, EMPTY};
 			}
@@ -825,7 +825,7 @@ public class StringUtil {
 		}
 		while (true) {
 			// find new end
-			e = jodd.util.CharUtil.findFirstEqual(srcc, s, delimiters);
+			e = utils.util.CharUtil.findFirstEqual(srcc, s, delimiters);
 			if (e == -1) {
 				end[count] = srcc.length;
 				break;
@@ -834,7 +834,7 @@ public class StringUtil {
 
 			// find new start
 			count++;
-			s = jodd.util.CharUtil.findFirstDiff(srcc, e, delimiters);
+			s = utils.util.CharUtil.findFirstDiff(srcc, e, delimiters);
 			if (s == -1) {
 				start[count] = end[count] = srcc.length;
 				break;
@@ -875,7 +875,7 @@ public class StringUtil {
 		if (srcc[0] == delimiter) {	// string starts with delimiter
 			end[0] = 0;
 			count++;
-			s = jodd.util.CharUtil.findFirstDiff(srcc, 1, delimiter);
+			s = utils.util.CharUtil.findFirstDiff(srcc, 1, delimiter);
 			if (s == -1) {							// nothing after delimiters
 				return new String[] {EMPTY, EMPTY};
 			}
@@ -883,7 +883,7 @@ public class StringUtil {
 		}
 		while (true) {
 			// find new end
-			e = jodd.util.CharUtil.findFirstEqual(srcc, s, delimiter);
+			e = utils.util.CharUtil.findFirstEqual(srcc, s, delimiter);
 			if (e == -1) {
 				end[count] = srcc.length;
 				break;
@@ -892,7 +892,7 @@ public class StringUtil {
 
 			// find new start
 			count++;
-			s = jodd.util.CharUtil.findFirstDiff(srcc, e, delimiter);
+			s = utils.util.CharUtil.findFirstDiff(srcc, e, delimiter);
 			if (s == -1) {
 				start[count] = end[count] = srcc.length;
 				break;
@@ -1917,7 +1917,7 @@ public class StringUtil {
 	 */
 	public static int indexOfWhitespace(final String string, final int startindex, final int endindex) {
 		for (int i = startindex; i < endindex; i++) {
-			if (jodd.util.CharUtil.isWhitespace(string.charAt(i))) {
+			if (utils.util.CharUtil.isWhitespace(string.charAt(i))) {
 				return i;
 			}
 		}
@@ -1932,7 +1932,7 @@ public class StringUtil {
 	}
 	public static int indexOfNonWhitespace(final String string, final int startindex, final int endindex) {
 		for (int i = startindex; i < endindex; i++) {
-			if (!jodd.util.CharUtil.isWhitespace(string.charAt(i))) {
+			if (!utils.util.CharUtil.isWhitespace(string.charAt(i))) {
 				return i;
 			}
 		}
@@ -1975,7 +1975,7 @@ public class StringUtil {
 		}
 		if (string.length() == 1) {
 			if (string.charAt(0) == c) {
-				return jodd.util.StringPool.EMPTY;
+				return utils.util.StringPool.EMPTY;
 			}
 			return string;
 		}
@@ -2087,7 +2087,7 @@ public class StringUtil {
 	public static String trimLeft(final String src) {
 		int len = src.length();
 		int st = 0;
-		while ((st < len) && (jodd.util.CharUtil.isWhitespace(src.charAt(st)))) {
+		while ((st < len) && (utils.util.CharUtil.isWhitespace(src.charAt(st)))) {
 			st++;
 		}
 		return st > 0 ? src.substring(st) : src;
@@ -2099,7 +2099,7 @@ public class StringUtil {
 	public static String trimRight(final String src) {
 		int len = src.length();
 		int count = len;
-		while ((len > 0) && (jodd.util.CharUtil.isWhitespace(src.charAt(len - 1)))) {
+		while ((len > 0) && (utils.util.CharUtil.isWhitespace(src.charAt(len - 1)))) {
 			len--;
 		}
 		return (len < count) ? src.substring(0, len) : src;
@@ -2222,7 +2222,7 @@ public class StringUtil {
 		}
 
 		if (array.length == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		if (array.length == 1) {
@@ -2246,7 +2246,7 @@ public class StringUtil {
 		}
 
 		if (array.length == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		if (array.length == 1) {
@@ -2276,7 +2276,7 @@ public class StringUtil {
 		}
 
 		if (collection.size() == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		final StringBuilder sb = new StringBuilder(collection.size() * 16);
@@ -2300,7 +2300,7 @@ public class StringUtil {
 		}
 
 		if (collection.size() == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		final StringBuilder sb = new StringBuilder(collection.size() * 16);
@@ -2327,7 +2327,7 @@ public class StringUtil {
 		}
 
 		if (array.length == 0) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		if (array.length == 1) {
@@ -2572,7 +2572,7 @@ public class StringUtil {
 		}
 
 		if (end <= start) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		return string.substring(start, end);
@@ -2597,7 +2597,7 @@ public class StringUtil {
 		leftNdx += left.length();
 
 		if (leftNdx >= rightNdx) {
-			return jodd.util.StringPool.EMPTY;
+			return utils.util.StringPool.EMPTY;
 		}
 
 		return string.substring(leftNdx, rightNdx);
@@ -2672,7 +2672,7 @@ public class StringUtil {
 	 * Creates a new string that contains the provided string a number of times.
 	 */
 	public static String repeat(final String source, int count) {
-		jodd.util.StringBand result = new StringBand(count);
+		utils.util.StringBand result = new StringBand(count);
 		while (count > 0) {
 			result.append(source);
 			count--;
@@ -2822,7 +2822,7 @@ public class StringUtil {
 			index++;
 			prefix.append(c);
 		}
-		return prefix.length() == 0 ? jodd.util.StringPool.EMPTY : prefix.toString();
+		return prefix.length() == 0 ? utils.util.StringPool.EMPTY : prefix.toString();
 	}
 
 
@@ -2836,7 +2836,7 @@ public class StringUtil {
 
 		if (s.length() > length) {
 			for (int j = length; j >= 0; j--) {
-				if (jodd.util.CharUtil.isWhitespace(s.charAt(j))) {
+				if (utils.util.CharUtil.isWhitespace(s.charAt(j))) {
 					length = j;
 					break;
 				}
@@ -3055,7 +3055,7 @@ public class StringUtil {
 
 		int i = 0;
 		for (byte b : bytes) {
-			chars[i++] = jodd.util.CharUtil.int2hex((b & 0xF0) >> 4);
+			chars[i++] = utils.util.CharUtil.int2hex((b & 0xF0) >> 4);
 			chars[i++] = CharUtil.int2hex(b & 0x0F);
 		}
 
@@ -3078,11 +3078,11 @@ public class StringUtil {
 	// ---------------------------------------------------------------- bytes
 
 	/**
-	 * Returns String bytes using Jodds default encoding.
+	 * Returns String bytes using utilss default encoding.
 	 */
 	public static byte[] getBytes(final String string) {
 		try {
-			return string.getBytes(JoddCore.defaults().getEncoding());
+			return string.getBytes(utilsCore.defaults().getEncoding());
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException(e);
 		}
@@ -3097,7 +3097,7 @@ public class StringUtil {
 
 	public static String newString(final byte[] bytes) {
 		try {
-			return new String(bytes, JoddCore.defaults().getEncoding());
+			return new String(bytes, utilsCore.defaults().getEncoding());
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException(e);
 		}

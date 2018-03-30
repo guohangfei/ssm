@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,18 +25,18 @@
 
 package utils.proxetta.asm;
 
-import jodd.asm.EmptyMethodVisitor;
-import jodd.asm6.AnnotationVisitor;
-import jodd.asm6.MethodVisitor;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.asm.MethodSignatureVisitor;
-import jodd.proxetta.asm.WorkData;
+import utils.asm.EmptyMethodVisitor;
+import utils.asm6.AnnotationVisitor;
+import utils.asm6.MethodVisitor;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.asm.MethodSignatureVisitor;
+import utils.proxetta.asm.WorkData;
 
-import static jodd.asm6.Opcodes.ALOAD;
-import static jodd.asm6.Opcodes.INVOKESPECIAL;
-import static jodd.asm6.Opcodes.RETURN;
-import static jodd.proxetta.asm.ProxettaAsmUtil.DESC_VOID;
-import static jodd.proxetta.asm.ProxettaAsmUtil.loadSpecialMethodArguments;
+import static utils.asm6.Opcodes.ALOAD;
+import static utils.asm6.Opcodes.INVOKESPECIAL;
+import static utils.asm6.Opcodes.RETURN;
+import static utils.proxetta.asm.ProxettaAsmUtil.DESC_VOID;
+import static utils.proxetta.asm.ProxettaAsmUtil.loadSpecialMethodArguments;
 
 /**
  * Destination ctor builder
@@ -45,7 +45,7 @@ public class ProxettaCtorBuilder extends EmptyMethodVisitor {
 
 	protected final MethodSignatureVisitor msign;
 	protected final MethodVisitor methodVisitor;
-	protected final jodd.proxetta.asm.WorkData wd;
+	protected final utils.proxetta.asm.WorkData wd;
 
 	public ProxettaCtorBuilder(final MethodVisitor methodVisitor, final MethodSignatureVisitor msign, final WorkData wd) {
 		this.methodVisitor = methodVisitor;
@@ -90,7 +90,7 @@ public class ProxettaCtorBuilder extends EmptyMethodVisitor {
 		methodVisitor.visitMethodInsn(
 			INVOKESPECIAL,
 			wd.thisReference,
-			JoddProxetta.defaults().getInitMethodName(), DESC_VOID,
+			utilsProxetta.defaults().getInitMethodName(), DESC_VOID,
 			false);
 
 		methodVisitor.visitInsn(RETURN);

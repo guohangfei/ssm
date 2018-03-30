@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,9 +25,9 @@
 
 package utils.petite.meta;
 
-import jodd.petite.WiringMode;
-import jodd.petite.scope.Scope;
-import jodd.petite.scope.SingletonScope;
+import utils.petite.WiringMode;
+import utils.petite.scope.Scope;
+import utils.petite.scope.SingletonScope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

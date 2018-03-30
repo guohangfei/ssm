@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
 
 package utils.servlet.filter;
 
-import jodd.core.JoddCore;
-import jodd.typeconverter.Converter;
+import utils.core.utilsCore;
+import utils.typeconverter.Converter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -132,7 +132,7 @@ public class CharacterEncodingFilter implements Filter {
 		this.filterConfig = filterConfig;
 		this.encoding = filterConfig.getInitParameter("encoding");
 		if (this.encoding == null) {
-			this.encoding = JoddCore.defaults().getEncoding();
+			this.encoding = utilsCore.defaults().getEncoding();
 		}
 		this.ignore = Converter.get().toBooleanValue(filterConfig.getInitParameter("ignore"), true);
 	}

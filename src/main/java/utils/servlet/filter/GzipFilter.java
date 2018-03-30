@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.servlet.filter;
 
-import jodd.io.FileNameUtil;
-import jodd.servlet.ServletUtil;
-import jodd.servlet.filter.GzipResponseWrapper;
-import jodd.typeconverter.Converter;
-import jodd.typeconverter.TypeConversionException;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
-import jodd.util.Wildcard;
+import utils.io.FileNameUtil;
+import utils.servlet.ServletUtil;
+import utils.servlet.filter.GzipResponseWrapper;
+import utils.typeconverter.Converter;
+import utils.typeconverter.TypeConversionException;
+import utils.util.StringPool;
+import utils.util.StringUtil;
+import utils.util.Wildcard;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

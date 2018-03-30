@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.jtx.proxy;
 
-import jodd.jtx.proxy.AnnotationTxAdviceManager;
+import utils.jtx.proxy.AnnotationTxAdviceManager;
 
 /**
- * Support class for {@link jodd.jtx.proxy.AnnotationTxAdvice}.
+ * Support class for {@link utils.jtx.proxy.AnnotationTxAdvice}.
  * It represent a connection point from the advice's code and the rest of the application.
  */
 public class AnnotationTxAdviceSupport {

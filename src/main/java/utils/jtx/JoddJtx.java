@@ -1,16 +1,16 @@
 package utils.jtx;
 
 import java.lang.annotation.Annotation;
-import jodd.jtx.meta.ReadOnlyTransaction;
-import jodd.jtx.meta.ReadWriteTransaction;
-import jodd.jtx.meta.Transaction;
+import utils.jtx.meta.ReadOnlyTransaction;
+import utils.jtx.meta.ReadWriteTransaction;
+import utils.jtx.meta.Transaction;
 
-public class JoddJtx {
-	private static final JoddJtx instance = new JoddJtx();
+public class utilsJtx {
+	private static final utilsJtx instance = new utilsJtx();
 	private Class<? extends Annotation>[] txAnnotations = new Class[]{Transaction.class, ReadWriteTransaction.class,
 			ReadOnlyTransaction.class};
 
-	public static JoddJtx defaults() {
+	public static utilsJtx defaults() {
 		return instance;
 	}
 

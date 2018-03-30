@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.mail;
 
-import jodd.core.JoddCore;
-import jodd.io.StreamUtil;
-import jodd.mail.EMLProperties;
-import jodd.mail.ReceivedEmail;
+import utils.core.utilsCore;
+import utils.io.StreamUtil;
+import utils.mail.EMLProperties;
+import utils.mail.ReceivedEmail;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -73,11 +73,11 @@ public class EMLParser extends EMLProperties<EMLParser> {
 	 * @return {@link ReceivedEmail}.
 	 * @throws MessagingException if {@link MimeMessage} cannot be created.
 	 * @see #parse(String, String)
-	 * @see JoddCoreDefaults#getEncoding()
+	 * @see utilsCoreDefaults#getEncoding()
 	 */
 	public ReceivedEmail parse(final String emlContent) throws MessagingException {
 		try {
-			return parse(emlContent, JoddCore.defaults().getEncoding());
+			return parse(emlContent, utilsCore.defaults().getEncoding());
 		} catch (final UnsupportedEncodingException ignore) {
 			return null;
 		}

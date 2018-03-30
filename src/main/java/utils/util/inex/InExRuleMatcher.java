@@ -1,6 +1,6 @@
 package utils.util.inex;
 
-import jodd.util.Wildcard;
+import utils.util.Wildcard;
 
 public interface InExRuleMatcher<T, R> {
 	InExRuleMatcher<String, String> WILDCARD_RULE_MATCHER = (value, rule, include) -> {

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,40 +25,40 @@
 
 package utils.json;
 
-import jodd.bean.JoddBean;
-import jodd.introspector.ClassDescriptor;
-import jodd.json.JoddJson;
-import jodd.json.JsonArray;
-import jodd.json.JsonObject;
-import jodd.json.TypeJsonSerializer;
-import jodd.json.impl.ArraysJsonSerializer;
-import jodd.json.impl.BooleanArrayJsonSerializer;
-import jodd.json.impl.BooleanJsonSerializer;
-import jodd.json.impl.ByteArrayJsonSerializer;
-import jodd.json.impl.CalendarJsonSerializer;
-import jodd.json.impl.CharSequenceJsonSerializer;
-import jodd.json.impl.CharacterJsonSerializer;
-import jodd.json.impl.ClassJsonSerializer;
-import jodd.json.impl.DateJsonSerializer;
-import jodd.json.impl.DoubleArrayJsonSerializer;
-import jodd.json.impl.DoubleJsonSerializer;
-import jodd.json.impl.EnumJsonSerializer;
-import jodd.json.impl.FileJsonSerializer;
-import jodd.json.impl.FloatArrayJsonSerializer;
-import jodd.json.impl.FloatJsonSerializer;
-import jodd.json.impl.IntArrayJsonSerializer;
-import jodd.json.impl.IterableJsonSerializer;
-import jodd.json.impl.JsonArraySerializer;
-import jodd.json.impl.JsonObjectSerializer;
-import jodd.json.impl.JulianDateSerializer;
-import jodd.json.impl.LocalDateTimeSerializer;
-import jodd.json.impl.LongArrayJsonSerializer;
-import jodd.json.impl.MapJsonSerializer;
-import jodd.json.impl.NumberJsonSerializer;
-import jodd.json.impl.ObjectJsonSerializer;
-import jodd.json.impl.UUIDJsonSerializer;
-import jodd.util.JulianDate;
-import jodd.util.collection.ClassMap;
+import utils.bean.utilsBean;
+import utils.introspector.ClassDescriptor;
+import utils.json.utilsJson;
+import utils.json.JsonArray;
+import utils.json.JsonObject;
+import utils.json.TypeJsonSerializer;
+import utils.json.impl.ArraysJsonSerializer;
+import utils.json.impl.BooleanArrayJsonSerializer;
+import utils.json.impl.BooleanJsonSerializer;
+import utils.json.impl.ByteArrayJsonSerializer;
+import utils.json.impl.CalendarJsonSerializer;
+import utils.json.impl.CharSequenceJsonSerializer;
+import utils.json.impl.CharacterJsonSerializer;
+import utils.json.impl.ClassJsonSerializer;
+import utils.json.impl.DateJsonSerializer;
+import utils.json.impl.DoubleArrayJsonSerializer;
+import utils.json.impl.DoubleJsonSerializer;
+import utils.json.impl.EnumJsonSerializer;
+import utils.json.impl.FileJsonSerializer;
+import utils.json.impl.FloatArrayJsonSerializer;
+import utils.json.impl.FloatJsonSerializer;
+import utils.json.impl.IntArrayJsonSerializer;
+import utils.json.impl.IterableJsonSerializer;
+import utils.json.impl.JsonArraySerializer;
+import utils.json.impl.JsonObjectSerializer;
+import utils.json.impl.JulianDateSerializer;
+import utils.json.impl.LocalDateTimeSerializer;
+import utils.json.impl.LongArrayJsonSerializer;
+import utils.json.impl.MapJsonSerializer;
+import utils.json.impl.NumberJsonSerializer;
+import utils.json.impl.ObjectJsonSerializer;
+import utils.json.impl.UUIDJsonSerializer;
+import utils.util.JulianDate;
+import utils.util.collection.ClassMap;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -71,7 +71,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Map of {@link jodd.json.TypeJsonSerializer json type serializers}.
+ * Map of {@link utils.json.TypeJsonSerializer json type serializers}.
  */
 public class TypeJsonSerializerMap {
 
@@ -79,7 +79,7 @@ public class TypeJsonSerializerMap {
 	 * Returns default instance.
 	 */
 	public static TypeJsonSerializerMap get() {
-		return JoddJson.defaults().getTypeSerializers();
+		return utilsJson.defaults().getTypeSerializers();
 	}
 
 	private final TypeJsonSerializerMap defaultSerializerMap;
@@ -99,11 +99,11 @@ public class TypeJsonSerializerMap {
 		this.defaultSerializerMap = defaultSerializerMap;
 	}
 
-	protected final ClassMap<jodd.json.TypeJsonSerializer> map = new ClassMap<>();
-	protected final ClassMap<jodd.json.TypeJsonSerializer> cache = new ClassMap<>();
+	protected final ClassMap<utils.json.TypeJsonSerializer> map = new ClassMap<>();
+	protected final ClassMap<utils.json.TypeJsonSerializer> cache = new ClassMap<>();
 
 	/**
-	 * Registers default set of {@link jodd.json.TypeJsonSerializer serializers}.
+	 * Registers default set of {@link utils.json.TypeJsonSerializer serializers}.
 	 */
 	public void registerDefaults() {
 
@@ -150,7 +150,7 @@ public class TypeJsonSerializerMap {
 
 		// strings
 
-		jodd.json.TypeJsonSerializer jsonSerializer = new CharSequenceJsonSerializer();
+		utils.json.TypeJsonSerializer jsonSerializer = new CharSequenceJsonSerializer();
 
 		map.put(String.class, jsonSerializer);
 		map.put(StringBuilder.class, jsonSerializer);
@@ -208,18 +208,18 @@ public class TypeJsonSerializerMap {
 	/**
 	 * Registers new serializer.
 	 */
-	public void register(final Class type, final jodd.json.TypeJsonSerializer typeJsonSerializer) {
+	public void register(final Class type, final utils.json.TypeJsonSerializer typeJsonSerializer) {
 		map.put(type, typeJsonSerializer);
 		cache.clear();
 	}
 
 	/**
-	 * Lookups for the {@link jodd.json.TypeJsonSerializer serializer} for given type.
+	 * Lookups for the {@link utils.json.TypeJsonSerializer serializer} for given type.
 	 * If serializer not found, then all interfaces and subclasses of the type are checked.
 	 * Finally, if no serializer is found, object's serializer is returned.
 	 */
-	public jodd.json.TypeJsonSerializer lookup(final Class type) {
-		jodd.json.TypeJsonSerializer tjs = cache.unsafeGet(type);
+	public utils.json.TypeJsonSerializer lookup(final Class type) {
+		utils.json.TypeJsonSerializer tjs = cache.unsafeGet(type);
 
 		if (tjs != null) {
 			return tjs;
@@ -236,8 +236,8 @@ public class TypeJsonSerializerMap {
 	 * Get type serializer from map. First the current map is used.
 	 * If element is missing, default map will be used, if exist.
 	 */
-	protected jodd.json.TypeJsonSerializer lookupSerializer(final Class type) {
-		jodd.json.TypeJsonSerializer tjs = map.unsafeGet(type);
+	protected utils.json.TypeJsonSerializer lookupSerializer(final Class type) {
+		utils.json.TypeJsonSerializer tjs = map.unsafeGet(type);
 
 		if (tjs == null) {
 			if (defaultSerializerMap != null) {
@@ -248,7 +248,7 @@ public class TypeJsonSerializerMap {
 		return tjs;
 	}
 
-	protected jodd.json.TypeJsonSerializer _lookup(final Class type) {
+	protected utils.json.TypeJsonSerializer _lookup(final Class type) {
 		synchronized (map) {
 			TypeJsonSerializer tjs = lookupSerializer(type);
 
@@ -256,7 +256,7 @@ public class TypeJsonSerializerMap {
 				return tjs;
 			}
 
-			ClassDescriptor cd = JoddBean.defaults().getClassIntrospector().lookup(type);
+			ClassDescriptor cd = utilsBean.defaults().getClassIntrospector().lookup(type);
 
 			// check array
 

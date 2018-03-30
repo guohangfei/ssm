@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,17 +25,17 @@
 
 package utils.madvoc;
 
-import jodd.madvoc.ActionWrapper;
-import jodd.madvoc.component.MadvocController;
-import jodd.madvoc.config.ActionRuntime;
-import jodd.madvoc.injector.Targets;
+import utils.madvoc.ActionWrapper;
+import utils.madvoc.component.MadvocController;
+import utils.madvoc.config.ActionRuntime;
+import utils.madvoc.injector.Targets;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
 
-import static jodd.exception.ExceptionUtil.unwrapThrowable;
-import static jodd.exception.ExceptionUtil.wrapToException;
+import static utils.exception.ExceptionUtil.unwrapThrowable;
+import static utils.exception.ExceptionUtil.wrapToException;
 
 
 /**

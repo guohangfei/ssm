@@ -2,13 +2,13 @@ package utils.lagarto.form;
 
 import java.util.HashMap;
 import java.util.Map;
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagType;
-import jodd.lagarto.TagWriter;
-import jodd.lagarto.form.FormFieldResolver;
-import jodd.mutable.MutableInteger;
-import jodd.util.CharSequenceUtil;
-import jodd.util.StringUtil;
+import utils.lagarto.Tag;
+import utils.lagarto.TagType;
+import utils.lagarto.TagWriter;
+import utils.lagarto.form.FormFieldResolver;
+import utils.mutable.MutableInteger;
+import utils.util.CharSequenceUtil;
+import utils.util.StringUtil;
 
 public class FormProcessorVisitor extends TagWriter {
 	private static final String INPUT = "input";

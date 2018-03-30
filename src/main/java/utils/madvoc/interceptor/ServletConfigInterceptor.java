@@ -1,15 +1,15 @@
 package utils.madvoc.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.component.InjectorsManager;
-import jodd.madvoc.interceptor.ActionInterceptor;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.servlet.ServletUtil;
-import jodd.servlet.upload.MultipartRequestWrapper;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.ScopeType;
+import utils.madvoc.component.InjectorsManager;
+import utils.madvoc.interceptor.ActionInterceptor;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.servlet.ServletUtil;
+import utils.servlet.upload.MultipartRequestWrapper;
 
 public class ServletConfigInterceptor implements ActionInterceptor {
 	@In

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.madvoc.result;
 
-import jodd.io.StreamUtil;
-import jodd.madvoc.ActionRequest;
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.ScopeType;
-import jodd.madvoc.meta.In;
-import jodd.madvoc.meta.Scope;
-import jodd.madvoc.result.ActionResult;
-import jodd.madvoc.result.RawData;
-import jodd.servlet.ServletUtil;
+import utils.io.StreamUtil;
+import utils.madvoc.ActionRequest;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.ScopeType;
+import utils.madvoc.meta.In;
+import utils.madvoc.meta.Scope;
+import utils.madvoc.result.ActionResult;
+import utils.madvoc.result.RawData;
+import utils.servlet.ServletUtil;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -45,7 +45,7 @@ import java.io.OutputStream;
  * Content type and charset encoding (e.g. set by Madvoc) is ignored
  * and new values should be set here. Output is closed after writing.
  */
-public class RawActionResult implements ActionResult<jodd.madvoc.result.RawData> {
+public class RawActionResult implements ActionResult<utils.madvoc.result.RawData> {
 
 	@In @Scope(ScopeType.CONTEXT)
 	protected MadvocConfig madvocConfig;

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.json;
 
-import jodd.json.JsonContext;
-import jodd.json.JsonSerializer;
+import utils.json.JsonContext;
+import utils.json.JsonSerializer;
 
-import static jodd.util.StringPool.NULL;
+import static utils.util.StringPool.NULL;
 
 /**
- * {@link jodd.json.JsonSerializer} that prints out formatted JSON.
+ * {@link utils.json.JsonSerializer} that prints out formatted JSON.
  * It is slower, but the output is prettier.
  */
 public class PrettyJsonSerializer extends JsonSerializer {
@@ -57,12 +57,12 @@ public class PrettyJsonSerializer extends JsonSerializer {
 		this.identChar = identChar;
 	}
 
-	private void breakLine(final jodd.json.JsonContext jsonContext) {
+	private void breakLine(final utils.json.JsonContext jsonContext) {
 		jsonContext.write('\n');
 		ident(jsonContext);
 	}
 
-	private void ident(final jodd.json.JsonContext jsonContext) {
+	private void ident(final utils.json.JsonContext jsonContext) {
 		for (int i = 0; i < deep; i++) {
 			for (int j = 0; j < identSize; j++) {
 				jsonContext.write(identChar);
@@ -71,7 +71,7 @@ public class PrettyJsonSerializer extends JsonSerializer {
 	}
 
 	@Override
-	public jodd.json.JsonContext createJsonContext(final Appendable appendable) {
+	public utils.json.JsonContext createJsonContext(final Appendable appendable) {
 		return new JsonContext(this, appendable, excludeNulls, strictStringEncoding) {
 			@Override
 			public void writeOpenArray() {

@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,10 +25,10 @@
 
 package utils.proxetta.impl;
 
-import jodd.proxetta.InvokeAspect;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.Proxetta;
-import jodd.proxetta.impl.InvokeProxettaFactory;
+import utils.proxetta.InvokeAspect;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.Proxetta;
+import utils.proxetta.impl.InvokeProxettaFactory;
 
 /**
  * Proxetta that does method (i.e. invocation) replacements.
@@ -36,7 +36,7 @@ import jodd.proxetta.impl.InvokeProxettaFactory;
 public class InvokeProxetta extends Proxetta<InvokeProxetta, InvokeAspect> {
 
 	public InvokeProxetta() {
-		classNameSuffix = JoddProxetta.defaults().getInvokeProxyClassNameSuffix();
+		classNameSuffix = utilsProxetta.defaults().getInvokeProxyClassNameSuffix();
 	}
 
 	@Override

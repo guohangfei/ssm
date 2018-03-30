@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,12 +25,12 @@
 
 package utils.lagarto.adapter;
 
-import jodd.lagarto.Tag;
-import jodd.lagarto.TagAdapter;
-import jodd.lagarto.TagType;
-import jodd.lagarto.TagVisitor;
-import jodd.util.CharArraySequence;
-import jodd.util.CharUtil;
+import utils.lagarto.Tag;
+import utils.lagarto.TagAdapter;
+import utils.lagarto.TagType;
+import utils.lagarto.TagVisitor;
+import utils.util.CharArraySequence;
+import utils.util.CharUtil;
 
 import java.nio.CharBuffer;
 

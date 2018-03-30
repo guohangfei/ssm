@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,15 +25,15 @@
 
 package utils.petite.proxetta;
 
-import jodd.petite.BeanDefinition;
-import jodd.petite.PetiteConfig;
-import jodd.petite.PetiteContainer;
-import jodd.petite.WiringMode;
-import jodd.petite.proxetta.ProxettaBeanDefinition;
-import jodd.petite.scope.Scope;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.impl.ProxyProxetta;
-import jodd.proxetta.impl.ProxyProxettaFactory;
+import utils.petite.BeanDefinition;
+import utils.petite.PetiteConfig;
+import utils.petite.PetiteContainer;
+import utils.petite.WiringMode;
+import utils.petite.proxetta.ProxettaBeanDefinition;
+import utils.petite.scope.Scope;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.impl.ProxyProxetta;
+import utils.proxetta.impl.ProxyProxettaFactory;
 
 import java.util.function.Consumer;
 

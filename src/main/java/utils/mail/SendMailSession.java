@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,14 +25,14 @@
 
 package utils.mail;
 
-import jodd.mail.Email;
-import jodd.mail.EmailAddress;
-import jodd.mail.EmailAttachment;
-import jodd.mail.EmailMessage;
-import jodd.mail.EmailUtil;
-import jodd.mail.MailException;
-import jodd.mail.MailSession;
-import jodd.util.StringPool;
+import utils.mail.Email;
+import utils.mail.EmailAddress;
+import utils.mail.EmailAttachment;
+import utils.mail.EmailMessage;
+import utils.mail.EmailUtil;
+import utils.mail.MailException;
+import utils.mail.MailSession;
+import utils.util.StringPool;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -52,9 +52,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Encapsulates {@link jodd.mail.Email} sending session. Prepares and sends {@link #sendMail(jodd.mail.Email)} {@link jodd.mail.Email}s.
+ * Encapsulates {@link utils.mail.Email} sending session. Prepares and sends {@link #sendMail(utils.mail.Email)} {@link utils.mail.Email}s.
  */
-public class SendMailSession extends jodd.mail.MailSession<Transport> {
+public class SendMailSession extends utils.mail.MailSession<Transport> {
 
 	private static final String ALTERNATIVE = "alternative";
 	private static final String RELATED = "related";
@@ -83,10 +83,10 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Prepares message and sends it. Returns Message ID of sent email.
 	 *
-	 * @param email {@link jodd.mail.Email} to send.
+	 * @param email {@link utils.mail.Email} to send.
 	 * @return String representing message ID.
 	 */
-	public String sendMail(final jodd.mail.Email email) {
+	public String sendMail(final utils.mail.Email email) {
 		try {
 			final MimeMessage msg = createMessage(email);
 			getService().sendMessage(msg, msg.getAllRecipients());
@@ -99,14 +99,14 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	// ---------------------------------------------------------------- adapter
 
 	/**
-	 * Creates new {@link MimeMessage} from an {@link jodd.mail.Email}.
+	 * Creates new {@link MimeMessage} from an {@link utils.mail.Email}.
 	 *
-	 * @param email {@link jodd.mail.Email} to be created as a {@link MimeMessage}.
-	 * @return {@link MimeMessage} created from an {@link jodd.mail.Email}.
+	 * @param email {@link utils.mail.Email} to be created as a {@link MimeMessage}.
+	 * @return {@link MimeMessage} created from an {@link utils.mail.Email}.
 	 * @throws MessagingException if there is a failure
 	 */
-	protected MimeMessage createMessage(final jodd.mail.Email email) throws MessagingException {
-		final jodd.mail.Email clone = email.clone();
+	protected MimeMessage createMessage(final utils.mail.Email email) throws MessagingException {
+		final utils.mail.Email clone = email.clone();
 
 		final MimeMessage newMsg = new MimeMessage(getSession());
 
@@ -121,11 +121,11 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Sets subject in msgToSet from subject in emailWithData.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure
 	 */
-	private void setSubject(final jodd.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
+	private void setSubject(final utils.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
 		if (emailWithData.subjectEncoding() != null) {
 			msgToSet.setSubject(emailWithData.subject(), emailWithData.subjectEncoding());
 		} else {
@@ -136,11 +136,11 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Sets sent date in msgToSet with sent date from emailWithData.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure
 	 */
-	private void setSentDate(final jodd.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
+	private void setSentDate(final utils.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
 		Date date = emailWithData.sentDate();
 		if (date == null) {
 			date = new Date();
@@ -151,11 +151,11 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Sets headers in msgToSet with headers from emailWithData.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure
 	 */
-	private void setHeaders(final jodd.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
+	private void setHeaders(final utils.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
 		final Map<String, String> headers = emailWithData.headers();
 		if (headers != null) {
 			for (final Map.Entry<String, String> entry : headers.entrySet()) {
@@ -167,32 +167,32 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Sets FROM, REPLY-TO and recipients.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure
 	 */
-	private void setPeople(final jodd.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
+	private void setPeople(final utils.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
 		msgToSet.setFrom(emailWithData.from().toInternetAddress());
-		msgToSet.setReplyTo(jodd.mail.EmailAddress.convert(emailWithData.replyTo()));
+		msgToSet.setReplyTo(utils.mail.EmailAddress.convert(emailWithData.replyTo()));
 		setRecipients(emailWithData, msgToSet);
 	}
 
 	/**
 	 * Sets TO, CC and BCC in msgToSet with TO, CC and BCC from emailWithData.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure.
 	 */
-	private void setRecipients(final jodd.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
+	private void setRecipients(final utils.mail.Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
 		// TO
-		final InternetAddress[] to = jodd.mail.EmailAddress.convert(emailWithData.to());
+		final InternetAddress[] to = utils.mail.EmailAddress.convert(emailWithData.to());
 		if (to.length > 0) {
 			msgToSet.setRecipients(RecipientType.TO, to);
 		}
 
 		// CC
-		final InternetAddress[] cc = jodd.mail.EmailAddress.convert(emailWithData.cc());
+		final InternetAddress[] cc = utils.mail.EmailAddress.convert(emailWithData.cc());
 		if (cc.length > 0) {
 			msgToSet.setRecipients(RecipientType.CC, cc);
 		}
@@ -207,17 +207,17 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Adds message data and attachments.
 	 *
-	 * @param emailWithData {@link jodd.mail.Email} with data
+	 * @param emailWithData {@link utils.mail.Email} with data
 	 * @param msgToSet      {@link MimeMessage} to set data into.
 	 * @throws MessagingException if there is a failure.
 	 */
 	private void addBodyData(final Email emailWithData, final MimeMessage msgToSet) throws MessagingException {
-		final List<jodd.mail.EmailMessage> messages = emailWithData.messages();
+		final List<utils.mail.EmailMessage> messages = emailWithData.messages();
 
 		final int totalMessages = messages.size();
 
 		// Need to use new list since filterEmbeddedAttachments(List) removes attachments from the source List
-		final List<jodd.mail.EmailAttachment<? extends DataSource>> attachments = new ArrayList<>(emailWithData.attachments());
+		final List<utils.mail.EmailAttachment<? extends DataSource>> attachments = new ArrayList<>(emailWithData.attachments());
 
 		if (attachments.isEmpty() && totalMessages == 1) {
 			// special case: no attachments and just one content
@@ -229,7 +229,7 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 			if (totalMessages > 1) {
 				final MimeMultipart msgMultipart = new MimeMultipart(ALTERNATIVE);
 				multipart.addBodyPart(getBaseBodyPart(msgMultipart));
-				for (final jodd.mail.EmailMessage emailMessage : messages) {
+				for (final utils.mail.EmailMessage emailMessage : messages) {
 					msgMultipart.addBodyPart(getBodyPart(emailMessage, attachments));
 				}
 			}
@@ -254,17 +254,17 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	}
 
 	/**
-	 * @param emailMessage {@link jodd.mail.EmailMessage} with data.
-	 * @param attachments  {@link List} of {@link jodd.mail.EmailAttachment}s.
+	 * @param emailMessage {@link utils.mail.EmailMessage} with data.
+	 * @param attachments  {@link List} of {@link utils.mail.EmailAttachment}s.
 	 * @return new {@link MimeBodyPart} with data from emailMessage and attachments.
 	 * @throws MessagingException if there is a failure.
 	 */
-	private MimeBodyPart getBodyPart(final jodd.mail.EmailMessage emailMessage, final List<jodd.mail.EmailAttachment<? extends DataSource>> attachments) throws MessagingException {
+	private MimeBodyPart getBodyPart(final utils.mail.EmailMessage emailMessage, final List<utils.mail.EmailAttachment<? extends DataSource>> attachments) throws MessagingException {
 
 		final MimeBodyPart bodyPart = new MimeBodyPart();
 
 		// detect embedded attachments
-		final List<jodd.mail.EmailAttachment<? extends DataSource>> embeddedAttachments = filterEmbeddedAttachments(attachments, emailMessage);
+		final List<utils.mail.EmailAttachment<? extends DataSource>> embeddedAttachments = filterEmbeddedAttachments(attachments, emailMessage);
 
 		if (embeddedAttachments.isEmpty()) {
 			// no embedded attachments, just add message
@@ -292,22 +292,22 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	/**
 	 * Sets emailWithData content into msgToSet.
 	 *
-	 * @param emailWithData {@link jodd.mail.EmailMessage} with data.
+	 * @param emailWithData {@link utils.mail.EmailMessage} with data.
 	 * @param partToSet     {@link Part} to set data into.
 	 * @throws MessagingException if there is a failure.
 	 */
-	private void setContent(final jodd.mail.EmailMessage emailWithData, final Part partToSet) throws MessagingException {
+	private void setContent(final utils.mail.EmailMessage emailWithData, final Part partToSet) throws MessagingException {
 		partToSet.setContent(emailWithData.getContent(), emailWithData.getMimeType() + CHARSET + emailWithData.getEncoding());
 	}
 
 	/**
 	 * Creates attachment body part. Handles regular and inline attachments.
 	 *
-	 * @param attachment Body part {@link jodd.mail.EmailAttachment}.
+	 * @param attachment Body part {@link utils.mail.EmailAttachment}.
 	 * @return {@link MimeBodyPart} which represents body part attachment.
 	 * @throws MessagingException if there is a failure.
 	 */
-	protected MimeBodyPart createAttachmentBodyPart(final jodd.mail.EmailAttachment<? extends DataSource> attachment) throws MessagingException {
+	protected MimeBodyPart createAttachmentBodyPart(final utils.mail.EmailAttachment<? extends DataSource> attachment) throws MessagingException {
 		final MimeBodyPart part = new MimeBodyPart();
 
 		final String attachmentName = attachment.getEncodedName();
@@ -328,24 +328,24 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	}
 
 	/**
-	 * Filters out the {@link List} of embedded {@link jodd.mail.EmailAttachment}s for given {@link jodd.mail.EmailMessage}.
+	 * Filters out the {@link List} of embedded {@link utils.mail.EmailAttachment}s for given {@link utils.mail.EmailMessage}.
 	 * This will remove the embedded attachments from the {@link List} and return them in a new {@link List}.
 	 *
 	 * @param attachments  {@link List} of attachments to search for in emailMessage.
-	 * @param emailMessage {@link jodd.mail.EmailMessage} to see if attachment is embedded into.
-	 * @return {@link List} of embedded {@link jodd.mail.EmailAttachment}s; otherwise, returns empty {@link List}.
+	 * @param emailMessage {@link utils.mail.EmailMessage} to see if attachment is embedded into.
+	 * @return {@link List} of embedded {@link utils.mail.EmailAttachment}s; otherwise, returns empty {@link List}.
 	 */
-	protected List<jodd.mail.EmailAttachment<? extends DataSource>> filterEmbeddedAttachments(final List<jodd.mail.EmailAttachment<? extends DataSource>> attachments, final EmailMessage emailMessage) {
-		final List<jodd.mail.EmailAttachment<? extends DataSource>> embeddedAttachments = new ArrayList<>();
+	protected List<utils.mail.EmailAttachment<? extends DataSource>> filterEmbeddedAttachments(final List<utils.mail.EmailAttachment<? extends DataSource>> attachments, final EmailMessage emailMessage) {
+		final List<utils.mail.EmailAttachment<? extends DataSource>> embeddedAttachments = new ArrayList<>();
 
 		if (attachments == null || attachments.isEmpty() || emailMessage == null) {
 			return embeddedAttachments;
 		}
 
-		final Iterator<jodd.mail.EmailAttachment<? extends DataSource>> iterator = attachments.iterator();
+		final Iterator<utils.mail.EmailAttachment<? extends DataSource>> iterator = attachments.iterator();
 
 		while (iterator.hasNext()) {
-			final jodd.mail.EmailAttachment<? extends DataSource> emailAttachment = iterator.next();
+			final utils.mail.EmailAttachment<? extends DataSource> emailAttachment = iterator.next();
 
 			if (emailAttachment.isEmbeddedInto(emailMessage)) {
 				embeddedAttachments.add(emailAttachment);
@@ -357,13 +357,13 @@ public class SendMailSession extends jodd.mail.MailSession<Transport> {
 	}
 
 	/**
-	 * Adds {@link List} of {@link jodd.mail.EmailAttachment}s to multipart.
+	 * Adds {@link List} of {@link utils.mail.EmailAttachment}s to multipart.
 	 *
-	 * @param attachments {@link List} of {@link jodd.mail.EmailAttachment}s to add to multipart. This can be {@code null}.
+	 * @param attachments {@link List} of {@link utils.mail.EmailAttachment}s to add to multipart. This can be {@code null}.
 	 * @param multipart   {@link MimeMultipart} to set data into.
 	 * @throws MessagingException if there is a failure.
 	 */
-	private void addAnyAttachments(final List<jodd.mail.EmailAttachment<? extends DataSource>> attachments, final MimeMultipart multipart) throws MessagingException {
+	private void addAnyAttachments(final List<utils.mail.EmailAttachment<? extends DataSource>> attachments, final MimeMultipart multipart) throws MessagingException {
 		for (final EmailAttachment<? extends DataSource> attachment : attachments) {
 			final MimeBodyPart bodyPart = createAttachmentBodyPart(attachment);
 			multipart.addBodyPart(bodyPart);

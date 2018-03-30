@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,13 @@
 
 package utils.props;
 
-import jodd.core.JoddCore;
-import jodd.exception.UncheckedException;
-import jodd.io.findfile.ClassScanner;
-import jodd.props.PropertiesToProps;
-import jodd.props.Props;
-import jodd.util.StringPool;
-import jodd.util.StringUtil;
+import utils.core.utilsCore;
+import utils.exception.UncheckedException;
+import utils.io.findfile.ClassScanner;
+import utils.props.PropertiesToProps;
+import utils.props.Props;
+import utils.util.StringPool;
+import utils.util.StringUtil;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -40,17 +40,17 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Some {@link jodd.props.Props} utilities.
+ * Some {@link utils.props.Props} utilities.
  */
 public class PropsUtil {
 
 	/**
 	 * Loads props from classpath.
 	 */
-	public static void loadFromClasspath(final jodd.props.Props p, final String... patterns) {
+	public static void loadFromClasspath(final utils.props.Props p, final String... patterns) {
 		ClassScanner.get()
 			.onEntry(entryData -> {
-				String usedEncoding = JoddCore.defaults().getEncoding();
+				String usedEncoding = utilsCore.defaults().getEncoding();
 				if (StringUtil.endsWithIgnoreCase(entryData.name(), ".properties")) {
 					usedEncoding = StringPool.ISO_8859_1;
 				}
@@ -67,16 +67,16 @@ public class PropsUtil {
 	}
 
 	/**
-	 * Creates new props and {@link #loadFromClasspath(jodd.props.Props, String...) loads from classpath}.
+	 * Creates new props and {@link #loadFromClasspath(utils.props.Props, String...) loads from classpath}.
 	 */
-	public static jodd.props.Props createFromClasspath(final String... patterns) {
-		final jodd.props.Props p = new Props();
+	public static utils.props.Props createFromClasspath(final String... patterns) {
+		final utils.props.Props p = new Props();
 		loadFromClasspath(p, patterns);
 		return p;
 	}
 
 	/**
-	 * Convert Java Properties to Jodd Props format.
+	 * Convert Java Properties to utils Props format.
 	 *
 	 * @param writer     Writer to write Props formatted file content to
 	 * @param properties Properties to convert to Props format
@@ -88,7 +88,7 @@ public class PropsUtil {
 	}
 
 	/**
-	 * Convert Java Properties to Jodd Props format.
+	 * Convert Java Properties to utils Props format.
 	 *
 	 * @param writer     Writer to write Props formatted file content to
 	 * @param properties Properties to convert to Props format

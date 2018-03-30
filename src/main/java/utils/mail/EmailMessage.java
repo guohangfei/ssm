@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 
 package utils.mail;
 
-import jodd.core.JoddCore;
+import utils.core.utilsCore;
 
 /**
  * Represents email message including the mime type and encoding.
@@ -61,14 +61,14 @@ public class EmailMessage {
 	}
 
 	/**
-	 * Uses UTF-8 email content by default (as per {@link JoddCoreDefaults#getEncoding()}.
+	 * Uses UTF-8 email content by default (as per {@link utilsCoreDefaults#getEncoding()}.
 	 *
 	 * @param content  The content as a {@link String}.
 	 * @param mimeType The MIME type as a as a {@link String}.
-	 * @see JoddCoreDefaults#getEncoding()
+	 * @see utilsCoreDefaults#getEncoding()
 	 */
 	public EmailMessage(final String content, final String mimeType) {
-		this(content, mimeType, JoddCore.defaults().getEncoding());
+		this(content, mimeType, utilsCore.defaults().getEncoding());
 	}
 
 	// ---------------------------------------------------------------- getters

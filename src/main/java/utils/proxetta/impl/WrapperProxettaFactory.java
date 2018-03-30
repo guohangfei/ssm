@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.proxetta.impl;
 
-import jodd.asm6.ClassReader;
-import jodd.proxetta.JoddProxetta;
-import jodd.proxetta.ProxettaException;
-import jodd.proxetta.ProxettaFactory;
-import jodd.proxetta.ProxettaUtil;
-import jodd.proxetta.ProxyAspect;
-import jodd.proxetta.asm.ProxettaWrapperClassBuilder;
-import jodd.proxetta.asm.TargetClassInfoReader;
-import jodd.proxetta.asm.WorkData;
-import jodd.proxetta.impl.WrapperProxetta;
+import utils.asm6.ClassReader;
+import utils.proxetta.utilsProxetta;
+import utils.proxetta.ProxettaException;
+import utils.proxetta.ProxettaFactory;
+import utils.proxetta.ProxettaUtil;
+import utils.proxetta.ProxyAspect;
+import utils.proxetta.asm.ProxettaWrapperClassBuilder;
+import utils.proxetta.asm.TargetClassInfoReader;
+import utils.proxetta.asm.WorkData;
+import utils.proxetta.impl.WrapperProxetta;
 
 /**
  * Creates wrapper using ASM library.
  */
-public class WrapperProxettaFactory extends ProxettaFactory<WrapperProxettaFactory, jodd.proxetta.impl.WrapperProxetta> {
+public class WrapperProxettaFactory extends ProxettaFactory<WrapperProxettaFactory, utils.proxetta.impl.WrapperProxetta> {
 
 	public WrapperProxettaFactory(final WrapperProxetta wrapperProxetta) {
 		super(wrapperProxetta);
@@ -47,7 +47,7 @@ public class WrapperProxettaFactory extends ProxettaFactory<WrapperProxettaFacto
 
 	protected Class targetClassOrInterface;
 	protected Class targetInterface;
-	protected String targetFieldName = JoddProxetta.defaults().getWrapperTargetFieldName();
+	protected String targetFieldName = utilsProxetta.defaults().getWrapperTargetFieldName();
 
 	/**
 	 * Defines class or interface to wrap.

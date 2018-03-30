@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -26,7 +26,7 @@
 package utils.util;
 
 /**
- * Abstract binary search. It is more abstract then {@link jodd.util.BinarySearch}.
+ * Abstract binary search. It is more abstract then {@link utils.util.BinarySearch}.
  */
 public abstract class BinarySearchBase {
 

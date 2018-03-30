@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+// Copyright (c) 2003-present, utils Team (http://utils.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,21 +25,21 @@
 
 package utils.madvoc.component;
 
-import jodd.madvoc.MadvocConfig;
-import jodd.madvoc.injector.ActionPathMacroInjector;
-import jodd.madvoc.injector.ApplicationScopeInjector;
-import jodd.madvoc.injector.CookieScopeInjector;
-import jodd.madvoc.injector.MadvocContextScopeInjector;
-import jodd.madvoc.injector.MadvocParamsInjector;
-import jodd.madvoc.injector.RequestBodyScopeInject;
-import jodd.madvoc.injector.RequestScopeInjector;
-import jodd.madvoc.injector.ServletContextScopeInjector;
-import jodd.madvoc.injector.SessionScopeInjector;
-import jodd.petite.PetiteContainer;
-import jodd.petite.meta.PetiteInitMethod;
-import jodd.petite.meta.PetiteInject;
+import utils.madvoc.MadvocConfig;
+import utils.madvoc.injector.ActionPathMacroInjector;
+import utils.madvoc.injector.ApplicationScopeInjector;
+import utils.madvoc.injector.CookieScopeInjector;
+import utils.madvoc.injector.MadvocContextScopeInjector;
+import utils.madvoc.injector.MadvocParamsInjector;
+import utils.madvoc.injector.RequestBodyScopeInject;
+import utils.madvoc.injector.RequestScopeInjector;
+import utils.madvoc.injector.ServletContextScopeInjector;
+import utils.madvoc.injector.SessionScopeInjector;
+import utils.petite.PetiteContainer;
+import utils.petite.meta.PetiteInitMethod;
+import utils.petite.meta.PetiteInject;
 
-import static jodd.petite.meta.InitMethodInvocationStrategy.POST_DEFINE;
+import static utils.petite.meta.InitMethodInvocationStrategy.POST_DEFINE;
 
 /**
  * Injectors manager creates and holds instances of all injectors.
