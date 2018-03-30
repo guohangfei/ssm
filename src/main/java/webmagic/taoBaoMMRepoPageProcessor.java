@@ -1,6 +1,6 @@
 package webmagic;
 
-import futils.io.DownloadImage;
+import utils.io.DownloadImage;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
