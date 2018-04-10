@@ -6,9 +6,7 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @Author: 郭航飞

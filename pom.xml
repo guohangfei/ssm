@@ -184,6 +184,12 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <!--jodd 工具包-->
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-xxx</artifactId>
+            <version>4.3.0</version>
+        </dependency>
 
 
     </dependencies>

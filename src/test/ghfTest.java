@@ -1,5 +1,4 @@
 import org.junit.Test;
-import utils.props.Props;
 import java.io.File;
 import java.io.IOException;
 

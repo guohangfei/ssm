@@ -10,8 +10,21 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <!-- 自动注册组件   不增加导致 组件default-servlet-handler不能使用 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!--自定义参数绑定-->
+    <bean id="conversionService"
+          class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="converter.CustomDateConverter"/>
+            </list>
+        </property>
+    </bean>
+
     <!-- 自动扫描  @Controller-->
-    <context:component-scan base-package="ssm.controller"/>
+    <context:component-scan base-package="controller"/>
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
@@ -32,6 +45,11 @@
         </property>
     </bean>
 
+    <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL,需要在web.xml中定义 -->
+    <mvc:default-servlet-handler />
+
+    <!-- 定义无需Controller的url<->view直接映射 -->
+    <mvc:view-controller path="/" view-name="redirect:/index" />
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
