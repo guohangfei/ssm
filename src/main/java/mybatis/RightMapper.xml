@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.RightMapper" >
+  <resultMap id="BaseResultMap" type="entity.Right" >
+    <id column="RIGHT_ID" property="rightId" jdbcType="VARCHAR" />
+    <result column="RIGHT_NAME" property="rightName" jdbcType="VARCHAR" />
+    <result column="RIGHT_DESCRIPTION" property="rightDescription" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    RIGHT_ID, RIGHT_NAME, RIGHT_DESCRIPTION
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="entity.RightExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_RIGHT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RIGHT
+    where RIGHT_ID = #{rightId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_RIGHT
+    where RIGHT_ID = #{rightId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="entity.RightExample" >
+    delete from T_RIGHT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="entity.Right" >
+    insert into T_RIGHT (RIGHT_ID, RIGHT_NAME, RIGHT_DESCRIPTION
+      )
+    values (#{rightId,jdbcType=VARCHAR}, #{rightName,jdbcType=VARCHAR}, #{rightDescription,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="entity.Right" >
+    insert into T_RIGHT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rightId != null" >
+        RIGHT_ID,
+      </if>
+      <if test="rightName != null" >
+        RIGHT_NAME,
+      </if>
+      <if test="rightDescription != null" >
+        RIGHT_DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rightId != null" >
+        #{rightId,jdbcType=VARCHAR},
+      </if>
+      <if test="rightName != null" >
+        #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="rightDescription != null" >
+        #{rightDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="entity.RightExample" resultType="java.lang.Integer" >
+    select count(*) from T_RIGHT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_RIGHT
+    <set >
+      <if test="record.rightId != null" >
+        RIGHT_ID = #{record.rightId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rightName != null" >
+        RIGHT_NAME = #{record.rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rightDescription != null" >
+        RIGHT_DESCRIPTION = #{record.rightDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_RIGHT
+    set RIGHT_ID = #{record.rightId,jdbcType=VARCHAR},
+      RIGHT_NAME = #{record.rightName,jdbcType=VARCHAR},
+      RIGHT_DESCRIPTION = #{record.rightDescription,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.Right" >
+    update T_RIGHT
+    <set >
+      <if test="rightName != null" >
+        RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="rightDescription != null" >
+        RIGHT_DESCRIPTION = #{rightDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RIGHT_ID = #{rightId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.Right" >
+    update T_RIGHT
+    set RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      RIGHT_DESCRIPTION = #{rightDescription,jdbcType=VARCHAR}
+    where RIGHT_ID = #{rightId,jdbcType=VARCHAR}
+  </update>
+</mapper>

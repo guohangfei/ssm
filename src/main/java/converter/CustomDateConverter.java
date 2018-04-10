@@ -13,9 +13,8 @@ import java.util.Date;
  */
  /**
   * @Author:         郭航飞
-  * @Description:
+  * @Description: 格式转换
   * @CreateDate:   2018/4/10 9:04
-  * @param：       No such property: code for class: Script1
   */
 public class CustomDateConverter implements Converter<String, Date> {
     @Override
